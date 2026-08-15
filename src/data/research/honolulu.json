@@ -1,0 +1,2207 @@
+[
+ {
+  "name": "Hilton Hawaiian Village Waikiki Beach Resort",
+  "address": "2005 Kalia Road, Honolulu, HI 96815",
+  "lat": 21.2825,
+  "lng": -157.8375,
+  "latlng_approximate": true,
+  "phone": "+1 808-949-4321",
+  "email": "hnlhv-catering@hilton.com",
+  "website": "https://hiltonhawaiianvillage.com/",
+  "events_url": "https://hiltonhawaiianvillage.com/gather/capacity-charts/",
+  "cuisine": null,
+  "venue_kind": "hotel",
+  "spaces": [
+   {
+    "name": "Coral Ballroom",
+    "seated_cap": 2400,
+    "standing_cap": 3775,
+    "is_buyout": false,
+    "combinable_group": "coral_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Coral I",
+    "seated_cap": 200,
+    "standing_cap": 416,
+    "is_buyout": false,
+    "combinable_group": "coral_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Coral II",
+    "seated_cap": 200,
+    "standing_cap": 416,
+    "is_buyout": false,
+    "combinable_group": "coral_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Coral I/II (combined)",
+    "seated_cap": 400,
+    "standing_cap": 832,
+    "is_buyout": false,
+    "combinable_group": "coral_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Coral III",
+    "seated_cap": 700,
+    "standing_cap": 1135,
+    "is_buyout": false,
+    "combinable_group": "coral_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Coral IV",
+    "seated_cap": 450,
+    "standing_cap": 748,
+    "is_buyout": false,
+    "combinable_group": "coral_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Coral IV/V (combined)",
+    "seated_cap": 900,
+    "standing_cap": 1508,
+    "is_buyout": false,
+    "combinable_group": "coral_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Tapa Ballroom",
+    "seated_cap": 1500,
+    "standing_cap": 1900,
+    "is_buyout": false,
+    "combinable_group": "tapa_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Tapa I",
+    "seated_cap": 400,
+    "standing_cap": 609,
+    "is_buyout": false,
+    "combinable_group": "tapa_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Tapa II",
+    "seated_cap": 500,
+    "standing_cap": 682,
+    "is_buyout": false,
+    "combinable_group": "tapa_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Tapa III",
+    "seated_cap": 320,
+    "standing_cap": 506,
+    "is_buyout": false,
+    "combinable_group": "tapa_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "South Pacific Ballroom",
+    "seated_cap": 520,
+    "standing_cap": 702,
+    "is_buyout": false,
+    "combinable_group": "south_pacific_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "South Pacific I",
+    "seated_cap": 120,
+    "standing_cap": 168,
+    "is_buyout": false,
+    "combinable_group": "south_pacific_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Honolulu Suite",
+    "seated_cap": 300,
+    "standing_cap": 439,
+    "is_buyout": false,
+    "combinable_group": "honolulu_suite",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Honolulu I",
+    "seated_cap": 100,
+    "standing_cap": 145,
+    "is_buyout": false,
+    "combinable_group": "honolulu_suite",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Honolulu II",
+    "seated_cap": 100,
+    "standing_cap": 145,
+    "is_buyout": false,
+    "combinable_group": "honolulu_suite",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Honolulu III",
+    "seated_cap": 100,
+    "standing_cap": 150,
+    "is_buyout": false,
+    "combinable_group": "honolulu_suite",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Rainbow Suite",
+    "seated_cap": 180,
+    "standing_cap": 273,
+    "is_buyout": false,
+    "combinable_group": "rainbow_suite",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Rainbow I",
+    "seated_cap": 50,
+    "standing_cap": 80,
+    "is_buyout": false,
+    "combinable_group": "rainbow_suite",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Rainbow II",
+    "seated_cap": 50,
+    "standing_cap": 80,
+    "is_buyout": false,
+    "combinable_group": "rainbow_suite",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Rainbow III",
+    "seated_cap": 80,
+    "standing_cap": 113,
+    "is_buyout": false,
+    "combinable_group": "rainbow_suite",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Nautilus Suite",
+    "seated_cap": 150,
+    "standing_cap": 184,
+    "is_buyout": false,
+    "combinable_group": "nautilus_suite",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Sea Pearl Suite",
+    "seated_cap": 140,
+    "standing_cap": 192,
+    "is_buyout": false,
+    "combinable_group": "sea_pearl_suite",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Hibiscus Suite (Kalia Executive Conference Center)",
+    "seated_cap": 100,
+    "standing_cap": 126,
+    "is_buyout": false,
+    "combinable_group": "hibiscus_suite",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Kahili Suite (Kalia Executive Conference Center)",
+    "seated_cap": 100,
+    "standing_cap": 126,
+    "is_buyout": false,
+    "combinable_group": "kahili_suite",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Lehua Suite (Kalia Executive Conference Center)",
+    "seated_cap": 80,
+    "standing_cap": 108,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Iolani Suite I-IV",
+    "seated_cap": 100,
+    "standing_cap": 110,
+    "is_buyout": false,
+    "combinable_group": "iolani_suite",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Iolani Suite V-VII",
+    "seated_cap": 140,
+    "standing_cap": 116,
+    "is_buyout": false,
+    "combinable_group": "iolani_suite",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "The Great Lawn (outdoor)",
+    "seated_cap": 1100,
+    "standing_cap": 1600,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Village Green (outdoor)",
+    "seated_cap": 200,
+    "standing_cap": 250,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Bali Oceanfront (restaurant private buyout)",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": true,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "2005 Kalia Road, Honolulu, Hawaii 96815",
+    "source_url": "https://hiltonhawaiianvillage.com/gather/venues/",
+    "source_class": "venue_domain",
+    "snippet": "Address: 2005 Kalia Road, Honolulu, Hawaii 96815"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "+1 808 949 4321",
+    "source_url": "https://hiltonhawaiianvillage.com/gather/venues/",
+    "source_class": "venue_domain",
+    "snippet": "Phone: +1 808 949 4321"
+   },
+   {
+    "field": "email",
+    "space_name": null,
+    "value": "hnlhv-catering@hilton.com",
+    "source_url": "https://www.hilton.com/en/hotels/hnlhvhh-hilton-hawaiian-village-waikiki-beach-resort/events/",
+    "source_class": "venue_domain",
+    "snippet": "Events/Catering Contact Email: hnlhv-catering@hilton.com"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Coral Ballroom",
+    "value": "3775",
+    "source_url": "https://hiltonhawaiianvillage.com/gather/capacity-charts/",
+    "source_class": "venue_domain",
+    "snippet": "Coral Ballroom | 226' x 108' | 27,054 | Classroom 1,800 | Theatre 2,800 | Banquet 2,400 | Reception 3,775"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Coral Ballroom",
+    "value": "2400 (venue site) vs 2610 (hilton.com)",
+    "source_url": "https://www.hilton.com/en/hotels/hnlhvhh-hilton-hawaiian-village-waikiki-beach-resort/events/",
+    "source_class": "venue_domain",
+    "snippet": "Coral Ballroom: 2,610 banquet / 3,775 reception / 3,700 theatre style"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Coral I",
+    "value": "416",
+    "source_url": "https://hiltonhawaiianvillage.com/gather/capacity-charts/",
+    "source_class": "venue_domain",
+    "snippet": "Coral I | 56' x 55' | 3,080 | 140 | 288 | Banquet 200 | Reception 416"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Coral I/II (combined)",
+    "value": "832",
+    "source_url": "https://hiltonhawaiianvillage.com/gather/capacity-charts/",
+    "source_class": "venue_domain",
+    "snippet": "Coral I/II | 108' x 51' | 5,508 | 353 | 672 | Banquet 400 | Reception 832"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Coral III",
+    "value": "1135",
+    "source_url": "https://hiltonhawaiianvillage.com/gather/capacity-charts/",
+    "source_class": "venue_domain",
+    "snippet": "Coral III | 75' x 112' | 8,400 | 588 | 1,026 | Banquet 700 | Reception 1,135"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Coral IV/V (combined)",
+    "value": "1508",
+    "source_url": "https://hiltonhawaiianvillage.com/gather/capacity-charts/",
+    "source_class": "venue_domain",
+    "snippet": "Coral IV/V | 97' x 111' | 10,767 | 672 | 1,242 | Banquet 900 | Reception 1,508"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Tapa Ballroom",
+    "value": "1900",
+    "source_url": "https://hiltonhawaiianvillage.com/gather/capacity-charts/",
+    "source_class": "venue_domain",
+    "snippet": "Tapa Ballroom | 156' x 106' | 16,536 | 1,040 | 1,800 | Banquet 1,500 | Reception 1,900"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Tapa I",
+    "value": "609",
+    "source_url": "https://hiltonhawaiianvillage.com/gather/capacity-charts/",
+    "source_class": "venue_domain",
+    "snippet": "Tapa I | 106' x 50' | 5,300 | 304 | 576 | Banquet 400 | Reception 609"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Tapa II",
+    "value": "682",
+    "source_url": "https://hiltonhawaiianvillage.com/gather/capacity-charts/",
+    "source_class": "venue_domain",
+    "snippet": "Tapa II | 106' x 50' | 5,830 | 380 | 672 | Banquet 500 | Reception 682"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Tapa III",
+    "value": "506",
+    "source_url": "https://hiltonhawaiianvillage.com/gather/capacity-charts/",
+    "source_class": "venue_domain",
+    "snippet": "Tapa III | 88' x 50' | 4,400 | 240 | 456 | Banquet 320 | Reception 506"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "South Pacific Ballroom",
+    "value": "702",
+    "source_url": "https://hiltonhawaiianvillage.com/gather/capacity-charts/",
+    "source_class": "venue_domain",
+    "snippet": "South Pacific Ballroom | 136' x 43' | 5,848 | 368 | 670 | Banquet 520 | Reception 702"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Honolulu Suite",
+    "value": "439",
+    "source_url": "https://hiltonhawaiianvillage.com/gather/capacity-charts/",
+    "source_class": "venue_domain",
+    "snippet": "Honolulu Suite | 92' x 42' | 3,864 | 192 | 369 | Banquet 300 | Reception 439"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Rainbow Suite",
+    "value": "273",
+    "source_url": "https://hiltonhawaiianvillage.com/gather/capacity-charts/",
+    "source_class": "venue_domain",
+    "snippet": "Rainbow Suite | 100' x 24' | 2,400 | 140 | 235 | Banquet 180 | Reception 273"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "The Great Lawn (outdoor)",
+    "value": "1600 (venue site)",
+    "source_url": "https://hiltonhawaiianvillage.com/gather/capacity-charts/",
+    "source_class": "venue_domain",
+    "snippet": "Great Lawn | 200' x 118' | 23,600 | Banquet 1,100 | Reception 1,600"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "The Great Lawn (outdoor)",
+    "value": "2000 (hilton.com \u2014 CONFLICTS with 1,600 on hiltonhawaiianvillage.com)",
+    "source_url": "https://www.hilton.com/en/hotels/hnlhvhh-hilton-hawaiian-village-waikiki-beach-resort/events/",
+    "source_class": "venue_domain",
+    "snippet": "Great Lawn (outdoor): 1,600 banquet / 2,000 reception"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Village Green (outdoor)",
+    "value": "250 (venue site)",
+    "source_url": "https://hiltonhawaiianvillage.com/gather/capacity-charts/",
+    "source_class": "venue_domain",
+    "snippet": "Village Green | 124' x 53' | 6,572 | Banquet 200 | Reception 250"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Village Green (outdoor)",
+    "value": "150 (hilton.com \u2014 CONFLICTS with 250 on hiltonhawaiianvillage.com)",
+    "source_url": "https://www.hilton.com/en/hotels/hnlhvhh-hilton-hawaiian-village-waikiki-beach-resort/events/",
+    "source_class": "venue_domain",
+    "snippet": "Village Green (outdoor): 100 banquet / 150 reception"
+   }
+  ],
+  "notes": "Strongest match for a 200-person standing reception: the property is the search origin (0 min walk) and has dozens of spaces in the 200-500 reception range. Best-fit rooms for exactly 200 standing: Rainbow Suite (273), Village Green (250-ish), Sea Pearl Suite (192), Nautilus Suite (184), Coral I or Coral II (416 each, oversized). Coral Ballroom divides into 5 sections (Coral I, II, III, IV, V) with published combined configurations Coral I/II and Coral IV/V; Tapa Ballroom divides into Tapa I/II/III. IMPORTANT CONFLICT: hilton.com and hiltonhawaiianvillage.com publish different outdoor numbers (Great Lawn 1,600 vs 2,000 reception; Village Green 150 vs 250 reception) and different Coral banquet numbers (2,610 vs 2,400) - both recorded. Cvent's aggregate figures for the property ('Standing capacity 2,000 / Seating capacity 2,600') contradict the venue's own room-level chart and were not used. No minimum spend published anywhere."
+ },
+ {
+  "name": "Sheraton Waikiki Beach Resort",
+  "address": "2255 Kalakaua Avenue, Honolulu, HI 96815",
+  "lat": 21.2779,
+  "lng": -157.83,
+  "latlng_approximate": true,
+  "phone": "+1 808-922-4422",
+  "email": null,
+  "website": "https://www.marriott.com/en-us/hotels/hnlws-sheraton-waikiki-beach-resort/overview/",
+  "events_url": "https://www.marriott.com/en-us/hotels/hnlws-sheraton-waikiki-beach-resort/events/",
+  "cuisine": null,
+  "venue_kind": "hotel",
+  "spaces": [
+   {
+    "name": "Hawaii Ballroom",
+    "seated_cap": 2460,
+    "standing_cap": 3500,
+    "is_buyout": false,
+    "combinable_group": "hawaii_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Kauai Room",
+    "seated_cap": 660,
+    "standing_cap": 800,
+    "is_buyout": false,
+    "combinable_group": "hawaii_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Maui Room",
+    "seated_cap": 660,
+    "standing_cap": 800,
+    "is_buyout": false,
+    "combinable_group": "hawaii_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Molokai Room",
+    "seated_cap": 660,
+    "standing_cap": 800,
+    "is_buyout": false,
+    "combinable_group": "hawaii_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Lanai Room",
+    "seated_cap": 480,
+    "standing_cap": 500,
+    "is_buyout": false,
+    "combinable_group": "hawaii_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Ballroom Foyer",
+    "seated_cap": null,
+    "standing_cap": 1000,
+    "is_buyout": false,
+    "combinable_group": "hawaii_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Honolulu Suite",
+    "seated_cap": 450,
+    "standing_cap": 400,
+    "is_buyout": false,
+    "combinable_group": "honolulu_suite",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Honolulu Room",
+    "seated_cap": 96,
+    "standing_cap": 100,
+    "is_buyout": false,
+    "combinable_group": "honolulu_suite",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Kahuku Room",
+    "seated_cap": 96,
+    "standing_cap": 100,
+    "is_buyout": false,
+    "combinable_group": "honolulu_suite",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Oahu Room",
+    "seated_cap": 96,
+    "standing_cap": 100,
+    "is_buyout": false,
+    "combinable_group": "honolulu_suite",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Waialua Room",
+    "seated_cap": 96,
+    "standing_cap": 100,
+    "is_buyout": false,
+    "combinable_group": "honolulu_suite",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Waianae Room",
+    "seated_cap": 96,
+    "standing_cap": 100,
+    "is_buyout": false,
+    "combinable_group": "honolulu_suite",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "The Edge Pool Deck (outdoor)",
+    "seated_cap": 1000,
+    "standing_cap": 1800,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Helumoa Playground (outdoor)",
+    "seated_cap": 400,
+    "standing_cap": 800,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Iao Needle Room",
+    "seated_cap": 40,
+    "standing_cap": 50,
+    "is_buyout": false,
+    "combinable_group": "small_meeting_rooms",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Hilo Room",
+    "seated_cap": 40,
+    "standing_cap": 50,
+    "is_buyout": false,
+    "combinable_group": "small_meeting_rooms",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Kona Room",
+    "seated_cap": 40,
+    "standing_cap": 50,
+    "is_buyout": false,
+    "combinable_group": "small_meeting_rooms",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "2255 Kalakaua Avenue, Honolulu, Hawaii, USA, 96815",
+    "source_url": "https://www.marriott.com/en-us/hotels/hnlws-sheraton-waikiki-beach-resort/events/",
+    "source_class": "venue_domain",
+    "snippet": "Address: 2255 Kalakaua Avenue, Honolulu, Hawaii, USA, 96815"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "+1 808-922-4422",
+    "source_url": "https://www.marriott.com/en-us/hotels/hnlws-sheraton-waikiki-beach-resort/events/",
+    "source_class": "venue_domain",
+    "snippet": "Phone: +1 808-922-4422 (Toll Free: +1-888-236-2427)"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Hawaii Ballroom",
+    "value": "3500",
+    "source_url": "https://www.marriott.com/en-us/hotels/hnlws-sheraton-waikiki-beach-resort/events/",
+    "source_class": "venue_domain",
+    "snippet": "Hawaii Ballroom | 26,400 sq ft | Reception 3,500 | Banquet 2,460"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Kauai Room",
+    "value": "800",
+    "source_url": "https://www.marriott.com/en-us/hotels/hnlws-sheraton-waikiki-beach-resort/events/",
+    "source_class": "venue_domain",
+    "snippet": "Kauai Room | 6,832 | Reception 800 | Banquet 660"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Lanai Room",
+    "value": "500",
+    "source_url": "https://www.marriott.com/en-us/hotels/hnlws-sheraton-waikiki-beach-resort/events/",
+    "source_class": "venue_domain",
+    "snippet": "Lanai Room | 5,280 | Reception 500 | Banquet 480"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Honolulu Suite",
+    "value": "400",
+    "source_url": "https://www.marriott.com/en-us/hotels/hnlws-sheraton-waikiki-beach-resort/events/",
+    "source_class": "venue_domain",
+    "snippet": "Honolulu Suite | 4,704 | Reception 400 | Banquet 450"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "The Edge Pool Deck (outdoor)",
+    "value": "1800",
+    "source_url": "https://www.marriott.com/en-us/hotels/hnlws-sheraton-waikiki-beach-resort/events/",
+    "source_class": "venue_domain",
+    "snippet": "The Edge Pool Deck | Reception 1,800 | Banquet 1,000"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Helumoa Playground (outdoor)",
+    "value": "800",
+    "source_url": "https://www.marriott.com/en-us/hotels/hnlws-sheraton-waikiki-beach-resort/events/",
+    "source_class": "venue_domain",
+    "snippet": "Helumoa Playground | Reception 800 | Banquet 400"
+   }
+  ],
+  "notes": "Roughly 0.6-0.7 mi / ~13-15 min walk east along Kalia Rd and the beach path from Hilton Hawaiian Village - at the outer edge of the 15-minute radius. Total event space 75,070 sq ft across 19 event rooms. For 200 standing the best fits are the Honolulu Suite sub-rooms combined, or a single Hawaii Ballroom section (Kauai/Maui/Molokai at 800 reception each are oversized). The Edge Pool Deck is the marquee outdoor reception space. Note the Honolulu Suite's published reception (400) is LOWER than its banquet (450), which is unusual and may be a data error on Marriott's chart. No minimum spend published."
+ },
+ {
+  "name": "The Royal Hawaiian, a Luxury Collection Resort, Waikiki",
+  "address": "2259 Kalakaua Avenue, Honolulu, HI 96815",
+  "lat": 21.2769,
+  "lng": -157.8283,
+  "latlng_approximate": true,
+  "phone": "+1 808-923-7311",
+  "email": null,
+  "website": "https://www.royal-hawaiian.com/",
+  "events_url": "https://www.marriott.com/en-us/hotels/hnllc-the-royal-hawaiian-a-luxury-collection-resort-waikiki/events/",
+  "cuisine": null,
+  "venue_kind": "hotel",
+  "spaces": [
+   {
+    "name": "Coconut Grove (outdoor)",
+    "seated_cap": 1500,
+    "standing_cap": 2000,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Ocean Lawn (outdoor)",
+    "seated_cap": 600,
+    "standing_cap": 2000,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Monarch Room",
+    "seated_cap": 350,
+    "standing_cap": 800,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Regency I",
+    "seated_cap": 90,
+    "standing_cap": 100,
+    "is_buyout": false,
+    "combinable_group": "regency_rooms",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Regency II",
+    "seated_cap": 60,
+    "standing_cap": 75,
+    "is_buyout": false,
+    "combinable_group": "regency_rooms",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Regency III",
+    "seated_cap": 90,
+    "standing_cap": 100,
+    "is_buyout": false,
+    "combinable_group": "regency_rooms",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Royal Garden at Helumoa (outdoor)",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "2259 Kalakaua Avenue, Honolulu, Hawaii 96815",
+    "source_url": "https://www.marriott.com/en-us/hotels/hnllc-the-royal-hawaiian-a-luxury-collection-resort-waikiki/events/",
+    "source_class": "venue_domain",
+    "snippet": "2259 Kalakaua Avenue, Honolulu, Hawaii 96815"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "+1 808-923-7311",
+    "source_url": "https://www.marriott.com/en-us/hotels/hnllc-the-royal-hawaiian-a-luxury-collection-resort-waikiki/events/",
+    "source_class": "venue_domain",
+    "snippet": "Phone: +1 808-923-7311 | Toll Free: +1-888-236-2427"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Monarch Room",
+    "value": "800",
+    "source_url": "https://www.marriott.com/en-us/hotels/hnllc-the-royal-hawaiian-a-luxury-collection-resort-waikiki/events/",
+    "source_class": "venue_domain",
+    "snippet": "Monarch Room | 7,800 sq ft | Reception 800 | Banquet 350"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Coconut Grove (outdoor)",
+    "value": "2000",
+    "source_url": "https://www.marriott.com/en-us/hotels/hnllc-the-royal-hawaiian-a-luxury-collection-resort-waikiki/events/",
+    "source_class": "venue_domain",
+    "snippet": "Coconut Grove | 33,000 sq ft | Reception 2,000 | Banquet 1,500"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Ocean Lawn (outdoor)",
+    "value": "2000",
+    "source_url": "https://www.marriott.com/en-us/hotels/hnllc-the-royal-hawaiian-a-luxury-collection-resort-waikiki/events/",
+    "source_class": "venue_domain",
+    "snippet": "Ocean Lawn | 9,900 sq ft | Reception 2,000 | Banquet 600"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Regency I",
+    "value": "100",
+    "source_url": "https://www.marriott.com/en-us/hotels/hnllc-the-royal-hawaiian-a-luxury-collection-resort-waikiki/events/",
+    "source_class": "venue_domain",
+    "snippet": "Regency I | 1,428 | Reception 100 | Banquet 90"
+   }
+  ],
+  "notes": "About 0.7 mi / ~15 min walk from Hilton Hawaiian Village - right at the edge of the radius. 60,732 sq ft across 7 event rooms. For a 200-person standing reception the Monarch Room (800 reception) is the natural indoor pick but is oversized; the three Regency rooms combined would be tight. Coconut Grove and Ocean Lawn are the signature outdoor reception venues. No minimum spend published."
+ },
+ {
+  "name": "Halekulani",
+  "address": "2199 Kalia Road, Honolulu, HI 96815",
+  "lat": 21.2792,
+  "lng": -157.832,
+  "latlng_approximate": true,
+  "phone": "+1 808-923-2311",
+  "email": null,
+  "website": "https://www.halekulani.com/",
+  "events_url": "https://www.halekulani.com/space-category/meetings-events/",
+  "cuisine": null,
+  "venue_kind": "hotel",
+  "spaces": [
+   {
+    "name": "Halekulani Ballroom",
+    "seated_cap": 300,
+    "standing_cap": 500,
+    "is_buyout": false,
+    "combinable_group": "halekulani_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Hau Terrace & Lanai (outdoor)",
+    "seated_cap": 120,
+    "standing_cap": 300,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Garden Courtyard (outdoor)",
+    "seated_cap": null,
+    "standing_cap": 600,
+    "is_buyout": false,
+    "combinable_group": "garden",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Garden Terrace",
+    "seated_cap": 80,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": "garden",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Kalia Room",
+    "seated_cap": 40,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": "kalia_kiawe",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Kiawe Room",
+    "seated_cap": 40,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": "kalia_kiawe",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Kalia & Kiawe combined",
+    "seated_cap": 70,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": "kalia_kiawe",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Lewers Lounge Banquet Room",
+    "seated_cap": null,
+    "standing_cap": 50,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Executive Conference Room",
+    "seated_cap": 14,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Kawehewehe Lawn (outdoor)",
+    "seated_cap": 20,
+    "standing_cap": 20,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "2199 Kalia Road, Honolulu, HI 96815",
+    "source_url": "https://www.halekulani.com/space-category/meetings-events/",
+    "source_class": "venue_domain",
+    "snippet": "Address: 2199 Kalia Road, Honolulu, HI 96815"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "(808) 923-2311",
+    "source_url": "https://www.halekulani.com/space-category/meetings-events/",
+    "source_class": "venue_domain",
+    "snippet": "Phone: (808) 923-2311"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Halekulani Ballroom",
+    "value": "500",
+    "source_url": "https://www.halekulani.com/space-category/meetings-events/",
+    "source_class": "venue_domain",
+    "snippet": "Halekulani Ballroom - 4,300 sq ft; Banquet Capacity: 300 guests; Reception Capacity: 500 guests; 'open space with no pillars'; divisible into two rooms"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Hau Terrace & Lanai (outdoor)",
+    "value": "300",
+    "source_url": "https://www.halekulani.com/space-category/meetings-events/",
+    "source_class": "venue_domain",
+    "snippet": "Hau Terrace - Banquet Capacity: 120 guests; Reception Capacity: 300 guests"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Garden Courtyard (outdoor)",
+    "value": "600",
+    "source_url": "https://www.halekulani.com/space-category/meetings-events/",
+    "source_class": "venue_domain",
+    "snippet": "Adjacent Garden Courtyard: 6,400 sq ft for outdoor receptions up to 600 guests"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Lewers Lounge Banquet Room",
+    "value": "50",
+    "source_url": "https://www.halekulani.com/space-category/meetings-events/",
+    "source_class": "venue_domain",
+    "snippet": "Lewers Lounge Banquet Room - Reception Capacity: 50 guests"
+   }
+  ],
+  "notes": "About 0.5 mi / ~10 min walk from Hilton Hawaiian Village along Kalia Rd. Excellent 200-standing fit: the Halekulani Ballroom (500 reception, divisible into two) or Hau Terrace & Lanai (300 reception, oceanfront) both comfortably hold 200 standing. The site's events email rendered as an obfuscated placeholder in the page HTML, so no email is recorded rather than guessing. Luxury price tier; no published minimum spend."
+ },
+ {
+  "name": "OUTRIGGER Reef Waikiki Beach Resort",
+  "address": "2169 Kalia Road, Honolulu, HI 96815",
+  "lat": 21.2797,
+  "lng": -157.8327,
+  "latlng_approximate": true,
+  "phone": "+1 808-924-6048",
+  "email": "beachfront.groupsales@outrigger.com",
+  "website": "https://www.outrigger.com/hawaii/oahu/outrigger-reef-waikiki-beach-resort",
+  "events_url": "https://www.outrigger.com/hawaii/oahu/outrigger-reef-waikiki-beach-resort/meetings",
+  "cuisine": null,
+  "venue_kind": "hotel",
+  "spaces": [
+   {
+    "name": "A'e Kai Courtyard (outdoor)",
+    "seated_cap": 400,
+    "standing_cap": 500,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Diamond Head Ballroom (full)",
+    "seated_cap": 160,
+    "standing_cap": 180,
+    "is_buyout": false,
+    "combinable_group": "diamond_head_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Diamond Head Ballroom - 3 sections",
+    "seated_cap": 120,
+    "standing_cap": 135,
+    "is_buyout": false,
+    "combinable_group": "diamond_head_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Diamond Head Ballroom - 2 sections",
+    "seated_cap": 80,
+    "standing_cap": 90,
+    "is_buyout": false,
+    "combinable_group": "diamond_head_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Diamond Head Ballroom - 1 section",
+    "seated_cap": 40,
+    "standing_cap": 45,
+    "is_buyout": false,
+    "combinable_group": "diamond_head_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Makani Terrace (outdoor)",
+    "seated_cap": 60,
+    "standing_cap": 75,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Voyager 47 Club Lounge",
+    "seated_cap": 50,
+    "standing_cap": 50,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Kani Ka Pila Grille Garden Terrace",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Hawai'iloa",
+    "seated_cap": 12,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Hikianalia",
+    "seated_cap": 12,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "(808) 924-6048",
+    "source_url": "https://www.outrigger.com/hawaii/oahu/outrigger-reef-waikiki-beach-resort/meetings",
+    "source_class": "venue_domain",
+    "snippet": "Phone: (808) 924-6048"
+   },
+   {
+    "field": "email",
+    "space_name": null,
+    "value": "beachfront.groupsales@outrigger.com",
+    "source_url": "https://www.outrigger.com/hawaii/oahu/outrigger-reef-waikiki-beach-resort/meetings",
+    "source_class": "venue_domain",
+    "snippet": "Email: beachfront.groupsales@outrigger.com"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "A'e Kai Courtyard (outdoor)",
+    "value": "500",
+    "source_url": "https://www.outrigger.com/hawaii/oahu/outrigger-reef-waikiki-beach-resort/meetings",
+    "source_class": "venue_domain",
+    "snippet": "Ae Kai Courtyard (4,500 sq. ft.) - Reception: 500; Banquet: 400"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Diamond Head Ballroom (full)",
+    "value": "180",
+    "source_url": "https://www.outrigger.com/hawaii/oahu/outrigger-reef-waikiki-beach-resort/meetings",
+    "source_class": "venue_domain",
+    "snippet": "Diamond Head Ballroom (2,520 sq. ft.) - 'Reception capacity' 180; 'Banquet capacity' 160"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Diamond Head Ballroom - 3 sections",
+    "value": "135",
+    "source_url": "https://www.outrigger.com/hawaii/oahu/outrigger-reef-waikiki-beach-resort/meetings",
+    "source_class": "venue_domain",
+    "snippet": "Diamond Head Ballroom - 3 sections (1,855 sq. ft.) - Reception: 135; Banquet: 120"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Makani Terrace (outdoor)",
+    "value": "75",
+    "source_url": "https://www.outrigger.com/hawaii/oahu/outrigger-reef-waikiki-beach-resort/meetings",
+    "source_class": "venue_domain",
+    "snippet": "Makani Terrace (3,000 sq. ft.) - Reception: 75; Banquet: 60"
+   }
+  ],
+  "notes": "About 0.45 mi / ~9-10 min walk from Hilton Hawaiian Village along Kalia Rd. Important ranker case: the indoor Diamond Head Ballroom tops out at 180 reception - it does NOT hold 200 standing - but the outdoor A'e Kai Courtyard does (500 reception). A ranker that only reads the ballroom row will wrongly reject this venue. Address confirmed from Yelp/hotel listings as 2169 Kalia Rd; the meetings page itself did not print the street address. No minimum spend published."
+ },
+ {
+  "name": "Prince Waikiki",
+  "address": "100 Holomoana Street, Honolulu, HI 96815",
+  "lat": 21.287,
+  "lng": -157.842,
+  "latlng_approximate": true,
+  "phone": "+1 808-952-4789",
+  "email": null,
+  "website": "https://www.princewaikiki.com/",
+  "events_url": "https://www.princewaikiki.com/gather/spaces/",
+  "cuisine": null,
+  "venue_kind": "hotel",
+  "spaces": [
+   {
+    "name": "Pi'inaio Ballroom (full)",
+    "seated_cap": 460,
+    "standing_cap": 920,
+    "is_buyout": false,
+    "combinable_group": "piinaio_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Pi'inaio Ballroom 1",
+    "seated_cap": 218,
+    "standing_cap": 460,
+    "is_buyout": false,
+    "combinable_group": "piinaio_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Pi'inaio Ballroom 2",
+    "seated_cap": 218,
+    "standing_cap": 460,
+    "is_buyout": false,
+    "combinable_group": "piinaio_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Muliwai Deck (outdoor)",
+    "seated_cap": 200,
+    "standing_cap": 300,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Naio Room",
+    "seated_cap": 80,
+    "standing_cap": 110,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Palolo Room",
+    "seated_cap": 80,
+    "standing_cap": 100,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Makiki Room",
+    "seated_cap": 100,
+    "standing_cap": 90,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Pre-Function",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": "piinaio_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Manoa Boardroom",
+    "seated_cap": 14,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Waihi Boardroom",
+    "seated_cap": 12,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Private Dining Room",
+    "seated_cap": 14,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "100 Holomoana Street, Honolulu, HI 96815",
+    "source_url": "https://www.princewaikiki.com/gather/spaces/",
+    "source_class": "venue_domain",
+    "snippet": "Address: 100 Holomoana Street, Honolulu, HI 96815"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "(808) 952-4789",
+    "source_url": "https://www.princewaikiki.com/gather/spaces/",
+    "source_class": "venue_domain",
+    "snippet": "Phone: (808) 952-4789"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Pi'inaio Ballroom (full)",
+    "value": "920",
+    "source_url": "https://www.princewaikiki.com/gather/spaces/",
+    "source_class": "venue_domain",
+    "snippet": "Pi'inaio Ballroom FULL | 6,960 sq. ft | Reception 920 | Banquet 460 | Theater 600 | Classroom 360"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Pi'inaio Ballroom 1",
+    "value": "460",
+    "source_url": "https://www.princewaikiki.com/gather/spaces/",
+    "source_class": "venue_domain",
+    "snippet": "Pi'inaio Ballroom 1 & 2 | 3,440 sq. ft each | Reception 460 | Banquet 218"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Muliwai Deck (outdoor)",
+    "value": "300",
+    "source_url": "https://www.princewaikiki.com/gather/spaces/",
+    "source_class": "venue_domain",
+    "snippet": "Muliwai Deck | 2,750 sq. ft | Reception 300 | Banquet 200"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Naio Room",
+    "value": "110",
+    "source_url": "https://www.princewaikiki.com/gather/spaces/",
+    "source_class": "venue_domain",
+    "snippet": "Naio Room | 1,500 sq. ft | Reception 110 | Banquet 80"
+   }
+  ],
+  "notes": "About 0.55 mi / ~11 min walk from Hilton Hawaiian Village via Ala Moana Blvd past the Ala Wai Harbor. Very strong 200-standing match: a single half of the Pi'inaio Ballroom holds 460 reception, and the harbor-view Muliwai Deck (300 reception) is an excellent 200-person cocktail space. Over 30,000 sq ft total. Note Makiki Room's reception (90) is lower than its banquet (100) on the venue's own chart. No minimum spend published."
+ },
+ {
+  "name": "Hawai'i Convention Center",
+  "address": "1801 Kalakaua Avenue, Honolulu, HI 96815",
+  "lat": 21.2903,
+  "lng": -157.8365,
+  "latlng_approximate": true,
+  "phone": "+1 808-943-3500",
+  "email": null,
+  "website": "https://www.meethawaii.com/convention-center/",
+  "events_url": "https://www.cvent.com/venues/honolulu/convention-center/hawai-i-convention-center/venue-727fe620-ffbb-4f12-af23-92219f26075c",
+  "cuisine": null,
+  "venue_kind": "event_space",
+  "spaces": [
+   {
+    "name": "Kalakaua Ballroom ABC",
+    "seated_cap": 2040,
+    "standing_cap": 3709,
+    "is_buyout": false,
+    "combinable_group": "kalakaua_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Kalakaua Ballroom A",
+    "seated_cap": 590,
+    "standing_cap": 1575,
+    "is_buyout": false,
+    "combinable_group": "kalakaua_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Kalakaua Ballroom B",
+    "seated_cap": 710,
+    "standing_cap": 1850,
+    "is_buyout": false,
+    "combinable_group": "kalakaua_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Kalakaua Ballroom C",
+    "seated_cap": 590,
+    "standing_cap": 1575,
+    "is_buyout": false,
+    "combinable_group": "kalakaua_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Kamehameha Exhibit Hall I-II-III",
+    "seated_cap": 9500,
+    "standing_cap": 13340,
+    "is_buyout": false,
+    "combinable_group": "kamehameha_exhibit_hall",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Rooftop Garden (2.5-acre, outdoor)",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "1801 Kalakaua Avenue, Honolulu, HI 96815",
+    "source_url": "https://assets.simpleviewinc.com/simpleview/image/upload/v1/clients/hawaii/HCC_Fact_Sheet_10_1_19_1b0c8106-406a-4357-89bd-432e459570e5.pdf",
+    "source_class": "venue_domain",
+    "snippet": "1801 Kalakaua Avenue, Honolulu, HI 96815"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "(808) 943-3500",
+    "source_url": "https://assets.simpleviewinc.com/simpleview/image/upload/v1/clients/hawaii/HCC_Fact_Sheet_10_1_19_1b0c8106-406a-4357-89bd-432e459570e5.pdf",
+    "source_class": "venue_domain",
+    "snippet": "(808) 943-3500"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Kalakaua Ballroom ABC",
+    "value": "3709",
+    "source_url": "https://www.cvent.com/venues/honolulu/convention-center/hawai-i-convention-center/venue-727fe620-ffbb-4f12-af23-92219f26075c",
+    "source_class": "partner_listing",
+    "snippet": "Kalakaua Ballroom ABC | 35,259 sq. ft. | Banquet 2,040 | Reception 3,709"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Kalakaua Ballroom A",
+    "value": "1575",
+    "source_url": "https://www.cvent.com/venues/honolulu/convention-center/hawai-i-convention-center/venue-727fe620-ffbb-4f12-af23-92219f26075c",
+    "source_class": "partner_listing",
+    "snippet": "Kalakaua Ballroom A | 11,198 sq. ft. | Banquet 590 | Reception 1,575"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Kamehameha Exhibit Hall I-II-III",
+    "value": "13340",
+    "source_url": "https://www.cvent.com/venues/honolulu/convention-center/hawai-i-convention-center/venue-727fe620-ffbb-4f12-af23-92219f26075c",
+    "source_class": "partner_listing",
+    "snippet": "Kamehameha Exhibit Hall I-II-III | 204,249 sq. ft. | Banquet 9,500 | Reception 13,340"
+   }
+  ],
+  "notes": "Roughly 0.85 mi / ~17 min walk from Hilton Hawaiian Village up Ala Moana Blvd to Kalakaua - marginally OUTSIDE the 15-minute radius; flag it as borderline. It has 47-60 meeting rooms, most of which would fit 200 standing, but only the ballroom/exhibit-hall rows were published on the listings I could reach; individual breakout-room capacities are unknown (null rather than guessed). The official fact sheet gives square footages but NO capacity numbers, so the capacity figures come from the Cvent partner listing. Convention centers typically require substantial F&B/rental commitments; nothing published."
+ },
+ {
+  "name": "Hale Koa Hotel",
+  "address": "2055 Kalia Road, Honolulu, HI 96815",
+  "lat": 21.2812,
+  "lng": -157.8347,
+  "latlng_approximate": true,
+  "phone": "+1 808-955-0555",
+  "email": null,
+  "website": "https://www.halekoa.com/",
+  "events_url": null,
+  "cuisine": null,
+  "venue_kind": "hotel",
+  "spaces": [
+   {
+    "name": "Maile Garden (outdoor)",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "DeRussy Hall",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Banyan Tree Showroom",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Waikiki Ballroom",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Kalia Rooms",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "2055 Kalia Rd, Honolulu, HI",
+    "source_url": "https://www.eventective.com/honolulu-hi/hale-koa-hotel-2783.html",
+    "source_class": "aggregator",
+    "snippet": "Address: 2055 Kalia Rd, Honolulu, HI"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "808-955-0555 (Eventective) / 808-955-9609 (Wedding Spot) - two sources disagree",
+    "source_url": "https://www.eventective.com/honolulu-hi/hale-koa-hotel-2783.html",
+    "source_class": "aggregator",
+    "snippet": "Phone: 808-955-0555"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "808-955-9609",
+    "source_url": "https://www.wedding-spot.com/venue/5808/hale-koa-hotel/",
+    "source_class": "aggregator",
+    "snippet": "Phone: 808-955-9609"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Maile Garden (outdoor)",
+    "value": "400 max capacity, setup type NOT specified - not confirmed as a standing/reception figure",
+    "source_url": "https://www.eventective.com/honolulu-hi/hale-koa-hotel-2783.html",
+    "source_class": "aggregator",
+    "snippet": "Maile Garden - Outdoor Venue, 400 capacity"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "DeRussy Hall",
+    "value": "370 max capacity, setup type NOT specified",
+    "source_url": "https://www.eventective.com/honolulu-hi/hale-koa-hotel-2783.html",
+    "source_class": "aggregator",
+    "snippet": "DeRussy Hall - General Event Space, 370 capacity"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Banyan Tree Showroom",
+    "value": "250 max capacity, setup type NOT specified",
+    "source_url": "https://www.eventective.com/honolulu-hi/hale-koa-hotel-2783.html",
+    "source_class": "aggregator",
+    "snippet": "Banyan Tree Showroom - General Event Space, 250 capacity"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Waikiki Ballroom",
+    "value": "220 max capacity, setup type NOT specified",
+    "source_url": "https://www.eventective.com/honolulu-hi/hale-koa-hotel-2783.html",
+    "source_class": "aggregator",
+    "snippet": "Waikiki Ballroom - General Event Space, 220 capacity"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Kalia Rooms",
+    "value": "70 max capacity, setup type NOT specified",
+    "source_url": "https://www.eventective.com/honolulu-hi/hale-koa-hotel-2783.html",
+    "source_class": "aggregator",
+    "snippet": "Kalia Rooms - General Event Space, 70 capacity"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": null,
+    "value": "Property-wide: max indoor reception 370, max outdoor reception 400",
+    "source_url": "https://www.wedding-spot.com/venue/5808/hale-koa-hotel/",
+    "source_class": "aggregator",
+    "snippet": "Reception: Indoor / Outdoor available. Max Indoor capacity: 370. Max Outdoor capacity: 400"
+   }
+  ],
+  "notes": "IMMEDIATELY ADJACENT to Hilton Hawaiian Village (2055 vs 2005 Kalia Rd) - roughly a 3-minute walk, the closest large-function-space neighbor. MAJOR ELIGIBILITY CAVEAT: Hale Koa is an Armed Forces Recreation Center; catering and event bookings are generally restricted to military ID cardholders and their sponsored guests, so it may be unusable for a general corporate planner. seated_cap and standing_cap are deliberately null for every space: the only capacity numbers I could source are single unlabeled 'capacity' figures from Eventective (aggregator), which do not distinguish banquet from reception. Wedding Spot independently reports max indoor reception 370 / max outdoor 400, which is consistent with DeRussy Hall and Maile Garden being the big rooms. halekoa.com's own catering pages returned 404 on the URLs I tried, so no venue_domain confirmation. Treat all numbers as low-confidence."
+ },
+ {
+  "name": "Hard Rock Cafe Honolulu",
+  "address": "280 Beach Walk, Honolulu, HI 96815",
+  "lat": 21.28,
+  "lng": -157.8308,
+  "latlng_approximate": true,
+  "phone": null,
+  "email": null,
+  "website": "https://cafe.hardrock.com/honolulu/",
+  "events_url": "https://www.cvent.com/venues/honolulu/special-event-venue/hard-rock-cafe-honolulu/venue-9a47f745-f41d-44a1-8521-f6f33de56b14",
+  "cuisine": "American",
+  "venue_kind": "restaurant",
+  "spaces": [
+   {
+    "name": "Main Dining Room",
+    "seated_cap": 200,
+    "standing_cap": 400,
+    "is_buyout": false,
+    "combinable_group": "hard_rock_full_venue",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Hard Rock Lanai (outdoor)",
+    "seated_cap": 60,
+    "standing_cap": 150,
+    "is_buyout": false,
+    "combinable_group": "hard_rock_full_venue",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Full venue buyout (Main Dining Room + Lanai)",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": true,
+    "combinable_group": "hard_rock_full_venue",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "280 Beachwalk, Honolulu, HI 96815",
+    "source_url": "https://www.cvent.com/venues/honolulu/special-event-venue/hard-rock-cafe-honolulu/venue-9a47f745-f41d-44a1-8521-f6f33de56b14",
+    "source_class": "partner_listing",
+    "snippet": "Address: 280 Beachwalk, Honolulu, HI 96815"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Main Dining Room",
+    "value": "400",
+    "source_url": "https://www.cvent.com/venues/honolulu/special-event-venue/hard-rock-cafe-honolulu/venue-9a47f745-f41d-44a1-8521-f6f33de56b14",
+    "source_class": "partner_listing",
+    "snippet": "Main Dining Room, 6,000 sq. ft.: 'Cocktail rounds: 400', 'Banquet rounds: 200', 'Theater: 350'. Maximum Capacity: 500"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Main Dining Room",
+    "value": "200",
+    "source_url": "https://www.cvent.com/venues/honolulu/special-event-venue/hard-rock-cafe-honolulu/venue-9a47f745-f41d-44a1-8521-f6f33de56b14",
+    "source_class": "partner_listing",
+    "snippet": "'Banquet rounds: 200'"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Hard Rock Lanai (outdoor)",
+    "value": "150",
+    "source_url": "https://www.cvent.com/venues/honolulu/special-event-venue/hard-rock-cafe-honolulu/venue-9a47f745-f41d-44a1-8521-f6f33de56b14",
+    "source_class": "partner_listing",
+    "snippet": "Hard Rock Lanai, 2,000 sq. ft.: 'Banquet rounds: 60', 'Cocktail rounds: 150', 'Theater: 150'. Maximum Capacity: 150"
+   }
+  ],
+  "notes": "About 0.4 mi / ~8 min walk from Hilton Hawaiian Village via Kalia Rd and Beach Walk. One of the very few non-hotel restaurant buyouts near HHV that genuinely holds 200 standing: the Main Dining Room alone is 400 cocktail / 500 max, and the Lanai adds 150 more. 8,000 sq ft total across 2 spaces. Capacity source is the Cvent partner listing, not the venue's own site - Hard Rock's own Honolulu page did not publish a capacity chart at the URLs reached. No phone or minimum spend confirmed from a source I fetched, so both are null."
+ },
+ {
+  "name": "SKY Waikiki Raw & Bar",
+  "address": "2270 Kalakaua Avenue, 19th Floor, Honolulu, HI 96815",
+  "lat": 21.279,
+  "lng": -157.8291,
+  "latlng_approximate": true,
+  "phone": "+1 808-900-4200",
+  "email": null,
+  "website": "https://skywaikiki.com/",
+  "events_url": "https://skywaikiki.com/private-events/",
+  "cuisine": "Seafood / Pacific Rim",
+  "venue_kind": "rooftop",
+  "spaces": [
+   {
+    "name": "Full venue buyout (7,000 sq ft incl. 2,000 sq ft outdoor deck)",
+    "seated_cap": null,
+    "standing_cap": 500,
+    "is_buyout": true,
+    "combinable_group": "sky_waikiki_full",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Outdoor Deck (2,000 sq ft)",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": "sky_waikiki_full",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Private Dining Room",
+    "seated_cap": 15,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": "sky_waikiki_full",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "2270 Kalakaua Ave. 19th Floor, Honolulu",
+    "source_url": "https://skywaikiki.com/private-events/",
+    "source_class": "venue_domain",
+    "snippet": "Address: 2270 Kalakaua Ave. 19th Floor, Honolulu"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "808-900-4200",
+    "source_url": "https://skywaikiki.com/private-events/",
+    "source_class": "venue_domain",
+    "snippet": "Phone: 808-900-4200"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Full venue buyout (7,000 sq ft incl. 2,000 sq ft outdoor deck)",
+    "value": "500",
+    "source_url": "https://skywaikiki.com/private-events/",
+    "source_class": "venue_domain",
+    "snippet": "Total capacity: 'up to 500 people'; '7,000 square-foot venue'; '2,000 square-foot outdoor deck'; '3 full-service bars'"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Full venue buyout (7,000 sq ft incl. 2,000 sq ft outdoor deck)",
+    "value": "500 standing / 500 seated",
+    "source_url": "https://www.partyslate.com/venues/sky-waikiki",
+    "source_class": "partner_listing",
+    "snippet": "Seated Capacity: '500'; Standing Capacity: '500'"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Private Dining Room",
+    "value": "15 (venue site) vs 10 (The Vendry)",
+    "source_url": "https://skywaikiki.com/private-events/",
+    "source_class": "venue_domain",
+    "snippet": "Intimate option: '15 in our private dining room'"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Private Dining Room",
+    "value": "10",
+    "source_url": "https://thevendry.com/venue/116953/sky-waikiki-raw-bar-honolulu-hi",
+    "source_class": "partner_listing",
+    "snippet": "Private Dining Room: 'Max Seated: 10'"
+   }
+  ],
+  "notes": "Roughly 0.7 mi / ~15 min walk east from Hilton Hawaiian Village - at the edge of the radius. This is the strongest true ROOFTOP option for a 200-person standing reception in the area: 19th-floor open-air bar and deck with a stated 500-person capacity, 3 full-service bars, video wall and Martin Audio system - purpose-built for cocktail receptions. The 500 figure is the whole-venue number; the site does not break capacity out by sub-space, so per-space numbers are null. PartySlate lists 500 for both seated and standing, which is almost certainly a single max-occupancy figure duplicated into both fields rather than a real seated number - do not trust '500 seated'. No minimum spend published; buyout pricing is quote-only."
+ },
+ {
+  "name": "Ala Moana Hotel by Mantra",
+  "address": "410 Atkinson Drive, Honolulu, HI 96814",
+  "lat": 21.2913,
+  "lng": -157.8433,
+  "latlng_approximate": true,
+  "phone": "+1 808-955-4811",
+  "email": "sales@alamoanahotel.com",
+  "website": "https://www.alamoanahotelhonolulu.com/",
+  "events_url": "https://www.alamoanahotelhonolulu.com/events/venues-rooms/",
+  "cuisine": null,
+  "venue_kind": "hotel",
+  "spaces": [
+   {
+    "name": "Hibiscus Ballroom",
+    "seated_cap": 500,
+    "standing_cap": 1000,
+    "is_buyout": false,
+    "combinable_group": "level_2_function_space",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Level 2 function space (divisible into up to 9 rooms + pre-function)",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": "level_2_function_space",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "standing_cap",
+    "space_name": "Hibiscus Ballroom",
+    "value": "1000",
+    "source_url": "https://www.alamoanahotelhonolulu.com/events/venues-rooms/hibiscus-ballroom/",
+    "source_class": "venue_domain",
+    "snippet": "Square Footage: '6,888'. Reception: '1,000'; Banquet: '500'; Theatre: '750'; Classroom: '400'"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Hibiscus Ballroom",
+    "value": "500",
+    "source_url": "https://www.alamoanahotelhonolulu.com/events/meetings-and-conferences/",
+    "source_class": "venue_domain",
+    "snippet": "Hibiscus Ballroom - Banquet Capacity: 500 guests"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "(808) 955-4811",
+    "source_url": "https://www.alamoanahotelhonolulu.com/events/venues-rooms/hibiscus-ballroom/",
+    "source_class": "venue_domain",
+    "snippet": "Phone: '(808) 955-4811'; Sales Line: '1-888-410-4811'"
+   },
+   {
+    "field": "email",
+    "space_name": null,
+    "value": "sales@alamoanahotel.com",
+    "source_url": "https://www.alamoanahotelhonolulu.com/events/venues-rooms/hibiscus-ballroom/",
+    "source_class": "venue_domain",
+    "snippet": "Email: 'sales@alamoanahotel.com'"
+   }
+  ],
+  "notes": "DISTANCE CAVEAT: approximately 1.0 mi / ~20 min walk from Hilton Hawaiian Village (up Ala Moana Blvd to Atkinson Dr) - this is OUTSIDE the 15-minute walk radius and should be filtered out on distance despite being an excellent capacity fit. Included deliberately as a near-miss distance case. The Hibiscus Ballroom at 1,000 reception is one of the largest single reception rooms in the Ala Moana area and the hotel's Level 2 has 'nearly 15,000 square feet' divisible into up to 9 rooms, but the venue does not publish per-room capacities for the sub-rooms, so those are null. Street address (410 Atkinson Dr) is not printed on the events pages I fetched and comes from general listings - treat as heuristic-confirmed. No minimum spend published."
+ },
+ {
+  "name": "Trump International Hotel Waikiki",
+  "address": "223 Saratoga Road, Honolulu, HI 96815",
+  "lat": 21.2811,
+  "lng": -157.8318,
+  "latlng_approximate": true,
+  "phone": null,
+  "email": null,
+  "website": "https://www.trumphotels.com/waikiki",
+  "events_url": "https://www.trumphotels.com/waikiki/meetings/honolulu-event-space",
+  "cuisine": null,
+  "venue_kind": "hotel",
+  "spaces": [
+   {
+    "name": "In Yo Cafe",
+    "seated_cap": null,
+    "standing_cap": 150,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Infinity Pool Deck (outdoor)",
+    "seated_cap": 75,
+    "standing_cap": 75,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Wai'olu Ocean View Lounge",
+    "seated_cap": null,
+    "standing_cap": 60,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Terrace (outdoor)",
+    "seated_cap": 30,
+    "standing_cap": 50,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Executive Boardroom",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "223 Saratoga Road, Honolulu, HI 96815",
+    "source_url": "https://www.cvent.com/venues/honolulu/luxury-hotel/trump-international-hotel-waikiki/venue-66710d6b-4af5-46d6-a40c-ba08a1221025",
+    "source_class": "partner_listing",
+    "snippet": "Address: 223 Saratoga Road, Honolulu, HI 96815"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "In Yo Cafe",
+    "value": "150",
+    "source_url": "https://www.cvent.com/venues/honolulu/luxury-hotel/trump-international-hotel-waikiki/venue-66710d6b-4af5-46d6-a40c-ba08a1221025",
+    "source_class": "partner_listing",
+    "snippet": "In Yo Cafe | 3,000 sq. ft. (150 x 19.5) | Capacity 150 | Reception 150"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Infinity Pool Deck (outdoor)",
+    "value": "75",
+    "source_url": "https://www.cvent.com/venues/honolulu/luxury-hotel/trump-international-hotel-waikiki/venue-66710d6b-4af5-46d6-a40c-ba08a1221025",
+    "source_class": "partner_listing",
+    "snippet": "Infinity Pool | 2,562 sq. ft. (26 x 102) | Banquet 75 | Reception 75"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Wai'olu Ocean View Lounge",
+    "value": "60",
+    "source_url": "https://www.cvent.com/venues/honolulu/luxury-hotel/trump-international-hotel-waikiki/venue-66710d6b-4af5-46d6-a40c-ba08a1221025",
+    "source_class": "partner_listing",
+    "snippet": "Wai'olu Ocean view Lounge | 1,674 sq. ft. (61.5 x 27) | Capacity 60 | Reception 60"
+   }
+  ],
+  "notes": "About 0.35 mi / ~7-8 min walk from Hilton Hawaiian Village - very convenient, but a genuine CAPACITY NON-MATCH for 200 standing. Total meeting space is only 8,484 sq ft and the largest single reception figure is 150 (In Yo Cafe). The Cvent listing states plainly: 'Hotel has no ballroom nor meeting space other than one (1) 300 sq. ft. Executive Boardroom.' trumphotels.com blocks automated fetching (robots.txt), so all numbers here are from the Cvent partner listing rather than the venue's own site - confidence is medium. No minimum spend published."
+ },
+ {
+  "name": "Tommy Bahama Restaurant & Marlin Bar - Waikiki",
+  "address": "298 Beach Walk, Honolulu, HI 96815",
+  "lat": 21.2795,
+  "lng": -157.8306,
+  "latlng_approximate": true,
+  "phone": "+1 808-923-8785",
+  "email": null,
+  "website": "https://www.tommybahama.com/restaurants-and-marlin-bars/locations/waikiki",
+  "events_url": "https://venues.tripleseat.com/venues/honolulu-hi/tommy-bahama-waikiki",
+  "cuisine": "New American / island",
+  "venue_kind": "rooftop",
+  "spaces": [
+   {
+    "name": "Entire Restaurant - BUYOUT",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": true,
+    "combinable_group": "tommy_bahama_full",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Rooftop - BUYOUT",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": true,
+    "combinable_group": "rooftop",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Rooftop - Dining Area",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": "rooftop",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Rooftop - Sand Pit",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": "rooftop",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Rooftop - Lounge",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": "rooftop",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Rooftop - Partial",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": "rooftop",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Main Dining Room - BUYOUT",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": true,
+    "combinable_group": "main_dining_room",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Main Dining Room - The Square",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": "main_dining_room",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Main Dining Room - Nook Area",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": "main_dining_room",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "North Shore Dining Room",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": "tommy_bahama_full",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Garden Area",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": "tommy_bahama_full",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "298 Beachwalk Drive Honolulu, HI 96815",
+    "source_url": "https://venues.tripleseat.com/venues/honolulu-hi/tommy-bahama-waikiki",
+    "source_class": "partner_listing",
+    "snippet": "Address: '298 Beachwalk Drive Honolulu, HI 96815'"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "808.923.8785",
+    "source_url": "https://venues.tripleseat.com/venues/honolulu-hi/tommy-bahama-waikiki",
+    "source_class": "partner_listing",
+    "snippet": "Phone: 808.923.8785"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": null,
+    "value": "NOT PUBLISHED anywhere I could reach",
+    "source_url": "https://eventup.com/venue/tommy-bahama-waikiki/",
+    "source_class": "partner_listing",
+    "snippet": "The page lists 'N/A' for both standing and seated occupancy, with no square footage provided for any individual space."
+   }
+  ],
+  "notes": "About 0.4 mi / ~8 min walk from Hilton Hawaiian Village. A real, well-known Waikiki ROOFTOP with a formal 12-space private-events program on Tripleseat, including a dedicated 'Rooftop-BUYOUT' and 'Entire Restaurant-BUYOUT'. CAPACITY IS GENUINELY UNKNOWN: Tripleseat, EventUp and Cvent all list the spaces by name but publish no seated or standing numbers ('N/A' / 'No Information Available'), and Tommy Bahama's own site has no capacity chart. All capacities are null rather than estimated. Pricing is quote-request only on EventUp (Fri-Sat Buyout / Sun-Thurs Buyout tiers exist but no figures). This is a 'call to qualify' candidate for 200 standing, not a confirmed one."
+ },
+ {
+  "name": "Embassy Suites by Hilton Waikiki Beach Walk",
+  "address": "201 Beach Walk, Honolulu, HI 96815",
+  "lat": 21.2803,
+  "lng": -157.8312,
+  "latlng_approximate": true,
+  "phone": "+1 808-921-2345",
+  "email": null,
+  "website": "https://www.embassysuiteswaikiki.com/",
+  "events_url": "https://www.embassysuiteswaikiki.com/meetings-events",
+  "cuisine": null,
+  "venue_kind": "hotel",
+  "spaces": [
+   {
+    "name": "Grand Lanai meeting rooms (3 rooms, 4th floor, combinable)",
+    "seated_cap": null,
+    "standing_cap": 60,
+    "is_buyout": false,
+    "combinable_group": "grand_lanai_meeting_rooms",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "201 Beach Walk, Honolulu, Hawaii 96815",
+    "source_url": "https://www.embassysuiteswaikiki.com/meetings-events",
+    "source_class": "venue_domain",
+    "snippet": "Address: 201 Beach Walk, Honolulu, Hawaii 96815"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "(808) 921-2345",
+    "source_url": "https://www.embassysuiteswaikiki.com/meetings-events",
+    "source_class": "venue_domain",
+    "snippet": "Phone: (808) 921-2345 | Toll Free: 1(888) 889-8450"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Grand Lanai meeting rooms (3 rooms, 4th floor, combinable)",
+    "value": "60 (max guests; setup type not broken out)",
+    "source_url": "https://www.embassysuiteswaikiki.com/meetings-events",
+    "source_class": "venue_domain",
+    "snippet": "'more than 1,560 sq ft of versatile indoor event space' across three flexible meeting rooms on the fourth-floor Grand Lanai; accommodates 'up to 60 guests'"
+   }
+  ],
+  "notes": "SMALL-VENUE NON-MATCH, included deliberately. Only ~0.35 mi / ~7 min walk from Hilton Hawaiian Village - passes the distance filter easily - but with just 1,560 sq ft and a stated maximum of 60 guests it cannot host a 200-person reception under any configuration. The venue does not break the 60 out by setup type, so seated_cap is null. A good test that the ranker filters on capacity, not just proximity and brand. No minimum spend published."
+ },
+ {
+  "name": "Chart House Waikiki",
+  "address": "1765 Ala Moana Boulevard, Honolulu, HI 96815",
+  "lat": 21.287,
+  "lng": -157.8409,
+  "latlng_approximate": true,
+  "phone": "+1 808-941-6669",
+  "email": "officemanager@charthousewaikiki.com",
+  "website": "https://charthousewaikiki.com/",
+  "events_url": "https://charthousewaikiki.com/group-dining/",
+  "cuisine": "Steakhouse / seafood",
+  "venue_kind": "restaurant",
+  "spaces": [
+   {
+    "name": "Group dining (large party)",
+    "seated_cap": 35,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Full Buyout of Chart House Waikiki",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": true,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "1765 Ala Moana Boulevard, Honolulu, 96815",
+    "source_url": "https://charthousewaikiki.com/",
+    "source_class": "venue_domain",
+    "snippet": "Location: 1765 Ala Moana Boulevard, Honolulu, 96815"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "808-941-6669",
+    "source_url": "https://charthousewaikiki.com/",
+    "source_class": "venue_domain",
+    "snippet": "Phone: 808-941-6669"
+   },
+   {
+    "field": "email",
+    "space_name": null,
+    "value": "officemanager@charthousewaikiki.com (also kylie@charthousewaikiki.com for events)",
+    "source_url": "https://charthousewaikiki.com/group-dining/",
+    "source_class": "venue_domain",
+    "snippet": "Email: kylie@charthousewaikiki.com or officemanager@charthousewaikiki.com"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Group dining (large party)",
+    "value": "35",
+    "source_url": "https://charthousewaikiki.com/group-dining/",
+    "source_class": "venue_domain",
+    "snippet": "accommodates 'large parties of up to 35 guests with custom menu options'"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Full Buyout of Chart House Waikiki",
+    "value": "NOT PUBLISHED - The Vendry lists the buyout but gives no capacity",
+    "source_url": "https://thevendry.com/venue/275129/chart-house-waikiki-honolulu-hi",
+    "source_class": "partner_listing",
+    "snippet": "The page indicates there is '1' space available for events, but detailed capacity and pricing information is not provided."
+   }
+  ],
+  "notes": "SMALL-VENUE NON-MATCH, included deliberately. Roughly 0.5 mi / ~10 min walk from Hilton Hawaiian Village along Ala Moana Blvd (at the Ilikai / Ala Wai Harbor). Harbor-view steakhouse with a real group-dining program, but the published ceiling is 'up to 35 guests'. A full restaurant buyout is offered on The Vendry with NO published capacity, so the buyout standing number is null rather than guessed - a buyout might exceed 35, but nothing sourced supports 200. No minimum spend published."
+ },
+ {
+  "name": "Halepuna Waikiki by Halekulani",
+  "address": "2233 Helumoa Road, Honolulu, HI 96815",
+  "lat": 21.2789,
+  "lng": -157.83,
+  "latlng_approximate": true,
+  "phone": "+1 808-921-7272",
+  "email": null,
+  "website": "https://www.halepuna.com/",
+  "events_url": "https://www.cvent.com/venues/honolulu/hotel/halepuna-waikiki-by-halekulani/venue-f21912b1-1a95-4cb1-9551-bf8aa4fd7ffa",
+  "cuisine": null,
+  "venue_kind": "hotel",
+  "spaces": [
+   {
+    "name": "Meeting room (single, unnamed on listings)",
+    "seated_cap": 24,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "2233 Helumoa Road, Honolulu, HI, USA, 96815",
+    "source_url": "https://www.cvent.com/venues/honolulu/hotel/halepuna-waikiki-by-halekulani/venue-f21912b1-1a95-4cb1-9551-bf8aa4fd7ffa",
+    "source_class": "partner_listing",
+    "snippet": "Address: 2233 Helumoa Road, Honolulu, HI, USA, 96815"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "1-808-921-7272",
+    "source_url": "https://www.northstarmeetingsgroup.com/Meeting-Event-Venues/Honolulu/Convention-Hotel/Halepuna-Waikiki-by-Halekulani-p53066820",
+    "source_class": "aggregator",
+    "snippet": "Phone: 1-808-921-7272"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Meeting room (single, unnamed on listings)",
+    "value": "24",
+    "source_url": "https://www.cvent.com/venues/honolulu/hotel/halepuna-waikiki-by-halekulani/venue-f21912b1-1a95-4cb1-9551-bf8aa4fd7ffa",
+    "source_class": "partner_listing",
+    "snippet": "'Meeting rooms: 1' with 'Seating capacity: 24'"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Meeting room (single, unnamed on listings)",
+    "value": "24 in 154 sq ft total meeting space",
+    "source_url": "https://www.northstarmeetingsgroup.com/Meeting-Event-Venues/Honolulu/Convention-Hotel/Halepuna-Waikiki-by-Halekulani-p53066820",
+    "source_class": "aggregator",
+    "snippet": "Total Meeting Space: 154 sq ft; Meeting Rooms: 1; one meeting space with a capacity of 24 people"
+   }
+  ],
+  "notes": "SMALL-VENUE NON-MATCH, included deliberately. Sister property to Halekulani, about 0.6 mi / ~13 min walk from Hilton Hawaiian Village - inside the radius but with a single 24-person meeting room it is nowhere near a 200-standing venue. Its own site's /meetings-events/ path 404'd, so both capacity sources are third-party (Cvent partner listing plus Northstar aggregator) and they agree on 24. The 154 sq ft 'total meeting space' figure from Northstar looks too small even for 24 people and may be a data-entry error - treat the exact square footage as unreliable while the '1 room / 24 people' shape is consistent across sources. Groups needing more are typically routed to Halekulani next door. No minimum spend published."
+ }
+]

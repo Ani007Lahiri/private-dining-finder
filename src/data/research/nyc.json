@@ -1,0 +1,1860 @@
+[
+ {
+  "name": "Carmine's Italian Restaurant - Times Square",
+  "address": "200 West 44th Street, New York, NY 10036",
+  "lat": 40.7573,
+  "lng": -73.9871,
+  "latlng_approximate": true,
+  "phone": "917-512-7128",
+  "email": "TSQparties@carminesnyc.com",
+  "website": "https://carminesnyc.com/",
+  "events_url": "https://carminesnyc.com/parties/times-square",
+  "cuisine": "Italian (family-style, Southern Italian)",
+  "venue_kind": "restaurant",
+  "spaces": [
+   {
+    "name": "The Sinatra Room",
+    "seated_cap": 230,
+    "standing_cap": 275,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "The Jimmy Durante Room",
+    "seated_cap": 200,
+    "standing_cap": 175,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "The Tetrazzini Space (semi-private)",
+    "seated_cap": 58,
+    "standing_cap": 50,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "The Mario Lanza Platform (semi-private)",
+    "seated_cap": 46,
+    "standing_cap": 40,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "The Tony Bennett Space (semi-private)",
+    "seated_cap": 36,
+    "standing_cap": 30,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "The La Guardia Corner (semi-private)",
+    "seated_cap": 35,
+    "standing_cap": 25,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "The Perry Como Space (semi-private)",
+    "seated_cap": 28,
+    "standing_cap": 20,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "The Lombardi Space (semi-private)",
+    "seated_cap": 28,
+    "standing_cap": 20,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Full Restaurant Buyout",
+    "seated_cap": 450,
+    "standing_cap": 700,
+    "is_buyout": true,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "200 West 44th Street, New York, NY 10036",
+    "source_url": "https://carminesnyc.com/parties/times-square",
+    "source_class": "venue_domain",
+    "snippet": "200 West 44th Street, New York, NY 10036"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "917-512-7128",
+    "source_url": "https://carminesnyc.com/parties/times-square",
+    "source_class": "venue_domain",
+    "snippet": "917.512.7128"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "The Sinatra Room",
+    "value": "230 seated / 275 standing",
+    "source_url": "https://carminesnyc.com/parties/times-square",
+    "source_class": "venue_domain",
+    "snippet": "up to 230 guests (275 standing)"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "The Jimmy Durante Room",
+    "value": "200 seated / 175 cocktail",
+    "source_url": "https://carminesnyc.com/parties/times-square",
+    "source_class": "venue_domain",
+    "snippet": "seats up to 200 and can accommodate cocktail receptions of up to 175"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Full Restaurant Buyout",
+    "value": "450 seated / 700 standing",
+    "source_url": "https://carminesnyc.com/parties/times-square",
+    "source_class": "venue_domain",
+    "snippet": "450 guests seated and 700 standing"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "The Tetrazzini Space (semi-private)",
+    "value": "58 seated / 50 standing",
+    "source_url": "https://carminesnyc.com/parties/times-square",
+    "source_class": "venue_domain",
+    "snippet": "Tetrazzini Space - seated 58, standing 50 (semi-private space capacity table)"
+   },
+   {
+    "field": "min_spend",
+    "space_name": null,
+    "value": "unspecified F&B minimum may apply",
+    "source_url": "https://carminesnyc.com/parties/times-square",
+    "source_class": "venue_domain",
+    "snippet": "There may be a food and beverage minimum"
+   }
+  ],
+  "notes": "Best single-room fit for 50 seated is the Tetrazzini Space (58) or Mario Lanza Platform (46, would be tight). Note the venue's own table lists STANDING capacity LOWER than seated for the semi-private spaces - reproduced as published, not corrected. No dollar minimums are published anywhere on the venue site."
+ },
+ {
+  "name": "Virgil's Real BBQ (Times Square)",
+  "address": "152 West 44th Street, New York, NY 10036",
+  "lat": 40.7565,
+  "lng": -73.9857,
+  "latlng_approximate": true,
+  "phone": "212-921-9494 x4",
+  "email": "virgilsparties@virgilsbbq.com",
+  "website": "https://virgilsbbq.com/",
+  "events_url": "https://virgilsbbq.com/parties/times-square",
+  "cuisine": "American BBQ / Southern",
+  "venue_kind": "restaurant",
+  "spaces": [
+   {
+    "name": "The Rodeo Room",
+    "seated_cap": 220,
+    "standing_cap": 225,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "The Smokey Pit",
+    "seated_cap": 70,
+    "standing_cap": 75,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Full Restaurant Buyout",
+    "seated_cap": 300,
+    "standing_cap": 350,
+    "is_buyout": true,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "152 West 44th Street, New York, NY 10036",
+    "source_url": "https://virgilsbbq.com/parties/times-square",
+    "source_class": "venue_domain",
+    "snippet": "152 West 44th Street, New York, NY 10036"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "212-921-9494 x4",
+    "source_url": "https://virgilsbbq.com/parties/times-square",
+    "source_class": "venue_domain",
+    "snippet": "212.921.9494 x4"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "The Rodeo Room",
+    "value": "220 seated / 225 standing",
+    "source_url": "https://virgilsbbq.com/parties/times-square",
+    "source_class": "venue_domain",
+    "snippet": "220 guests seated ... 225 standing"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "The Smokey Pit",
+    "value": "70 seated / 75 standing",
+    "source_url": "https://virgilsbbq.com/parties/times-square",
+    "source_class": "venue_domain",
+    "snippet": "70 guests seated ... 75 standing"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Full Restaurant Buyout",
+    "value": "300 seated / 350 standing",
+    "source_url": "https://virgilsbbq.com/parties/times-square",
+    "source_class": "venue_domain",
+    "snippet": "300 guests seated ... 350 standing ... available for full buyouts"
+   },
+   {
+    "field": "min_spend",
+    "space_name": null,
+    "value": "unspecified F&B minimum may apply",
+    "source_url": "https://virgilsbbq.com/parties/times-square",
+    "source_class": "venue_domain",
+    "snippet": "There may be a food and beverage minimum for a private room"
+   }
+  ],
+  "notes": "The Smokey Pit (70 seated) comfortably absorbs 50 seated. Same ownership group as Carmine's (Alicart); like Carmine's, no dollar minimums are published."
+ },
+ {
+  "name": "Bond 45",
+  "address": "221 West 46th Street, New York, NY 10036",
+  "lat": 40.7593,
+  "lng": -73.9873,
+  "latlng_approximate": true,
+  "phone": "212-869-4545",
+  "email": null,
+  "website": "https://www.bond45ny.com/",
+  "events_url": "https://www.bond45ny.com/private-events-venue/private-dining/",
+  "cuisine": "Italian steakhouse / seafood",
+  "venue_kind": "restaurant",
+  "spaces": [
+   {
+    "name": "The Villa (lower level)",
+    "seated_cap": 50,
+    "standing_cap": 70,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "221 West 46th Street, New York, NY 10036",
+    "source_url": "https://www.bond45ny.com/private-events-venue/private-dining/",
+    "source_class": "venue_domain",
+    "snippet": "221 West 46th Street, New York, NY 10036"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "212-869-4545",
+    "source_url": "https://www.bond45ny.com/private-events-venue/private-dining/",
+    "source_class": "venue_domain",
+    "snippet": "212-869-4545"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "The Villa (lower level)",
+    "value": "50 seated",
+    "source_url": "https://www.bond45ny.com/private-events-venue/private-dining/",
+    "source_class": "venue_domain",
+    "snippet": "Up to 50 guests for Seated Receptions"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "The Villa (lower level)",
+    "value": "70 standing",
+    "source_url": "https://www.bond45ny.com/private-events-venue/private-dining/",
+    "source_class": "venue_domain",
+    "snippet": "Up to 70 Guests for a Standing Cocktail Reception"
+   }
+  ],
+  "notes": "Exact fit for the 50-seated scenario, but at the ceiling of the room's stated capacity - no headroom. Tagvenue lists additional bookable rooms (The Lounge, The Lounge with Bar, Full Buyout) but I could not retrieve their capacity/price figures, so they are omitted rather than guessed. No minimum spend published."
+ },
+ {
+  "name": "Blue Fin (W New York - Times Square)",
+  "address": "1567 Broadway, New York, NY 10036",
+  "lat": 40.7597,
+  "lng": -73.9852,
+  "latlng_approximate": true,
+  "phone": "212-918-1400",
+  "email": null,
+  "website": "https://www.bluefinnyc.com/",
+  "events_url": "https://www.bluefinnyc.com/private-events/",
+  "cuisine": "Seafood / sushi",
+  "venue_kind": "restaurant",
+  "spaces": [
+   {
+    "name": "Upstairs (entire second floor)",
+    "seated_cap": 250,
+    "standing_cap": 300,
+    "is_buyout": false,
+    "combinable_group": "upstairs",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "West Room",
+    "seated_cap": 65,
+    "standing_cap": 120,
+    "is_buyout": false,
+    "combinable_group": "west+collectors",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "West & Collector's Room (combined)",
+    "seated_cap": 79,
+    "standing_cap": 130,
+    "is_buyout": false,
+    "combinable_group": "west+collectors",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Collector's Room",
+    "seated_cap": 14,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": "west+collectors",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "East Room",
+    "seated_cap": 38,
+    "standing_cap": 40,
+    "is_buyout": false,
+    "combinable_group": "upstairs",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "1567 Broadway, New York, NY 10036",
+    "source_url": "https://www.bluefinnyc.com/private-events/",
+    "source_class": "venue_domain",
+    "snippet": "1567 Broadway, New York, NY 10036"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "212-918-1400",
+    "source_url": "https://www.bluefinnyc.com/private-events/",
+    "source_class": "venue_domain",
+    "snippet": "(212) 918-1400"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "West Room",
+    "value": "65 seated / 120 cocktail",
+    "source_url": "https://www.bluefinnyc.com/private-events/",
+    "source_class": "venue_domain",
+    "snippet": "West Room - 65 seated, 120 cocktail (capacity list)"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "West & Collector's Room (combined)",
+    "value": "79 seated / 130 cocktail",
+    "source_url": "https://www.bluefinnyc.com/private-events/",
+    "source_class": "venue_domain",
+    "snippet": "West & Collector's Room - 79 seated, 130 cocktail (capacity list)"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Upstairs (entire second floor)",
+    "value": "250 seated / 300 cocktail",
+    "source_url": "https://www.bluefinnyc.com/private-events/",
+    "source_class": "venue_domain",
+    "snippet": "Upstairs - 250 seated, 300 cocktail (capacity list)"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "East Room",
+    "value": "38 seated / 40 cocktail",
+    "source_url": "https://www.bluefinnyc.com/private-events/",
+    "source_class": "venue_domain",
+    "snippet": "East Room - 38 seated, 40 cocktail (capacity list)"
+   }
+  ],
+  "notes": "West Room alone (65 seated) fits 50 comfortably; West + Collector's combined is the documented combinable pair. Landry's-owned, inside the W New York Times Square. No published minimum spend - inquiry form only."
+ },
+ {
+  "name": "Del Frisco's Double Eagle Steakhouse - New York",
+  "address": "1221 Avenue of the Americas, New York, NY 10020",
+  "lat": 40.7591,
+  "lng": -73.9817,
+  "latlng_approximate": true,
+  "phone": "212-575-5129",
+  "email": null,
+  "website": "https://www.delfriscos.com/location/del-friscos-double-eagle-steakhouse-new-york-ny/",
+  "events_url": "https://www.delfriscos.com/private-events-new-york-ny/",
+  "cuisine": "Steakhouse",
+  "venue_kind": "restaurant",
+  "spaces": [
+   {
+    "name": "Wine Cellar",
+    "seated_cap": 80,
+    "standing_cap": 100,
+    "is_buyout": false,
+    "combinable_group": "wine_cellar",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Half Wine Cellar",
+    "seated_cap": 40,
+    "standing_cap": 45,
+    "is_buyout": false,
+    "combinable_group": "wine_cellar",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Lounge",
+    "seated_cap": 65,
+    "standing_cap": 75,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Newsroom",
+    "seated_cap": 30,
+    "standing_cap": 30,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Diamond Room",
+    "seated_cap": 18,
+    "standing_cap": 25,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "1221 Ave of the Americas, New York, NY 10020",
+    "source_url": "https://www.delfriscos.com/location/del-friscos-double-eagle-steakhouse-new-york-ny/",
+    "source_class": "venue_domain",
+    "snippet": "1221 Ave of the Americas, New York, NY 10020"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "212-575-5129",
+    "source_url": "https://www.delfriscos.com/location/del-friscos-double-eagle-steakhouse-new-york-ny/",
+    "source_class": "venue_domain",
+    "snippet": "(212) 575-5129"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Wine Cellar",
+    "value": "80 seated / 100 cocktail",
+    "source_url": "https://www.delfriscos.com/private-events-new-york-ny/",
+    "source_class": "venue_domain",
+    "snippet": "Wine Cellar - Seated 80, Cocktail 100, A/V 56 (private dining capacity chart)"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Half Wine Cellar",
+    "value": "40 seated / 45 cocktail",
+    "source_url": "https://www.delfriscos.com/private-events-new-york-ny/",
+    "source_class": "venue_domain",
+    "snippet": "Half Wine Cellar - Seated 40, Cocktail 45, A/V 40"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Lounge",
+    "value": "65 seated / 75 cocktail",
+    "source_url": "https://www.delfriscos.com/private-events-new-york-ny/",
+    "source_class": "venue_domain",
+    "snippet": "Lounge - Seated 65, Cocktail 75, A/V 60"
+   }
+  ],
+  "notes": "Wine Cellar splits in half (Half Wine Cellar = 40), so the two halves are the documented combinable group. Full Wine Cellar (80 seated, A/V for 56) is the natural pick for a 50-person corporate dinner with presentation. Roughly a 10-12 minute walk from Times Square. No minimum spend published."
+ },
+ {
+  "name": "Empire Steak House Times Square",
+  "address": "233 West 49th Street, New York, NY 10019",
+  "lat": 40.7614,
+  "lng": -73.9862,
+  "latlng_approximate": true,
+  "phone": null,
+  "email": null,
+  "website": "https://www.empiresteakhousenyc.com/",
+  "events_url": "https://www.empiresteakhousenyc.com/private-events",
+  "cuisine": "Steakhouse",
+  "venue_kind": "restaurant",
+  "spaces": [
+   {
+    "name": "Private Dining Room",
+    "seated_cap": 45,
+    "standing_cap": 55,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Main Dining Room",
+    "seated_cap": 110,
+    "standing_cap": 150,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Bar and Lounge",
+    "seated_cap": 30,
+    "standing_cap": 40,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Full Buyout",
+    "seated_cap": 120,
+    "standing_cap": 150,
+    "is_buyout": true,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "233 West 49th Street, New York, NY 10019",
+    "source_url": "https://www.tagvenue.com/us/venues/new-york/28019/empire-steak-house-times-square",
+    "source_class": "partner_listing",
+    "snippet": "233 West 49th Street, New York, NY 10019"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Private Dining Room",
+    "value": "45 seated / 55 standing",
+    "source_url": "https://www.tagvenue.com/us/venues/new-york/28019/empire-steak-house-times-square",
+    "source_class": "partner_listing",
+    "snippet": "Private Dining Room - 45 seats / 55 standing"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Private Dining Room",
+    "value": "CONFLICT: 40 seated / 55 standing",
+    "source_url": "https://www.tagvenue.com/us/rooms/new-york/57371/empire-steak-house-times-square/private-dining-room",
+    "source_class": "partner_listing",
+    "snippet": "Seated: up to 40 ... Standing: up to 55"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Full Buyout",
+    "value": "120 seated / 150 standing",
+    "source_url": "https://www.tagvenue.com/us/venues/new-york/28019/empire-steak-house-times-square",
+    "source_class": "partner_listing",
+    "snippet": "Full Buyout - 120 seats / 150 standing"
+   },
+   {
+    "field": "min_spend",
+    "space_name": "Private Dining Room",
+    "value": "$112 per person (price tier, not a minimum spend)",
+    "source_url": "https://www.tagvenue.com/us/rooms/new-york/57371/empire-steak-house-times-square/private-dining-room",
+    "source_class": "partner_listing",
+    "snippet": "from $112 per person"
+   },
+   {
+    "field": "min_spend",
+    "space_name": "Bar and Lounge",
+    "value": "$55 per person (price tier)",
+    "source_url": "https://www.tagvenue.com/us/district/new-york-city/times-square",
+    "source_class": "partner_listing",
+    "snippet": "Bar and Lounge: 30-40 guests, \"$55 per person / per session\""
+   }
+  ],
+  "notes": "CONFLICT: Tagvenue's venue-level page says the Private Dining Room seats 45; Tagvenue's own room-level page for the same room says 40. Both reported. Empire's own website (empiresteakhousenyc.com/private-events) publishes no capacities, no address per location, and no phone, so all numbers here are partner-listing only - treat as lower confidence. Pricing is a per-person tier, not a stated minimum spend, so min_spend_usd is left null."
+ },
+ {
+  "name": "Havana Central Times Square",
+  "address": "151 West 46th Street, New York, NY 10036",
+  "lat": 40.758,
+  "lng": -73.9853,
+  "latlng_approximate": true,
+  "phone": "212-398-7440",
+  "email": null,
+  "website": "https://www.havanacentral.com/",
+  "events_url": "https://www.havanacentral.com/private-dining-at-havana-central-nyc/",
+  "cuisine": "Cuban / Latin",
+  "venue_kind": "restaurant",
+  "spaces": [
+   {
+    "name": "Mezzanine",
+    "seated_cap": 100,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "VIP Room (main floor)",
+    "seated_cap": 30,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Glass Room",
+    "seated_cap": 25,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "151 West 46th Street, New York, NY 10036",
+    "source_url": "https://www.timessquarenyc.org/food-beverage/havana-central",
+    "source_class": "aggregator",
+    "snippet": "151 West 46th Street, New York, NY 10036"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "212-398-7440",
+    "source_url": "https://www.timessquarenyc.org/food-beverage/havana-central",
+    "source_class": "aggregator",
+    "snippet": "(212) 398-7440"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "CONFLICT: 212-398-7447",
+    "source_url": "https://www.havanacentral.com/private-dining-at-havana-central-nyc/",
+    "source_class": "venue_domain",
+    "snippet": "212-398-7447"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Mezzanine",
+    "value": "100 seated",
+    "source_url": "https://www.havanacentral.com/private-dining-at-havana-central-nyc/",
+    "source_class": "venue_domain",
+    "snippet": "up to 100"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "VIP Room (main floor)",
+    "value": "30 seated",
+    "source_url": "https://www.havanacentral.com/private-dining-at-havana-central-nyc/",
+    "source_class": "venue_domain",
+    "snippet": "up to 30 people"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Glass Room",
+    "value": "25 seated",
+    "source_url": "https://www.havanacentral.com/private-dining-at-havana-central-nyc/",
+    "source_class": "venue_domain",
+    "snippet": "up to 25 guests"
+   }
+  ],
+  "notes": "CONFLICT on phone: venue's private-dining page lists 212-398-7447, the Times Square Alliance directory lists 212-398-7440. Mezzanine (100 seated, private bar and restroom) is the fit for 50; 50 would need the Mezzanine or a Mezzanine + VIP Room pairing, since VIP (30) and Glass Room (25) are each too small alone. No standing capacities and no minimum spend published anywhere I could find."
+ },
+ {
+  "name": "Bryant Park Grill",
+  "address": "25 West 40th Street, New York, NY 10018",
+  "lat": 40.7532,
+  "lng": -73.9832,
+  "latlng_approximate": true,
+  "phone": "212-206-8815",
+  "email": null,
+  "website": "https://bryantparkgrillnyc.com/",
+  "events_url": "https://bryantparkgrillnyc.com/private-events/",
+  "cuisine": "New American",
+  "venue_kind": "restaurant",
+  "spaces": [
+   {
+    "name": "Rooftop Terrace",
+    "seated_cap": 150,
+    "standing_cap": 220,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Grill Dining Room",
+    "seated_cap": 220,
+    "standing_cap": 200,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "The South Garden",
+    "seated_cap": 220,
+    "standing_cap": 220,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "25 W 40th Street, NYC",
+    "source_url": "https://arkrestaurants.com/wp-content/uploads/2024/10/Bryant-Park-Grill_Corporate-Events-Brochure.pdf",
+    "source_class": "venue_domain",
+    "snippet": "25 W 40TH STREET, NYC | 212 206 8815"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "212-206-8815",
+    "source_url": "https://arkrestaurants.com/wp-content/uploads/2024/10/Bryant-Park-Grill_Corporate-Events-Brochure.pdf",
+    "source_class": "venue_domain",
+    "snippet": "25 W 40TH STREET, NYC | 212 206 8815"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Rooftop Terrace",
+    "value": "150 dinner with dancing / 220 cocktail",
+    "source_url": "https://arkrestaurants.com/wp-content/uploads/2024/10/Bryant-Park-Grill_Corporate-Events-Brochure.pdf",
+    "source_class": "venue_domain",
+    "snippet": "cocktail reception: 220 guests | dinner with dancing: 150 guests"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Grill Dining Room",
+    "value": "220 seated panel / 200 cocktail",
+    "source_url": "https://arkrestaurants.com/wp-content/uploads/2024/10/Bryant-Park-Grill_Corporate-Events-Brochure.pdf",
+    "source_class": "venue_domain",
+    "snippet": "seated panel: 220 guests | cocktail reception: 200 guests"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "The South Garden",
+    "value": "200 seated panel / 220 dinner / 220 cocktail",
+    "source_url": "https://arkrestaurants.com/wp-content/uploads/2024/10/Bryant-Park-Grill_Corporate-Events-Brochure.pdf",
+    "source_class": "venue_domain",
+    "snippet": "seated panel: 200 guests | cocktail reception: 220 guests | dinner: 220 guests"
+   }
+  ],
+  "notes": "Ark Restaurants property. All published capacities are 150+, so a 50-person event would under-fill any of these rooms - the brochure does not document a smaller sub-space. Roughly 8-10 minutes from Times Square. No minimum spend published in the corporate brochure. Note the brochure lists distinct numbers for 'seated panel' vs 'dinner' vs 'cocktail'; seated_cap above uses the seated/dinner figure."
+ },
+ {
+  "name": "Croton Reservoir Tavern",
+  "address": "108 West 40th Street, New York, NY 10018",
+  "lat": 40.7534,
+  "lng": -73.9863,
+  "latlng_approximate": true,
+  "phone": "212-997-6835",
+  "email": "events@crotonnyc.com",
+  "website": "https://crotonnyc.com/",
+  "events_url": "https://crotonnyc.com/private-events",
+  "cuisine": "American tavern / steak and seafood",
+  "venue_kind": "bar",
+  "spaces": [
+   {
+    "name": "Downstairs Lounge",
+    "seated_cap": 60,
+    "standing_cap": 150,
+    "is_buyout": false,
+    "combinable_group": "croton_all",
+    "min_spend_usd": 5000,
+    "min_spend_period": "per_event"
+   },
+   {
+    "name": "Main Floor",
+    "seated_cap": 50,
+    "standing_cap": 150,
+    "is_buyout": false,
+    "combinable_group": "croton_all",
+    "min_spend_usd": 5000,
+    "min_spend_period": "per_event"
+   },
+   {
+    "name": "Patio",
+    "seated_cap": 40,
+    "standing_cap": 60,
+    "is_buyout": false,
+    "combinable_group": "croton_all",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Entire Venue",
+    "seated_cap": 150,
+    "standing_cap": 350,
+    "is_buyout": true,
+    "combinable_group": "croton_all",
+    "min_spend_usd": 14000,
+    "min_spend_period": "per_event"
+   }
+  ],
+  "evidence": [
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "108 W 40th St, New York, NY 10018",
+    "source_url": "https://crotonnyc.com/",
+    "source_class": "venue_domain",
+    "snippet": "108 W 40th St, New York, NY 10018"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "212-997-6835",
+    "source_url": "https://crotonnyc.com/",
+    "source_class": "venue_domain",
+    "snippet": "(212)-997-6835"
+   },
+   {
+    "field": "email",
+    "space_name": null,
+    "value": "events@crotonnyc.com",
+    "source_url": "https://crotonnyc.com/",
+    "source_class": "venue_domain",
+    "snippet": "events@crotonnyc.com"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Downstairs Lounge",
+    "value": "60 seated / 150 standing",
+    "source_url": "https://www.tagvenue.com/us/venues/new-york/20206/croton-reservoir-tavern",
+    "source_class": "partner_listing",
+    "snippet": "Downstairs Lounge - Seated: 60 | Standing: 150"
+   },
+   {
+    "field": "min_spend",
+    "space_name": "Downstairs Lounge",
+    "value": "$5,000 minimum spend per session",
+    "source_url": "https://www.tagvenue.com/us/venues/new-york/20206/croton-reservoir-tavern",
+    "source_class": "partner_listing",
+    "snippet": "from $5000 minimum spend"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Main Floor",
+    "value": "50 seated / 150 standing",
+    "source_url": "https://www.tagvenue.com/us/venues/new-york/20206/croton-reservoir-tavern",
+    "source_class": "partner_listing",
+    "snippet": "Main Floor - Seated: 50 | Standing: 150"
+   },
+   {
+    "field": "min_spend",
+    "space_name": "Entire Venue",
+    "value": "$14,000 minimum spend per session",
+    "source_url": "https://www.tagvenue.com/us/district/new-york-city/times-square",
+    "source_class": "partner_listing",
+    "snippet": "Entire Venue: 150-350 guests, \"$14000 minimum spend / per session\""
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Entire Venue",
+    "value": "150 seated / 350 standing",
+    "source_url": "https://www.tagvenue.com/us/venues/new-york/20206/croton-reservoir-tavern",
+    "source_class": "partner_listing",
+    "snippet": "Entire Venue - Seated: 150 | Standing: 350"
+   },
+   {
+    "field": "min_spend",
+    "space_name": "Patio",
+    "value": "$65 per person (price tier)",
+    "source_url": "https://www.tagvenue.com/us/venues/new-york/20206/croton-reservoir-tavern",
+    "source_class": "partner_listing",
+    "snippet": "Patio - from $65 per person"
+   }
+  ],
+  "notes": "One of the few venues in this set with real published dollar minimums, but all of them come from Tagvenue (partner listing), not the venue's own site - crotonnyc.com/private-events published no capacities or minimums. Downstairs Lounge (60 seated, $5k min) is the strongest documented 50-seated fit in the dataset."
+ },
+ {
+  "name": "Haswell Green's",
+  "address": "240 West 52nd Street, New York, NY 10019",
+  "lat": 40.7629,
+  "lng": -73.9848,
+  "latlng_approximate": true,
+  "phone": null,
+  "email": null,
+  "website": "https://www.haswellgreens.com/",
+  "events_url": "https://www.haswellgreens.com/private-events/",
+  "cuisine": "American pub",
+  "venue_kind": "bar",
+  "spaces": [
+   {
+    "name": "1st Floor (Street Level)",
+    "seated_cap": null,
+    "standing_cap": 300,
+    "is_buyout": false,
+    "combinable_group": "haswell_both_floors",
+    "min_spend_usd": 30000,
+    "min_spend_period": "per_event"
+   },
+   {
+    "name": "Winnie's (Second Floor)",
+    "seated_cap": null,
+    "standing_cap": 300,
+    "is_buyout": false,
+    "combinable_group": "haswell_both_floors",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Stage Area (Street Level)",
+    "seated_cap": null,
+    "standing_cap": 120,
+    "is_buyout": false,
+    "combinable_group": "haswell_both_floors",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "West Wing / West Bar (Main Bar, Street Level)",
+    "seated_cap": null,
+    "standing_cap": 30,
+    "is_buyout": false,
+    "combinable_group": "haswell_both_floors",
+    "min_spend_usd": 1250,
+    "min_spend_period": "per_event"
+   },
+   {
+    "name": "Full Venue Buyout (Both Floors)",
+    "seated_cap": null,
+    "standing_cap": 600,
+    "is_buyout": true,
+    "combinable_group": "haswell_both_floors",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "240 W 52nd St. New York, NY 10019",
+    "source_url": "https://www.haswellgreens.com/contact/",
+    "source_class": "venue_domain",
+    "snippet": "240 W 52nd St. New York, NY 10019"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "1st Floor (Street Level)",
+    "value": "300 (capacity type not specified)",
+    "source_url": "https://www.haswellgreens.com/private-events/",
+    "source_class": "venue_domain",
+    "snippet": "1st Floor (Street Level) - 300"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Winnie's (Second Floor)",
+    "value": "300 (capacity type not specified)",
+    "source_url": "https://www.haswellgreens.com/private-events/",
+    "source_class": "venue_domain",
+    "snippet": "Winnie's (Second Floor) - 300"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Full Venue Buyout (Both Floors)",
+    "value": "600 (capacity type not specified)",
+    "source_url": "https://www.haswellgreens.com/private-events/",
+    "source_class": "venue_domain",
+    "snippet": "Full Venue Buyout (Both Floors) - 600"
+   },
+   {
+    "field": "min_spend",
+    "space_name": "1st Floor (Street Level)",
+    "value": "$30,000 minimum spend per session (listed as 'First Floor', 100-320 guests)",
+    "source_url": "https://www.tagvenue.com/us/district/new-york-city/times-square",
+    "source_class": "partner_listing",
+    "snippet": "First Floor: 100-320 guests, \"$30000 minimum spend / per session\""
+   },
+   {
+    "field": "min_spend",
+    "space_name": "West Wing / West Bar (Main Bar, Street Level)",
+    "value": "$1,250 minimum spend per session (listed as 'West Bar', 15-40 guests)",
+    "source_url": "https://www.tagvenue.com/us/district/new-york-city/times-square",
+    "source_class": "partner_listing",
+    "snippet": "West Bar: 15-40 guests, \"$1250 minimum spend / per session\""
+   }
+  ],
+  "notes": "The venue's own capacity table gives ONE number per space and does not say whether it is seated or standing - I recorded them as standing_cap and left seated_cap null rather than guess. CONFLICT on first-floor capacity: venue site says 300, Tagvenue says 100-320 guests. The $30,000 first-floor minimum is unusually high for the room and comes only from Tagvenue; verify directly before trusting it. No phone or events email published on the venue's own contact page."
+ },
+ {
+  "name": "Haven Rooftop (Sanctuary Hotel New York)",
+  "address": "132 West 47th Street, New York, NY 10036",
+  "lat": 40.7585,
+  "lng": -73.9834,
+  "latlng_approximate": true,
+  "phone": "212-466-9000",
+  "email": "haven@sanctuaryhotelnyc.com",
+  "website": "https://www.havenrooftop.com/",
+  "events_url": "https://www.havenrooftop.com/private-events",
+  "cuisine": "American / French-influenced",
+  "venue_kind": "rooftop",
+  "spaces": [
+   {
+    "name": "South Bar (private/semi-private)",
+    "seated_cap": 70,
+    "standing_cap": 120,
+    "is_buyout": false,
+    "combinable_group": "haven_rooftop",
+    "min_spend_usd": 10000,
+    "min_spend_period": "per_event"
+   },
+   {
+    "name": "North Bar (private/semi-private)",
+    "seated_cap": 35,
+    "standing_cap": 80,
+    "is_buyout": false,
+    "combinable_group": "haven_rooftop",
+    "min_spend_usd": 9000,
+    "min_spend_period": "per_event"
+   },
+   {
+    "name": "Haven Rooftop (full space)",
+    "seated_cap": 200,
+    "standing_cap": 300,
+    "is_buyout": true,
+    "combinable_group": "haven_rooftop",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "132 West 47th Street, New York, NY 10036",
+    "source_url": "https://www.havenrooftop.com/private-events",
+    "source_class": "venue_domain",
+    "snippet": "132 West 47th Street, New York, NY 10036"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "212-466-9000",
+    "source_url": "https://www.havenrooftop.com/private-events",
+    "source_class": "venue_domain",
+    "snippet": "212.466.9000"
+   },
+   {
+    "field": "email",
+    "space_name": null,
+    "value": "haven@sanctuaryhotelnyc.com",
+    "source_url": "https://www.havenrooftop.com/private-events",
+    "source_class": "venue_domain",
+    "snippet": "haven@sanctuaryhotelnyc.com"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "South Bar (private/semi-private)",
+    "value": "70 seated / 120 standing",
+    "source_url": "https://www.tagvenue.com/us/venues/new-york/37180/haven-rooftop",
+    "source_class": "partner_listing",
+    "snippet": "South Bar priv/semi priv - 70 seated / 120 standing"
+   },
+   {
+    "field": "min_spend",
+    "space_name": "South Bar (private/semi-private)",
+    "value": "$10,000 hire fee (labelled hire fee, not F&B minimum), 2-hour minimum booking",
+    "source_url": "https://www.tagvenue.com/us/venues/new-york/37180/haven-rooftop",
+    "source_class": "partner_listing",
+    "snippet": "from $10000 hire fee ... Minimum booking: 2 hours"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "North Bar (private/semi-private)",
+    "value": "35 seated / 80 standing",
+    "source_url": "https://www.tagvenue.com/us/venues/new-york/37180/haven-rooftop",
+    "source_class": "partner_listing",
+    "snippet": "North Bar priv/semi priv - 35 seated / 80 standing"
+   },
+   {
+    "field": "min_spend",
+    "space_name": "North Bar (private/semi-private)",
+    "value": "$9,000 hire fee",
+    "source_url": "https://www.tagvenue.com/us/venues/new-york/37180/haven-rooftop",
+    "source_class": "partner_listing",
+    "snippet": "from $9000 hire fee"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Haven Rooftop (full space)",
+    "value": "200 seated / 300 standing",
+    "source_url": "https://thevendry.com/venue/23713/sanctuary-hotel-new-york-new-york-ny/space/10478",
+    "source_class": "partner_listing",
+    "snippet": "Seated Capacity: 200 ... Standing Capacity: 300"
+   }
+  ],
+  "notes": "The venue's own private-events page publishes NO capacities and NO pricing - every number here is from a partner listing (Tagvenue, The Vendry). The $10,000/$9,000 figures are labelled 'hire fee' by Tagvenue, which may or may not be the same thing as an F&B minimum; recorded as per_event but flagged. South Bar (70 seated) is the 50-person fit. Glass-enclosed and heated, so year-round."
+ },
+ {
+  "name": "Bar 54 at Hyatt Centric Times Square New York",
+  "address": "135 West 45th Street (54th Floor), New York, NY 10036",
+  "lat": 40.7573,
+  "lng": -73.9846,
+  "latlng_approximate": true,
+  "phone": "646-364-1234",
+  "email": "info@bar54nyc.com",
+  "website": "https://www.bar54nyc.com/",
+  "events_url": "https://www.bar54nyc.com/private-events/",
+  "cuisine": "Cocktails / small plates",
+  "venue_kind": "rooftop",
+  "spaces": [
+   {
+    "name": "Full Buyout (indoor lounge + outdoor rooftop terrace)",
+    "seated_cap": null,
+    "standing_cap": 125,
+    "is_buyout": true,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Partial Buyout (VIP section + terrace access)",
+    "seated_cap": null,
+    "standing_cap": 60,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Bar 54 Lounge",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": "bar54_all",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Bar 54 Terrace",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": "bar54_all",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "135 West 45th Street, NY, NY 10036 (54th floor)",
+    "source_url": "https://www.bar54nyc.com/private-events-venue/full-buyouts/",
+    "source_class": "venue_domain",
+    "snippet": "54th Floor Hyatt Centric Times Square, 135 West 45th Street, NY, NY 10036"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "646-364-1234",
+    "source_url": "https://www.bar54nyc.com/private-events-venue/full-buyouts/",
+    "source_class": "venue_domain",
+    "snippet": "646-364-1234"
+   },
+   {
+    "field": "email",
+    "space_name": null,
+    "value": "info@bar54nyc.com",
+    "source_url": "https://www.bar54nyc.com/private-events-venue/full-buyouts/",
+    "source_class": "venue_domain",
+    "snippet": "info@bar54nyc.com"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Full Buyout (indoor lounge + outdoor rooftop terrace)",
+    "value": "125 guests",
+    "source_url": "https://www.bar54nyc.com/private-events-venue/full-buyouts/",
+    "source_class": "venue_domain",
+    "snippet": "A full buyout of Bar 54 can accommodate up to 125 guests ... 2,479 sq. ft. space and its expansive outdoor rooftop terrace"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Partial Buyout (VIP section + terrace access)",
+    "value": "15-60 guests",
+    "source_url": "https://www.bar54nyc.com/private-events-venue/partial-buyouts/",
+    "source_class": "venue_domain",
+    "snippet": "For smaller gatherings of 15 - 60 guests, we offer a partial buyout of Bar 54, including a VIP section with a dedicated bartender"
+   }
+  ],
+  "notes": "The venue states one blended capacity number and never distinguishes seated from standing, so seated_cap is null throughout rather than inferred. 50 guests fits the documented 15-60 partial buyout band - reception-style, not a seated dinner. The Vendry lists 'Bar 54 Lounge' and 'Bar 54 Terrace' as separate named spaces but I could not retrieve capacity figures for them. No minimum spend published."
+ },
+ {
+  "name": "The Edison Ballroom",
+  "address": "240 West 47th Street, New York, NY 10036",
+  "lat": 40.7601,
+  "lng": -73.9871,
+  "latlng_approximate": true,
+  "phone": "212-201-7650",
+  "email": null,
+  "website": "https://www.edisonballroom.com/",
+  "events_url": "https://www.edisonballroom.com/",
+  "cuisine": null,
+  "venue_kind": "event_space",
+  "spaces": [
+   {
+    "name": "The Edison Ballroom (main room, one floor)",
+    "seated_cap": 350,
+    "standing_cap": 1000,
+    "is_buyout": false,
+    "combinable_group": "edison_both_floors",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "The Edison Ballroom (both floors)",
+    "seated_cap": 550,
+    "standing_cap": 1200,
+    "is_buyout": true,
+    "combinable_group": "edison_both_floors",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "South Ballroom",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": "edison_both_floors",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Rooftop (retractable glass roof)",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": "edison_both_floors",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "240 W 47th Street, New York, NY 10036",
+    "source_url": "https://www.edisonballroom.com/",
+    "source_class": "venue_domain",
+    "snippet": "240 W 47th Street, New York, NY 10036"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "212-201-7650",
+    "source_url": "https://www.edisonballroom.com/",
+    "source_class": "venue_domain",
+    "snippet": "212 201 7650"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "The Edison Ballroom (main room, one floor)",
+    "value": "350 seated banquet",
+    "source_url": "https://www.edisonballroom.com/",
+    "source_class": "venue_domain",
+    "snippet": "Seated Banquet: 350 (550 with both floors)"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "The Edison Ballroom (both floors)",
+    "value": "550 seated banquet",
+    "source_url": "https://www.edisonballroom.com/",
+    "source_class": "venue_domain",
+    "snippet": "Seated Banquet: 350 (550 with both floors)"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "The Edison Ballroom (main room, one floor)",
+    "value": "1,000 buffet/cabaret; 1,200 overall venue capacity",
+    "source_url": "https://www.edisonballroom.com/",
+    "source_class": "venue_domain",
+    "snippet": "Buffet/Cabaret: 1,000 ... Theater Style: 650 ... Overall Capacity: 1,200"
+   }
+  ],
+  "notes": "Large dedicated event venue - 12,000 sq ft, 850 sq ft stage, 24x14 ft LED wall. Badly oversized for 50 people. The South Ballroom and Rooftop are named on the site but publish no capacities; left null. No pricing or minimum spend published. Note: ballroom.nyc (referenced by search results as their domain) now redirects to a domain-for-sale page; edisonballroom.com is the live site."
+ },
+ {
+  "name": "The Westin New York at Times Square",
+  "address": "270 West 43rd Street, New York, NY 10036",
+  "lat": 40.757,
+  "lng": -73.9884,
+  "latlng_approximate": true,
+  "phone": "212-201-2700",
+  "email": null,
+  "website": "https://www.marriott.com/en-us/hotels/nycsw-the-westin-new-york-at-times-square/overview/",
+  "events_url": "https://www.marriott.com/en-us/hotels/nycsw-the-westin-new-york-at-times-square/events/",
+  "cuisine": null,
+  "venue_kind": "hotel",
+  "spaces": [
+   {
+    "name": "Majestic Ballroom",
+    "seated_cap": 320,
+    "standing_cap": 300,
+    "is_buyout": false,
+    "combinable_group": "majestic",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Majestic II",
+    "seated_cap": 180,
+    "standing_cap": 150,
+    "is_buyout": false,
+    "combinable_group": "majestic",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Majestic I",
+    "seated_cap": 100,
+    "standing_cap": 100,
+    "is_buyout": false,
+    "combinable_group": "majestic",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Broadway Ballroom",
+    "seated_cap": 280,
+    "standing_cap": 275,
+    "is_buyout": false,
+    "combinable_group": "broadway",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Broadway III",
+    "seated_cap": 100,
+    "standing_cap": 80,
+    "is_buyout": false,
+    "combinable_group": "broadway",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Broadway II",
+    "seated_cap": 80,
+    "standing_cap": 60,
+    "is_buyout": false,
+    "combinable_group": "broadway",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Broadway I",
+    "seated_cap": 70,
+    "standing_cap": 50,
+    "is_buyout": false,
+    "combinable_group": "broadway",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Gershwin Ballroom",
+    "seated_cap": 280,
+    "standing_cap": 300,
+    "is_buyout": false,
+    "combinable_group": "gershwin",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Gershwin II",
+    "seated_cap": 130,
+    "standing_cap": 150,
+    "is_buyout": false,
+    "combinable_group": "gershwin",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Gershwin I",
+    "seated_cap": 110,
+    "standing_cap": 160,
+    "is_buyout": false,
+    "combinable_group": "gershwin",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "New York Atrium",
+    "seated_cap": 150,
+    "standing_cap": 250,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Ambassador III",
+    "seated_cap": 130,
+    "standing_cap": 145,
+    "is_buyout": false,
+    "combinable_group": "ambassador",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Ambassador II",
+    "seated_cap": 110,
+    "standing_cap": 110,
+    "is_buyout": false,
+    "combinable_group": "ambassador",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Ambassador I",
+    "seated_cap": 40,
+    "standing_cap": 50,
+    "is_buyout": false,
+    "combinable_group": "ambassador",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Pearl",
+    "seated_cap": 120,
+    "standing_cap": 110,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Plymouth",
+    "seated_cap": 110,
+    "standing_cap": 110,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Palace",
+    "seated_cap": 100,
+    "standing_cap": 100,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Minetta",
+    "seated_cap": 90,
+    "standing_cap": 100,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Belasco",
+    "seated_cap": 60,
+    "standing_cap": 40,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Gramercy",
+    "seated_cap": 50,
+    "standing_cap": 40,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Imperial",
+    "seated_cap": 50,
+    "standing_cap": 40,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Manhattan",
+    "seated_cap": 50,
+    "standing_cap": 40,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Melville",
+    "seated_cap": 50,
+    "standing_cap": 40,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Nederlander",
+    "seated_cap": 50,
+    "standing_cap": 45,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "New Amsterdam",
+    "seated_cap": 50,
+    "standing_cap": 45,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Minskoff",
+    "seated_cap": 40,
+    "standing_cap": 35,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Royale",
+    "seated_cap": 40,
+    "standing_cap": 30,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Booth",
+    "seated_cap": 25,
+    "standing_cap": 40,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "270 West 43rd Street, New York, NY 10036",
+    "source_url": "https://www.marriott.com/en-us/hotels/nycsw-the-westin-new-york-at-times-square/events/",
+    "source_class": "venue_domain",
+    "snippet": "270 West 43rd Street, New York, New York, USA, 10036"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "212-201-2700",
+    "source_url": "https://www.marriott.com/en-us/hotels/nycsw-the-westin-new-york-at-times-square/events/",
+    "source_class": "venue_domain",
+    "snippet": "Local: +1 212-201-2700"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Broadway I",
+    "value": "836 sq ft, banquet 70, reception 50",
+    "source_url": "https://www.marriott.com/en-us/hotels/nycsw-the-westin-new-york-at-times-square/events/",
+    "source_class": "venue_domain",
+    "snippet": "Broadway I | 836 | Banquet 70 | Reception 50 (capacity chart row)"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Gramercy",
+    "value": "768 sq ft, banquet 50, reception 40",
+    "source_url": "https://www.marriott.com/en-us/hotels/nycsw-the-westin-new-york-at-times-square/events/",
+    "source_class": "venue_domain",
+    "snippet": "Gramercy | 768 | Banquet 50 | Reception 40 (capacity chart row)"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Majestic Ballroom",
+    "value": "3,528 sq ft, banquet 320, reception 300",
+    "source_url": "https://www.marriott.com/en-us/hotels/nycsw-the-westin-new-york-at-times-square/events/",
+    "source_class": "venue_domain",
+    "snippet": "Majestic Ballroom | 3,528 | Banquet 320 | Reception 300 (capacity chart row)"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Broadway Ballroom",
+    "value": "3,230 sq ft, banquet 280, reception 275; divisible I/II/III",
+    "source_url": "https://www.marriott.com/en-us/hotels/nycsw-the-westin-new-york-at-times-square/events/",
+    "source_class": "venue_domain",
+    "snippet": "Broadway Ballroom | 3,230 | Banquet 280 | Reception 275 | combines I & II; II & III"
+   },
+   {
+    "field": "min_spend",
+    "space_name": null,
+    "value": "not published",
+    "source_url": "https://www.marriott.com/en-us/hotels/nycsw-the-westin-new-york-at-times-square/events/",
+    "source_class": "venue_domain",
+    "snippet": "No minimum spend or F&B minimum appears anywhere on the Marriott events page; RFP form only."
+   }
+  ],
+  "notes": "Best-documented option for exactly 50 seated: Broadway I (banquet 70 / reception 50), or the several 50-banquet rooms (Gramercy, Imperial, Manhattan, Melville, Nederlander, New Amsterdam). Marriott's chart labels columns 'Banquet' and 'Reception' - mapped to seated_cap and standing_cap respectively. 32 total meeting spaces, 28,588 sq ft. Ballroom sub-rooms combine as noted. Hotels of this type quote F&B minimums per RFP; none are published, so all min_spend fields are null."
+ },
+ {
+  "name": "New York Marriott Marquis",
+  "address": "1535 Broadway, New York, NY 10036",
+  "lat": 40.759,
+  "lng": -73.9855,
+  "latlng_approximate": true,
+  "phone": "212-398-1900",
+  "email": null,
+  "website": "https://www.marriott.com/en-us/hotels/nycmq-new-york-marriott-marquis/overview/",
+  "events_url": "https://www.marriott.com/en-us/hotels/nycmq-new-york-marriott-marquis/events/",
+  "cuisine": null,
+  "venue_kind": "hotel",
+  "spaces": [
+   {
+    "name": "Broadway Ballroom (entire, w/ Balcony, Stage, Majestic & Shubert)",
+    "seated_cap": 2400,
+    "standing_cap": 2800,
+    "is_buyout": false,
+    "combinable_group": "broadway_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Westside Ballroom (entire)",
+    "seated_cap": 2024,
+    "standing_cap": 2400,
+    "is_buyout": false,
+    "combinable_group": "westside_ballroom",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Astor Ballroom",
+    "seated_cap": 350,
+    "standing_cap": 450,
+    "is_buyout": false,
+    "combinable_group": "astor",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Marquis Ballroom",
+    "seated_cap": 350,
+    "standing_cap": 375,
+    "is_buyout": false,
+    "combinable_group": "marquis_abc",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Empire Complex",
+    "seated_cap": 350,
+    "standing_cap": 350,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Soho Complex",
+    "seated_cap": 270,
+    "standing_cap": 350,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "1535 Broadway, New York, NY 10036",
+    "source_url": "https://www.marriott.com/en-us/hotels/nycmq-new-york-marriott-marquis/events/",
+    "source_class": "venue_domain",
+    "snippet": "1535 Broadway, New York, New York 10036"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "212-398-1900",
+    "source_url": "https://www.marriott.com/en-us/hotels/nycmq-new-york-marriott-marquis/events/",
+    "source_class": "venue_domain",
+    "snippet": "+1 212-398-1900"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Broadway Ballroom (entire, w/ Balcony, Stage, Majestic & Shubert)",
+    "value": "28,258 sq ft, banquet 2,400, reception 2,800",
+    "source_url": "https://www.marriott.com/en-us/hotels/nycmq-new-york-marriott-marquis/events/",
+    "source_class": "venue_domain",
+    "snippet": "Broadway Ballroom Entire | 28,258 sq ft | Banquet 2,400 | Reception 2,800"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Westside Ballroom (entire)",
+    "value": "21,550 sq ft, banquet 2,024, reception 2,400",
+    "source_url": "https://www.marriott.com/en-us/hotels/nycmq-new-york-marriott-marquis/events/",
+    "source_class": "venue_domain",
+    "snippet": "Westside Ballroom Entire | 21,550 sq ft | Banquet 2,024 | Reception 2,400"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Astor Ballroom",
+    "value": "4,558 sq ft, banquet 350, reception 450",
+    "source_url": "https://www.marriott.com/en-us/hotels/nycmq-new-york-marriott-marquis/events/",
+    "source_class": "venue_domain",
+    "snippet": "Astor Ballroom | 4,558 sq ft | Banquet 350 | Reception 450"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Marquis Ballroom",
+    "value": "4,698 sq ft, banquet 350, reception 375; divisible A/B/C",
+    "source_url": "https://www.marriott.com/en-us/hotels/nycmq-new-york-marriott-marquis/events/",
+    "source_class": "venue_domain",
+    "snippet": "Marquis Ballroom | 4,698 sq ft | Banquet 350 | Reception 375 | Divisible into sections A, B, C"
+   }
+  ],
+  "notes": "Largest hotel venue in this set: 49 event rooms, 104,684 sq ft total. Only the six largest spaces are captured here - I did not retrieve the full 49-room chart, so smaller rooms that would actually suit 50 people almost certainly exist but are not documented in this record. Ballroom sub-sections (Marquis A/B/C, Westside North/South) combine. No published minimums."
+ },
+ {
+  "name": "Madame Tussauds New York",
+  "address": "234 West 42nd Street, New York, NY 10036",
+  "lat": 40.7563,
+  "lng": -73.988,
+  "latlng_approximate": true,
+  "phone": null,
+  "email": null,
+  "website": "https://www.madametussauds.com/new-york/",
+  "events_url": "https://www.madametussauds.com/new-york/group-inquiries/private-events/",
+  "cuisine": null,
+  "venue_kind": "museum",
+  "spaces": [
+   {
+    "name": "Times Square Look Out",
+    "seated_cap": 25,
+    "standing_cap": 75,
+    "is_buyout": false,
+    "combinable_group": "mt_attraction",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Seasons of New York City",
+    "seated_cap": null,
+    "standing_cap": 300,
+    "is_buyout": false,
+    "combinable_group": "mt_attraction",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Full Attraction Buyout (all sixteen themed rooms)",
+    "seated_cap": null,
+    "standing_cap": 1500,
+    "is_buyout": true,
+    "combinable_group": "mt_attraction",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "234 W. 42nd Street New York, NY 10036",
+    "source_url": "https://newyork-support.madametussauds.com/hc/en-us/articles/115002057451-What-is-your-address",
+    "source_class": "venue_domain",
+    "snippet": "234 W. 42nd Street New York, NY 10036"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Times Square Look Out",
+    "value": "800 sq ft; 25 seated, 75 cocktail",
+    "source_url": "https://www.madametussauds.com/new-york/group-inquiries/private-events/",
+    "source_class": "venue_domain",
+    "snippet": "Times Square Look Out - 800 sq. ft. | 25 seated, 75 cocktail"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Seasons of New York City",
+    "value": "5,470 sq ft; 300 cocktail",
+    "source_url": "https://www.madametussauds.com/new-york/group-inquiries/private-events/",
+    "source_class": "venue_domain",
+    "snippet": "Seasons of New York City - 5,470 sq. ft. | 300 cocktail"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Full Attraction Buyout (all sixteen themed rooms)",
+    "value": "85,000 sq ft; 1,500 cocktail",
+    "source_url": "https://www.madametussauds.com/new-york/group-inquiries/private-events/",
+    "source_class": "venue_domain",
+    "snippet": "85,000 sq. ft. | All sixteen themed rooms, 1,500 cocktail"
+   }
+  ],
+  "notes": "Only non-food-and-beverage venue kind in this set. For 50 people the fit is 'Seasons of New York City' (300 cocktail) as a reception - the Times Square Look Out seats only 25, and no space publishes a seated capacity at or near 50. No phone, no events email and no pricing published on the private-events page - inquiries go through a form and a 'Live Events Estimate' tool. Seated capacity for Seasons and the full buyout is genuinely unpublished, hence null."
+ }
+]

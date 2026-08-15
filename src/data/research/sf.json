@@ -1,0 +1,1902 @@
+[
+ {
+  "name": "Kokkari Estiatorio",
+  "address": "200 Jackson Street, San Francisco, CA 94111",
+  "lat": 37.7975,
+  "lng": -122.399,
+  "latlng_approximate": true,
+  "phone": "415-981-0983",
+  "email": "events@kokkari.com",
+  "website": "https://kokkari.com/",
+  "events_url": "https://kokkari.com/private-dining/",
+  "cuisine": "Greek",
+  "venue_kind": "restaurant",
+  "spaces": [
+   {
+    "name": "Oenos Room",
+    "seated_cap": 30,
+    "standing_cap": 40,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": 6000,
+    "min_spend_period": "f_and_b"
+   },
+   {
+    "name": "Chef's Table",
+    "seated_cap": 20,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": 3000,
+    "min_spend_period": "f_and_b"
+   },
+   {
+    "name": "Hania Room",
+    "seated_cap": 10,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": 1400,
+    "min_spend_period": "f_and_b"
+   },
+   {
+    "name": "Entire Restaurant",
+    "seated_cap": 120,
+    "standing_cap": 200,
+    "is_buyout": true,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "seated_cap",
+    "space_name": "Oenos Room",
+    "value": "30 seated / 40 standing",
+    "source_url": "https://kokkari.com/wp-content/uploads/Kokkari-Events-and-Private-Dining-20250130.pdf",
+    "source_class": "venue_domain",
+    "snippet": "up to 30 guests for a seated dinner or up to 40 guests for a standing reception"
+   },
+   {
+    "field": "min_spend",
+    "space_name": "Oenos Room",
+    "value": "$6000 dinner F&B minimum (lunch $3000)",
+    "source_url": "https://kokkari.com/wp-content/uploads/Kokkari-Events-and-Private-Dining-20250130.pdf",
+    "source_class": "venue_domain",
+    "snippet": "F&B minimum $6000, Event Fee $600"
+   },
+   {
+    "field": "min_spend",
+    "space_name": "Chef's Table",
+    "value": "$3000 dinner F&B minimum (lunch $1500)",
+    "source_url": "https://kokkari.com/wp-content/uploads/Kokkari-Events-and-Private-Dining-20250130.pdf",
+    "source_class": "venue_domain",
+    "snippet": "F&B minimum $3000, Event Fee $300"
+   },
+   {
+    "field": "min_spend",
+    "space_name": "Hania Room",
+    "value": "$1400 dinner F&B minimum (lunch $750)",
+    "source_url": "https://kokkari.com/wp-content/uploads/Kokkari-Events-and-Private-Dining-20250130.pdf",
+    "source_class": "venue_domain",
+    "snippet": "F&B minimum $1400, Event Fee $140"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Entire Restaurant",
+    "value": "120 seated / 200 standing",
+    "source_url": "https://kokkari.com/wp-content/uploads/Kokkari-Events-and-Private-Dining-20250130.pdf",
+    "source_class": "venue_domain",
+    "snippet": "up to 120 guests for a seated dinner or up to 200 guests for a standing reception"
+   },
+   {
+    "field": "email",
+    "space_name": null,
+    "value": "events@kokkari.com",
+    "source_url": "https://kokkari.com/wp-content/uploads/Kokkari-Events-and-Private-Dining-20250130.pdf",
+    "source_class": "venue_domain",
+    "snippet": "events@kokkari.com"
+   },
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "200 Jackson Street, SF 94111",
+    "source_url": "https://kokkari.com/wp-content/uploads/Kokkari-Events-and-Private-Dining-20250130.pdf",
+    "source_class": "venue_domain",
+    "snippet": "200 Jackson Street (at Front St.) San Francisco, CA 94111"
+   }
+  ],
+  "notes": "Best-in-dataset evidence: venue publishes an events PDF with explicit F&B minimums plus separate event fees (10% of minimum). Oenos Room at 30 seated is an exact fit for the target headcount. Lunch minimums are roughly half of dinner. Minimums quoted exclude service charge/event fee."
+ },
+ {
+  "name": "Perbacco Ristorante + Bar",
+  "address": "230 California Street, San Francisco, CA 94111",
+  "lat": 37.7932,
+  "lng": -122.3985,
+  "latlng_approximate": true,
+  "phone": "415-955-0647",
+  "email": "privatedining@perbaccosf.com",
+  "website": "https://www.perbaccosf.com/",
+  "events_url": "https://www.perbaccosf.com/dining/",
+  "cuisine": "Northern Italian / Piedmontese",
+  "venue_kind": "restaurant",
+  "spaces": [
+   {
+    "name": "Barbaresco Room",
+    "seated_cap": 40,
+    "standing_cap": 70,
+    "is_buyout": false,
+    "combinable_group": "barbaresco_partition",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Barbaresco Room (partitioned)",
+    "seated_cap": 24,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": "barbaresco_partition",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Barolo Room",
+    "seated_cap": 18,
+    "standing_cap": 25,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Chef's Table",
+    "seated_cap": 8,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Mezzanine",
+    "seated_cap": 75,
+    "standing_cap": 120,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Restaurant Buyout",
+    "seated_cap": 150,
+    "standing_cap": 250,
+    "is_buyout": true,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "seated_cap",
+    "space_name": "Barbaresco Room",
+    "value": "40 seated / 70 standing; partitions to 24",
+    "source_url": "https://www.perbaccosf.com/dining/",
+    "source_class": "venue_domain",
+    "snippet": "can accommodate up to 40 guests comfortably for a seated meal or up to 70 guests for a standing reception"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Barolo Room",
+    "value": "18 seated / 25 standing",
+    "source_url": "https://www.perbaccosf.com/dining/",
+    "source_class": "venue_domain",
+    "snippet": "can accommodate up to 18 guests for a seated dinner and 25 guests for a standing reception"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Chef's Table",
+    "value": "8 seated",
+    "source_url": "https://www.perbaccosf.com/dining/",
+    "source_class": "venue_domain",
+    "snippet": "can accommodate up to eight guests"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Mezzanine",
+    "value": "75 seated / 120 standing",
+    "source_url": "https://www.perbaccosf.com/dining/",
+    "source_class": "venue_domain",
+    "snippet": "can accommodate groups up to 75 guests comfortably for a seated meal or up to 120 guests for a standing cocktail reception"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Restaurant Buyout",
+    "value": "150 seated / 250 standing",
+    "source_url": "https://www.perbaccosf.com/dining/",
+    "source_class": "venue_domain",
+    "snippet": "8 to 150 guests seated and up to 250 guests for a standing reception. Restaurant buyouts are also available."
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "415-955-0647",
+    "source_url": "https://www.perbaccosf.com/dining/",
+    "source_class": "venue_domain",
+    "snippet": "415-955-0647"
+   },
+   {
+    "field": "email",
+    "space_name": null,
+    "value": "privatedining@perbaccosf.com",
+    "source_url": "https://www.perbaccosf.com/dining/",
+    "source_class": "venue_domain",
+    "snippet": "privatedining@perbaccosf.com"
+   }
+  ],
+  "notes": "No minimum-spend figures published anywhere I could verify \u2014 all min_spend fields are null rather than guessed. Barbaresco partitioning at 24 makes 30 an awkward fit (needs the full 40-cap room); Barolo at 18 is too small for 30. Note: sister restaurant Barbacco at 220 California St is now marked CLOSED on Yelp and was excluded."
+ },
+ {
+  "name": "Waterbar",
+  "address": "399 The Embarcadero, San Francisco, CA 94105",
+  "lat": 37.7906,
+  "lng": -122.3885,
+  "latlng_approximate": true,
+  "phone": "415-284-9922",
+  "email": "dhanna@waterbarsf.com",
+  "website": "https://www.waterbarsf.com/",
+  "events_url": "https://www.waterbarsf.com/private-dining/",
+  "cuisine": "Seafood",
+  "venue_kind": "restaurant",
+  "spaces": [
+   {
+    "name": "The Bridge Tower Room",
+    "seated_cap": 60,
+    "standing_cap": 75,
+    "is_buyout": false,
+    "combinable_group": "second_floor",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "The Looking Glass",
+    "seated_cap": 24,
+    "standing_cap": 50,
+    "is_buyout": false,
+    "combinable_group": "second_floor",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Full House Buyout",
+    "seated_cap": 180,
+    "standing_cap": 350,
+    "is_buyout": true,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "seated_cap",
+    "space_name": "The Bridge Tower Room",
+    "value": "60 seated / 75 standing",
+    "source_url": "https://www.waterbarsf.com/private-dining/",
+    "source_class": "venue_domain",
+    "snippet": "Ideal for 60 seated guests ... 75 reception style"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "The Looking Glass",
+    "value": "24 seated / 50 standing",
+    "source_url": "https://www.waterbarsf.com/private-dining/",
+    "source_class": "venue_domain",
+    "snippet": "Ideal for 24 seated guests ... 50 reception style"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "The Looking Glass",
+    "value": "CONFLICT: 27 seated max on rounds, 20 at King's Table",
+    "source_url": "https://images.getbento.com/accounts/57c286fa6cfbd8712bc882c30a596d49/media/NGrrneNRS6cKBI8NBZps_Waterbar%20Private%20Dining%20Guide.pdf",
+    "source_class": "venue_domain",
+    "snippet": "Seated (Rounds): 27 guests max; Seated (King's Table): 20 guests max; Standing Reception: 50 guests max"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Full House Buyout",
+    "value": "180 seated / 350 standing",
+    "source_url": "https://www.waterbarsf.com/private-dining/",
+    "source_class": "venue_domain",
+    "snippet": "Ideal for 180 seated guests ... 350 reception style"
+   },
+   {
+    "field": "min_spend",
+    "space_name": null,
+    "value": "minimums exist but no dollar figures published",
+    "source_url": "https://images.getbento.com/accounts/57c286fa6cfbd8712bc882c30a596d49/media/NGrrneNRS6cKBI8NBZps_Waterbar%20Private%20Dining%20Guide.pdf",
+    "source_class": "venue_domain",
+    "snippet": "Minimums ... do not include a 22% service charge. Flowers, rentals and other miscellaneous charges are additional"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "415.284.9922",
+    "source_url": "https://images.getbento.com/accounts/57c286fa6cfbd8712bc882c30a596d49/media/NGrrneNRS6cKBI8NBZps_Waterbar%20Private%20Dining%20Guide.pdf",
+    "source_class": "venue_domain",
+    "snippet": "415.284.9922 / waterbarsf.com"
+   }
+  ],
+  "notes": "TWO SOURCES DISAGREE on The Looking Glass seated capacity: the public private-dining webpage says 24, the downloadable Private Dining Guide PDF says 27 on rounds / 20 at a King's Table. Both are venue_domain. I used 24 in the space record and recorded the conflict in evidence. Waterbar confirms minimums apply but publishes no dollar amounts. Private Dining Director: David Hanna, 925.323.1203."
+ },
+ {
+  "name": "Boulevard",
+  "address": "1 Mission Street, San Francisco, CA 94105",
+  "lat": 37.7925,
+  "lng": -122.3925,
+  "latlng_approximate": true,
+  "phone": "415-543-3959",
+  "email": "leslie@boulevardrestaurant.com",
+  "website": "https://www.boulevardrestaurant.com/",
+  "events_url": "https://www.boulevardrestaurant.com/private-events/",
+  "cuisine": "New American / French-influenced",
+  "venue_kind": "restaurant",
+  "spaces": [
+   {
+    "name": "L'Avenue (fully combined)",
+    "seated_cap": 52,
+    "standing_cap": 70,
+    "is_buyout": false,
+    "combinable_group": "lavenue",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "L'Avenue (single sub-room)",
+    "seated_cap": 14,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": "lavenue",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "The Wine Vault",
+    "seated_cap": 12,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Boulevard All to Yourself (buyout)",
+    "seated_cap": 120,
+    "standing_cap": 150,
+    "is_buyout": true,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "seated_cap",
+    "space_name": "L'Avenue (fully combined)",
+    "value": "14 per sub-room; 52 combined; 70 standing",
+    "source_url": "https://www.boulevardrestaurant.com/private-events/",
+    "source_class": "venue_domain",
+    "snippet": "Each room can accommodate up to 14 seated guests. The fully combined space allows 52 seated guests ... up to 70 guests for a standing reception"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "The Wine Vault",
+    "value": "12 seated, no standing receptions",
+    "source_url": "https://www.boulevardrestaurant.com/private-events/",
+    "source_class": "venue_domain",
+    "snippet": "One long table provides seating for up to 12 guests in a semi private setting ... does not permit standing receptions"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Boulevard All to Yourself (buyout)",
+    "value": "120 seated / 150 standing",
+    "source_url": "https://www.sfpdv.com/boulevard",
+    "source_class": "partner_listing",
+    "snippet": "Buyout (Main Dining) \u2014 Seated 120, Standing 150"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "(415) 543-3959",
+    "source_url": "https://www.sfpdv.com/boulevard",
+    "source_class": "partner_listing",
+    "snippet": "(415) 543-3959"
+   },
+   {
+    "field": "email",
+    "space_name": null,
+    "value": "leslie@boulevardrestaurant.com (Leslie Pickworth)",
+    "source_url": "https://www.sfpdv.com/boulevard",
+    "source_class": "partner_listing",
+    "snippet": "leslie@boulevardrestaurant.com"
+   }
+  ],
+  "notes": "L'Avenue divides into three sub-rooms of 14 each; 30 guests requires combining at least two, which the venue supports but does not publish an intermediate capacity for \u2014 so the 2-room figure is left unstated rather than inferred. No published minimum spend. The SFPDV partner listing lists the address as 'One Mission Street, San Francisco, California, 94010' \u2014 the 94010 ZIP is wrong (that is Burlingame); correct ZIP is 94105."
+ },
+ {
+  "name": "EPIC Steak",
+  "address": "369 The Embarcadero, San Francisco, CA 94105",
+  "lat": 37.7911,
+  "lng": -122.3888,
+  "latlng_approximate": true,
+  "phone": "415-369-9218",
+  "email": "Amber@epicsteak.com",
+  "website": "https://www.epicsteak.com/",
+  "events_url": "https://www.epicsteak.com/private-events/",
+  "cuisine": "Steakhouse",
+  "venue_kind": "restaurant",
+  "spaces": [
+   {
+    "name": "The Bay Room & Terrace",
+    "seated_cap": 60,
+    "standing_cap": 120,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "The Piazza",
+    "seated_cap": 40,
+    "standing_cap": 80,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "seated_cap",
+    "space_name": "The Bay Room & Terrace",
+    "value": "60 seated / 120 reception",
+    "source_url": "https://doc.epicsteak.com/pdf/EpicRoasthouse_PrivateDining.pdf",
+    "source_class": "venue_domain",
+    "snippet": "Sit Down 60 Reception 120"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "The Piazza",
+    "value": "40 seated / 80 reception",
+    "source_url": "https://doc.epicsteak.com/pdf/EpicRoasthouse_PrivateDining.pdf",
+    "source_class": "venue_domain",
+    "snippet": "Sit Down 40 Reception 80"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "415.369.9218",
+    "source_url": "https://doc.epicsteak.com/pdf/EpicRoasthouse_PrivateDining.pdf",
+    "source_class": "venue_domain",
+    "snippet": "P 415.369.9218"
+   },
+   {
+    "field": "email",
+    "space_name": null,
+    "value": "Amber@epicsteak.com",
+    "source_url": "https://doc.epicsteak.com/pdf/EpicRoasthouse_PrivateDining.pdf",
+    "source_class": "venue_domain",
+    "snippet": "Amber@epicsteak.com"
+   },
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "369 The Embarcadero, SF 94105",
+    "source_url": "https://doc.epicsteak.com/pdf/EpicRoasthouse_PrivateDining.pdf",
+    "source_class": "venue_domain",
+    "snippet": "369 The Embarcadero San Francisco, CA 94105"
+   }
+  ],
+  "notes": "Sister property to Waterbar, same block. The PDF is hosted on the venue's own doc subdomain but is titled 'EpicRoasthouse' (the restaurant's former name), so the document may predate the current concept \u2014 capacities should be re-confirmed. No buyout capacity and no minimum spend published. The Piazza at 40 seated is the natural room for 30."
+ },
+ {
+  "name": "Prospect",
+  "address": "300 Spear Street, San Francisco, CA 94105",
+  "lat": 37.7891,
+  "lng": -122.3915,
+  "latlng_approximate": true,
+  "phone": "415-247-7770",
+  "email": null,
+  "website": "https://www.prospectsf.com/",
+  "events_url": "https://venues.tripleseat.com/venues/san-francisco/prospect-2",
+  "cuisine": "New American",
+  "venue_kind": "restaurant",
+  "spaces": [
+   {
+    "name": "Candace Room",
+    "seated_cap": 50,
+    "standing_cap": 65,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Semi-Private Room",
+    "seated_cap": 32,
+    "standing_cap": 35,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "seated_cap",
+    "space_name": "Candace Room",
+    "value": "50 seated / 65 standing",
+    "source_url": "https://venues.tripleseat.com/venues/san-francisco/prospect-2",
+    "source_class": "partner_listing",
+    "snippet": "Candace Room \u2014 Seated: 50 | Standing: 65"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Semi-Private Room",
+    "value": "32 seated / 35 standing",
+    "source_url": "https://venues.tripleseat.com/venues/san-francisco/prospect-2",
+    "source_class": "partner_listing",
+    "snippet": "Semi-Private Room \u2014 Seated: 32 | Standing: 35"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "415-247-7770",
+    "source_url": "https://venues.tripleseat.com/venues/san-francisco/prospect-2",
+    "source_class": "partner_listing",
+    "snippet": "415-247-7770"
+   },
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "300 Spear Street, SF 94105",
+    "source_url": "https://venues.tripleseat.com/venues/san-francisco/prospect-2",
+    "source_class": "partner_listing",
+    "snippet": "300 Spear Street San Francisco, CA 94105"
+   }
+  ],
+  "notes": "Capacities come only from the venue's Tripleseat booking listing (partner_listing), not from prospectsf.com \u2014 https://www.prospectsf.com/private-dining/ returns 404. Semi-Private Room at 32 seated is a clean fit for 30 but is semi-private, not fully enclosed. No minimum spend published; no events email found."
+ },
+ {
+  "name": "Ozumo San Francisco",
+  "address": "161 Steuart Street, San Francisco, CA 94105",
+  "lat": 37.7913,
+  "lng": -122.3915,
+  "latlng_approximate": true,
+  "phone": "415-882-1333",
+  "email": null,
+  "website": "https://www.ozumosanfrancisco.com/",
+  "events_url": "https://www.ozumosanfrancisco.com/events-and-catering/",
+  "cuisine": "Contemporary Japanese",
+  "venue_kind": "restaurant",
+  "spaces": [
+   {
+    "name": "The Robata Dining Room",
+    "seated_cap": 32,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "The Sake Lounge",
+    "seated_cap": 24,
+    "standing_cap": 35,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Private Sake Room",
+    "seated_cap": 18,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Private Kotatsu Room",
+    "seated_cap": 12,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Main Dining Room",
+    "seated_cap": 60,
+    "standing_cap": 100,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Embarcadero Patio",
+    "seated_cap": 40,
+    "standing_cap": 60,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Beer Garden",
+    "seated_cap": 40,
+    "standing_cap": 50,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Full Buyout",
+    "seated_cap": 150,
+    "standing_cap": 300,
+    "is_buyout": true,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "seated_cap",
+    "space_name": "The Robata Dining Room",
+    "value": "32 seated",
+    "source_url": "https://www.ozumosanfrancisco.com/events-and-catering/",
+    "source_class": "venue_domain",
+    "snippet": "The Robata Dining Room \u2014 32 seated; features the traditional charcoal-fired hearth called the irori"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "The Sake Lounge",
+    "value": "24 seated / 35 standing",
+    "source_url": "https://www.ozumosanfrancisco.com/events-and-catering/",
+    "source_class": "venue_domain",
+    "snippet": "The Sake Lounge \u2014 24 seated, 35 standing; perfect space for corporate gatherings"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Full Buyout",
+    "value": "150 seated / 300 standing",
+    "source_url": "https://www.ozumosanfrancisco.com/events-and-catering/",
+    "source_class": "venue_domain",
+    "snippet": "Full Buyout \u2014 150 seated, 300 standing"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "415-882-1333 (office); 415-872-1118 (events direct)",
+    "source_url": "https://www.ozumosanfrancisco.com/events-and-catering/",
+    "source_class": "venue_domain",
+    "snippet": "Office: 415-882-1333 Direct: 415-872-1118"
+   }
+  ],
+  "notes": "Unusually deep space inventory (8 configurations) with a clean 30-person option in the Robata Dining Room at 32. No minimum spend published for any space. Events contact is Michelle Cheng; no email address published, inquiry form only. Standing capacities are not published for the Robata, Sake and Kotatsu rooms \u2014 left null rather than estimated."
+ },
+ {
+  "name": "The Cavalier",
+  "address": "360 Jessie Street, San Francisco, CA 94103",
+  "lat": 37.7834,
+  "lng": -122.4084,
+  "latlng_approximate": true,
+  "phone": null,
+  "email": "events@thecavaliersf.com",
+  "website": "https://www.thecavaliersf.com/",
+  "events_url": "https://www.thecavaliersf.com/private-events/",
+  "cuisine": "Modern British",
+  "venue_kind": "restaurant",
+  "spaces": [
+   {
+    "name": "Blue Bar",
+    "seated_cap": 35,
+    "standing_cap": 45,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Wine Stables",
+    "seated_cap": 26,
+    "standing_cap": 30,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Marianne's",
+    "seated_cap": 22,
+    "standing_cap": 50,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "The Rail Car",
+    "seated_cap": 40,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Full Buyout",
+    "seated_cap": 140,
+    "standing_cap": 300,
+    "is_buyout": true,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "S&R Lounge at Hotel Zetta",
+    "seated_cap": null,
+    "standing_cap": 100,
+    "is_buyout": false,
+    "combinable_group": "hotel_zetta",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "seated_cap",
+    "space_name": "Blue Bar",
+    "value": "35 seated / 45 reception",
+    "source_url": "https://www.thecavaliersf.com/private-events/",
+    "source_class": "venue_domain",
+    "snippet": "Blue Bar \u2014 Seated: 35, Reception: 45; available for booking Monday through Sunday for morning, afternoon and evening events"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Wine Stables",
+    "value": "26 seated / 30 reception",
+    "source_url": "https://www.thecavaliersf.com/private-events/",
+    "source_class": "venue_domain",
+    "snippet": "Wine Stables \u2014 Seated: 26, Reception: 30"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Marianne's",
+    "value": "22 seated / 50 reception",
+    "source_url": "https://www.thecavaliersf.com/private-events/",
+    "source_class": "venue_domain",
+    "snippet": "Marianne's \u2014 Seated: 22, Reception: 50; private entrance, private bar and a restroom"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Full Buyout",
+    "value": "140 seated / 300 reception",
+    "source_url": "https://www.thecavaliersf.com/private-events/",
+    "source_class": "venue_domain",
+    "snippet": "Full Buyout \u2014 Seated: 140, Reception: 300"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "S&R Lounge at Hotel Zetta",
+    "value": "75-100 guests",
+    "source_url": "https://www.thecavaliersf.com/private-events/",
+    "source_class": "venue_domain",
+    "snippet": "S&R Lounge \u2014 75-100 guests; perfect for happy hours and celebrations"
+   },
+   {
+    "field": "email",
+    "space_name": null,
+    "value": "events@thecavaliersf.com",
+    "source_url": "https://www.thecavaliersf.com/private-events/",
+    "source_class": "venue_domain",
+    "snippet": "events@thecavaliersf.com"
+   }
+  ],
+  "notes": "Attached to Hotel Zetta, so the same events team also sells hotel meeting rooms (18-50 pax) and the Playroom \u2014 those are listed on the same page but without per-room named capacities, so only S&R Lounge is included. Blue Bar (35) is the best single-room fit for 30. No phone published on the events page; no minimum spend published."
+ },
+ {
+  "name": "Wayfare Tavern",
+  "address": "201 Pine Street, San Francisco, CA 94104",
+  "lat": 37.792,
+  "lng": -122.4003,
+  "latlng_approximate": true,
+  "phone": "+1 (415) 772-9060",
+  "email": "contact@wayfaretavern.com",
+  "website": "https://www.wayfaretavern.com/",
+  "events_url": "https://www.wayfaretavern.com/private-events",
+  "cuisine": "American / Tavern",
+  "venue_kind": "restaurant",
+  "spaces": [
+   {
+    "name": "Barbary Room",
+    "seated_cap": 50,
+    "standing_cap": 65,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Sequoia Lounge",
+    "seated_cap": 35,
+    "standing_cap": 65,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Juniper Dining Room",
+    "seated_cap": 30,
+    "standing_cap": 45,
+    "is_buyout": false,
+    "combinable_group": "juniper",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Juniper Bar",
+    "seated_cap": 10,
+    "standing_cap": 20,
+    "is_buyout": false,
+    "combinable_group": "juniper",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Cellar Dining Room",
+    "seated_cap": 30,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "seated_cap",
+    "space_name": "Juniper Dining Room",
+    "value": "30 seated / 45 standing",
+    "source_url": "https://www.wayfaretavern.com/private-events",
+    "source_class": "venue_domain",
+    "snippet": "Seated: 30 | Standing: 45"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Barbary Room",
+    "value": "50 seated / 65 standing",
+    "source_url": "https://www.wayfaretavern.com/private-events",
+    "source_class": "venue_domain",
+    "snippet": "Seated: 50 | Standing: 65"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Sequoia Lounge",
+    "value": "35 seated / 65 standing",
+    "source_url": "https://www.wayfaretavern.com/private-events",
+    "source_class": "venue_domain",
+    "snippet": "Seated: 35 | Standing: 65"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Juniper Bar",
+    "value": "10 seated / 20 standing",
+    "source_url": "https://www.wayfaretavern.com/private-events",
+    "source_class": "venue_domain",
+    "snippet": "Seated: 10 | Standing: 20"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Cellar Dining Room",
+    "value": "30 seated",
+    "source_url": "https://www.wayfaretavern.com/private-events",
+    "source_class": "venue_domain",
+    "snippet": "Seated: 30"
+   },
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "201 Pine Street, SF 94104",
+    "source_url": "https://www.wayfaretavern.com/private-events",
+    "source_class": "venue_domain",
+    "snippet": "201 Pine Street, San Francisco, CA 94104, USA"
+   }
+  ],
+  "notes": "IMPORTANT: Wayfare Tavern has relocated \u2014 many directories and roundups still list the old 558 Sacramento Street address. The current venue site gives 201 Pine Street. The linked private-dining fact-sheet PDF (wayfaretavern.com/assets/images/other/PDRFACT SHEET.pdf) is now a 404, so no minimum-spend figures could be verified. Two separate rooms sit at exactly 30 seated."
+ },
+ {
+  "name": "PABU Izakaya San Francisco",
+  "address": "101 California Street, San Francisco, CA 94111",
+  "lat": 37.7931,
+  "lng": -122.3977,
+  "latlng_approximate": true,
+  "phone": "415-730-4591",
+  "email": null,
+  "website": "https://theminagroup.com/restaurants/pabu-izakaya/",
+  "events_url": "https://venues.tripleseat.com/venues/san-francisco-oakland/pabu-and-ramen-bar-sf",
+  "cuisine": "Japanese izakaya / sushi",
+  "venue_kind": "restaurant",
+  "spaces": [
+   {
+    "name": "Garden Atrium",
+    "seated_cap": 25,
+    "standing_cap": 30,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Hikyaku Room",
+    "seated_cap": 70,
+    "standing_cap": 105,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Corner Bar",
+    "seated_cap": 20,
+    "standing_cap": 75,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Outside Patio",
+    "seated_cap": 25,
+    "standing_cap": 120,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Pabu 302",
+    "seated_cap": 12,
+    "standing_cap": 20,
+    "is_buyout": false,
+    "combinable_group": "warrior_rooms",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Pabu 301",
+    "seated_cap": 10,
+    "standing_cap": 15,
+    "is_buyout": false,
+    "combinable_group": "warrior_rooms",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Full Restaurant Buyout",
+    "seated_cap": 180,
+    "standing_cap": 400,
+    "is_buyout": true,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "seated_cap",
+    "space_name": "Garden Atrium",
+    "value": "25 seated / 30 standing",
+    "source_url": "https://venues.tripleseat.com/venues/san-francisco-oakland/pabu-and-ramen-bar-sf",
+    "source_class": "partner_listing",
+    "snippet": "Pabu Garden Atrium \u2014 25 Seated 30 Standing"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Hikyaku Room",
+    "value": "70 seated / 105 standing",
+    "source_url": "https://venues.tripleseat.com/venues/san-francisco-oakland/pabu-and-ramen-bar-sf",
+    "source_class": "partner_listing",
+    "snippet": "Hikyaku Room \u2014 70 Seated 105 Standing"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Full Restaurant Buyout",
+    "value": "180 seated / 400 standing",
+    "source_url": "https://venues.tripleseat.com/venues/san-francisco-oakland/pabu-and-ramen-bar-sf",
+    "source_class": "partner_listing",
+    "snippet": "Full Restaurant Buyout \u2014 180 Seated 400 Standing"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Pabu 301",
+    "value": "10 seated / 15 standing",
+    "source_url": "https://venues.tripleseat.com/venues/san-francisco-oakland/pabu-and-ramen-bar-sf",
+    "source_class": "partner_listing",
+    "snippet": "Pabu 301 \u2014 10 Seated 15 Standing"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "415-730-4591",
+    "source_url": "https://venues.tripleseat.com/venues/san-francisco-oakland/pabu-and-ramen-bar-sf",
+    "source_class": "partner_listing",
+    "snippet": "415-730-4591"
+   },
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "101 California St, SF 94111",
+    "source_url": "https://venues.tripleseat.com/venues/san-francisco-oakland/pabu-and-ramen-bar-sf",
+    "source_class": "partner_listing",
+    "snippet": "101 California St San Francisco, CA 94111"
+   }
+  ],
+  "notes": "All numbers from the venue's Tripleseat booking listing (partner_listing) \u2014 I could not locate an equivalent capacity table on a Mina Group domain. Awkward for exactly 30: Garden Atrium tops out at 25 and the next room up (Hikyaku) is 70. The Vendry lists a 'Combined Warrior Rooms' space (301+302 together) but I did not verify its combined capacity, so it is omitted rather than summed."
+ },
+ {
+  "name": "Twenty Five Lusk",
+  "address": "25 Lusk Street, San Francisco, CA 94107",
+  "lat": 37.7773,
+  "lng": -122.3941,
+  "latlng_approximate": true,
+  "phone": null,
+  "email": null,
+  "website": "https://www.25lusk.com/",
+  "events_url": "https://www.25lusk.com/private-parties/",
+  "cuisine": "New American / Contemporary",
+  "venue_kind": "restaurant",
+  "spaces": [
+   {
+    "name": "Private Dining Room",
+    "seated_cap": 35,
+    "standing_cap": 40,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": 3000,
+    "min_spend_period": "f_and_b"
+   },
+   {
+    "name": "Lounge Bay (one bay)",
+    "seated_cap": null,
+    "standing_cap": 25,
+    "is_buyout": false,
+    "combinable_group": "lounge_bays",
+    "min_spend_usd": 2500,
+    "min_spend_period": "f_and_b"
+   },
+   {
+    "name": "Lounge Bays (two bays)",
+    "seated_cap": null,
+    "standing_cap": 50,
+    "is_buyout": false,
+    "combinable_group": "lounge_bays",
+    "min_spend_usd": 5000,
+    "min_spend_period": "f_and_b"
+   },
+   {
+    "name": "Lounge Bays (three bays)",
+    "seated_cap": null,
+    "standing_cap": 75,
+    "is_buyout": false,
+    "combinable_group": "lounge_bays",
+    "min_spend_usd": 7500,
+    "min_spend_period": "f_and_b"
+   },
+   {
+    "name": "Ogden Room",
+    "seated_cap": 14,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": 2000,
+    "min_spend_period": "f_and_b"
+   },
+   {
+    "name": "Clarke Table",
+    "seated_cap": 13,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": 1500,
+    "min_spend_period": "f_and_b"
+   },
+   {
+    "name": "Cocktail Room (each)",
+    "seated_cap": 10,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": "cocktail_rooms",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "seated_cap",
+    "space_name": "Private Dining Room",
+    "value": "15-35 seated, up to 40 standing",
+    "source_url": "https://www.25lusk.com/wp-content/uploads/2019/05/25Lusk_Private_Dining_Brochure.pdf",
+    "source_class": "venue_domain",
+    "snippet": "Seated: 15 - 35 guests, 5 round tables or conference table (fully private)"
+   },
+   {
+    "field": "min_spend",
+    "space_name": "Private Dining Room",
+    "value": "$3,000 dinner / $2,000 lunch",
+    "source_url": "https://www.25lusk.com/wp-content/uploads/2019/05/25Lusk_Private_Dining_Brochure.pdf",
+    "source_class": "venue_domain",
+    "snippet": "Lunch: $2,000 / Dinner: $3,000"
+   },
+   {
+    "field": "min_spend",
+    "space_name": "Lounge Bay (one bay)",
+    "value": "$2,500 dinner Sun-Thurs per day per bay; $1,500 lunch",
+    "source_url": "https://www.25lusk.com/wp-content/uploads/2019/05/25Lusk_Private_Dining_Brochure.pdf",
+    "source_class": "venue_domain",
+    "snippet": "Lunch: $1,500 / Dinner: $2,500 (Sun\u2013Thurs); Please inquire for Friday and Saturday"
+   },
+   {
+    "field": "min_spend",
+    "space_name": "Ogden Room",
+    "value": "$2,000 dinner / $1,500 lunch / $1,750 first seating",
+    "source_url": "https://www.25lusk.com/wp-content/uploads/2019/05/25Lusk_Private_Dining_Brochure.pdf",
+    "source_class": "venue_domain",
+    "snippet": "Lunch: $1,500 / Dinner: $2,000 / First seating (5:30pm): $1,750"
+   },
+   {
+    "field": "min_spend",
+    "space_name": "Clarke Table",
+    "value": "$1,500 lunch and dinner / $1,000 first seating",
+    "source_url": "https://www.25lusk.com/wp-content/uploads/2019/05/25Lusk_Private_Dining_Brochure.pdf",
+    "source_class": "venue_domain",
+    "snippet": "Lunch: $1,500 / Dinner: $1,500 / First seating (5:30pm): $1,000"
+   },
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "25 Lusk St, SF 94107",
+    "source_url": "https://www.25lusk.com/wp-content/uploads/2019/05/25Lusk_Private_Dining_Brochure.pdf",
+    "source_class": "venue_domain",
+    "snippet": "25 Lusk St, San Francisco, CA 94107"
+   }
+  ],
+  "notes": "Strongest pricing evidence in the dataset alongside Kokkari \u2014 the brochure publishes per-space lunch/dinner minimums. CAVEAT: the PDF is filed under /2019/05/ in the WordPress uploads path, so these dollar figures are likely several years stale and should be treated as a floor, not a quote. The two- and three-bay minimums ($5,000 / $7,500) are stated by the brochure as per-bay pricing multiplied out; the brochure itself only prints the single-bay rate. Private Dining Room (35 seated, fully private, $3,000 dinner min) is the target-fit option for 30. Events contact named as Christine Chaffin; no phone/email published in the brochure. Slightly further south than the core FiDi cluster but still well inside a 15-minute commute."
+ },
+ {
+  "name": "Coqueta",
+  "address": "Pier 5, The Embarcadero, San Francisco, CA 94111",
+  "lat": 37.796,
+  "lng": -122.3935,
+  "latlng_approximate": true,
+  "phone": null,
+  "email": null,
+  "website": "https://www.coquetasf.com/",
+  "events_url": "https://www.coquetasf.com/private-dining-coquetasf",
+  "cuisine": "Spanish / Tapas",
+  "venue_kind": "restaurant",
+  "spaces": [
+   {
+    "name": "King's Table",
+    "seated_cap": 20,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Cocina Buyout",
+    "seated_cap": 72,
+    "standing_cap": 120,
+    "is_buyout": true,
+    "combinable_group": "full_venue",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Bar5 Buyout",
+    "seated_cap": null,
+    "standing_cap": 40,
+    "is_buyout": true,
+    "combinable_group": "full_venue",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Restaurant Buyout",
+    "seated_cap": 70,
+    "standing_cap": 150,
+    "is_buyout": true,
+    "combinable_group": "full_venue",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "seated_cap",
+    "space_name": "King's Table",
+    "value": "20 seated",
+    "source_url": "https://static1.squarespace.com/static/651c5ec613588011caf08fe2/t/661d6b197f6d0a107f660426/1713203993791/New+Coqueta+SF+Special+Events+Packet+2024.pdf",
+    "source_class": "venue_domain",
+    "snippet": "Accommodates up to 20 guests in the middle of the Cocina for a seated dinner."
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Cocina Buyout",
+    "value": "72 seated / 120 standing",
+    "source_url": "https://static1.squarespace.com/static/651c5ec613588011caf08fe2/t/661d6b197f6d0a107f660426/1713203993791/New+Coqueta+SF+Special+Events+Packet+2024.pdf",
+    "source_class": "venue_domain",
+    "snippet": "Accommodates up to 72 guests seated or 120 for standing cocktail/reception"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Bar5 Buyout",
+    "value": "40 standing",
+    "source_url": "https://static1.squarespace.com/static/651c5ec613588011caf08fe2/t/661d6b197f6d0a107f660426/1713203993791/New+Coqueta+SF+Special+Events+Packet+2024.pdf",
+    "source_class": "venue_domain",
+    "snippet": "Accommodates up to 40 guests for cocktail/standing reception"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Restaurant Buyout",
+    "value": "70 seated / ~150 standing",
+    "source_url": "https://static1.squarespace.com/static/651c5ec613588011caf08fe2/t/661d6b197f6d0a107f660426/1713203993791/New+Coqueta+SF+Special+Events+Packet+2024.pdf",
+    "source_class": "venue_domain",
+    "snippet": "Up to 70 guests can be seated for dinner ... Approximately 150 guests can be accommodated for cocktail/reception"
+   }
+  ],
+  "notes": "2024 events packet hosted on the venue's Squarespace CDN (venue_domain). Coqueta has NO enclosed private room that seats 30 \u2014 the only sub-buyout option is the 20-seat King's Table, so a 30-person seated dinner requires a Cocina or full buyout. No minimums, phone or events email published in the packet; contact only via the site form. Exact street number for Pier 5 is not given in the packet ('historic Pier 5, along San Francisco's Embarcadero')."
+ },
+ {
+  "name": "Harborview Restaurant & Bar",
+  "address": "4 Embarcadero Center, San Francisco, CA 94111",
+  "lat": 37.7952,
+  "lng": -122.3975,
+  "latlng_approximate": true,
+  "phone": null,
+  "email": "info@harborviewsf.com",
+  "website": "https://www.harborviewsf.com/",
+  "events_url": "https://www.harborviewsf.com/private-events/",
+  "cuisine": "Cantonese / Dim Sum",
+  "venue_kind": "restaurant",
+  "spaces": [
+   {
+    "name": "Shanghai Room",
+    "seated_cap": 30,
+    "standing_cap": 20,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Hong Kong Room",
+    "seated_cap": 24,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Macau Room",
+    "seated_cap": 20,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Asia Room",
+    "seated_cap": 50,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Bar & Lounge",
+    "seated_cap": 80,
+    "standing_cap": 150,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Main Dining Room",
+    "seated_cap": 180,
+    "standing_cap": 200,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Patio",
+    "seated_cap": 180,
+    "standing_cap": 250,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "seated_cap",
+    "space_name": "Shanghai Room",
+    "value": "30 seated / 20 standing",
+    "source_url": "https://www.harborviewsf.com/private-events/",
+    "source_class": "venue_domain",
+    "snippet": "Shanghai Room \u2014 20 Standing | 30 Seated"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Hong Kong Room",
+    "value": "24 seated",
+    "source_url": "https://www.harborviewsf.com/private-events/",
+    "source_class": "venue_domain",
+    "snippet": "Hong Kong Room \u2014 24 Seated"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Asia Room",
+    "value": "50 seated",
+    "source_url": "https://www.harborviewsf.com/private-events/",
+    "source_class": "venue_domain",
+    "snippet": "Asia Room \u2014 50 Seated"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Main Dining Room",
+    "value": "180 seated / 200 standing",
+    "source_url": "https://www.harborviewsf.com/private-events/",
+    "source_class": "venue_domain",
+    "snippet": "Main Dining Room \u2014 200 Standing | 180 Seated"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Patio",
+    "value": "180 seated / 250 standing",
+    "source_url": "https://www.harborviewsf.com/private-events/",
+    "source_class": "venue_domain",
+    "snippet": "Patio \u2014 250 Standing | 180 Seated"
+   },
+   {
+    "field": "email",
+    "space_name": null,
+    "value": "info@harborviewsf.com",
+    "source_url": "https://www.harborviewsf.com/private-events/",
+    "source_class": "venue_domain",
+    "snippet": "info@harborviewsf.com"
+   }
+  ],
+  "notes": "DATA ODDITY worth flagging to users: the Shanghai Room is listed as 30 seated but only 20 standing \u2014 standing capacity below seated is unusual and may be a typo on the venue's own page. Reported as published rather than corrected. Shanghai Room is the exact-fit room for 30. No minimum spend, no direct events phone, no dedicated events email published. Venue also lists two wedding-ceremony patio configurations (120 seated / 150 standing partial patio; 200 seated / 250 standing full patio) not included as bookable corporate spaces."
+ },
+ {
+  "name": "The Vault Garden",
+  "address": "555 California Street, San Francisco, CA 94104",
+  "lat": 37.7925,
+  "lng": -122.4038,
+  "latlng_approximate": true,
+  "phone": "415-508-4675",
+  "email": null,
+  "website": "https://www.hineighborsf.com/hn-thevaultgarden",
+  "events_url": "https://thevendry.com/venue/258353/the-vault-garden-san-francisco-ca",
+  "cuisine": "American / Californian",
+  "venue_kind": "bar",
+  "spaces": [
+   {
+    "name": "The Vault Private Garden",
+    "seated_cap": 50,
+    "standing_cap": 70,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "The Vault Garden Alcove",
+    "seated_cap": 50,
+    "standing_cap": 70,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "The Vault Secret Garden",
+    "seated_cap": 16,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "The Vault Garden Lounge",
+    "seated_cap": null,
+    "standing_cap": 25,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Full Buyout of The Vault Garden",
+    "seated_cap": null,
+    "standing_cap": 200,
+    "is_buyout": true,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "seated_cap",
+    "space_name": "The Vault Private Garden",
+    "value": "50 seated / 70 standing",
+    "source_url": "https://thevendry.com/venue/258353/the-vault-garden-san-francisco-ca",
+    "source_class": "partner_listing",
+    "snippet": "The Vault Private Garden \u2014 Seated: 50 | Standing: 70"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "The Vault Garden Alcove",
+    "value": "50 seated / 70 standing",
+    "source_url": "https://thevendry.com/venue/258353/the-vault-garden-san-francisco-ca",
+    "source_class": "partner_listing",
+    "snippet": "The Vault Garden Alcove \u2014 Seated: 50 | Standing: 70"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "The Vault Secret Garden",
+    "value": "16 seated",
+    "source_url": "https://thevendry.com/venue/258353/the-vault-garden-san-francisco-ca",
+    "source_class": "partner_listing",
+    "snippet": "The Vault Secret Garden \u2014 Seated: 16"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Full Buyout of The Vault Garden",
+    "value": "200 standing",
+    "source_url": "https://thevendry.com/venue/258353/the-vault-garden-san-francisco-ca",
+    "source_class": "partner_listing",
+    "snippet": "Full Buyout of The Vault Garden \u2014 Standing: 200"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "+1 415-508-4675",
+    "source_url": "https://www.yelp.com/biz/the-vault-garden-san-francisco-2",
+    "source_class": "aggregator",
+    "snippet": "THE VAULT GARDEN ... 555 California St, San Francisco, California ... +14155084675"
+   }
+  ],
+  "notes": "INTERNAL INCONSISTENCY in the source: the Vendry listing shows individual spaces seating 50 while the venue-level summary states 'Max Seated: 50' and 'Max Standing: 200' \u2014 so the two 50-seat gardens are probably alternative configurations of overlapping space, not additive. Treat combined seated capacity as capped at ~50. All capacities are partner_listing only; the Hi Neighbor Group venue page did not yield a capacity table. Phone is from Yelp (aggregator) and unconfirmed on the venue domain. Outdoor garden setting \u2014 weather-dependent for a 30-person seated dinner."
+ },
+ {
+  "name": "The St. Regis San Francisco",
+  "address": "125 Third Street, San Francisco, CA 94103",
+  "lat": 37.7857,
+  "lng": -122.4013,
+  "latlng_approximate": true,
+  "phone": null,
+  "email": null,
+  "website": "https://www.marriott.com/en-us/hotels/sfoxr-the-st-regis-san-francisco/overview/",
+  "events_url": "https://www.marriott.com/en-us/hotels/sfoxr-the-st-regis-san-francisco/events/",
+  "cuisine": null,
+  "venue_kind": "hotel",
+  "spaces": [
+   {
+    "name": "Impressionist II",
+    "seated_cap": 30,
+    "standing_cap": 50,
+    "is_buyout": false,
+    "combinable_group": "impressionist",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Impressionist I",
+    "seated_cap": 70,
+    "standing_cap": 88,
+    "is_buyout": false,
+    "combinable_group": "impressionist",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Impressionist (combined)",
+    "seated_cap": 100,
+    "standing_cap": 130,
+    "is_buyout": false,
+    "combinable_group": "impressionist",
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Conservatory",
+    "seated_cap": 120,
+    "standing_cap": 164,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Modernist",
+    "seated_cap": 70,
+    "standing_cap": 100,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Vitrine",
+    "seated_cap": 60,
+    "standing_cap": 70,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Collections",
+    "seated_cap": 100,
+    "standing_cap": 130,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Yerba Buena Terrace",
+    "seated_cap": 250,
+    "standing_cap": 300,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "seated_cap",
+    "space_name": "Impressionist II",
+    "value": "banquet 30 / reception 50",
+    "source_url": "https://www.cvent.com/venues/san-francisco/luxury-hotel/the-st-regis-san-francisco/venue-1256a570-d575-43c8-9205-9e5b3a00ca47",
+    "source_class": "partner_listing",
+    "snippet": "Impressionist II | Banquet 30 | Reception 50"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Impressionist (combined)",
+    "value": "banquet 100 / reception 130",
+    "source_url": "https://www.cvent.com/venues/san-francisco/luxury-hotel/the-st-regis-san-francisco/venue-1256a570-d575-43c8-9205-9e5b3a00ca47",
+    "source_class": "partner_listing",
+    "snippet": "Impressionist | Banquet 100 | Reception 130"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Conservatory",
+    "value": "banquet 120 / reception 164",
+    "source_url": "https://www.cvent.com/venues/san-francisco/luxury-hotel/the-st-regis-san-francisco/venue-1256a570-d575-43c8-9205-9e5b3a00ca47",
+    "source_class": "partner_listing",
+    "snippet": "Conservatory | Banquet 120 | Reception 164"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Yerba Buena Terrace",
+    "value": "banquet 250 / reception 300",
+    "source_url": "https://www.cvent.com/venues/san-francisco/luxury-hotel/the-st-regis-san-francisco/venue-1256a570-d575-43c8-9205-9e5b3a00ca47",
+    "source_class": "partner_listing",
+    "snippet": "Yerba Buena Terrace | Banquet 250 | Reception 300"
+   },
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "125 Third Street, SF 94103",
+    "source_url": "https://www.cvent.com/venues/san-francisco/luxury-hotel/the-st-regis-san-francisco/venue-1256a570-d575-43c8-9205-9e5b3a00ca47",
+    "source_class": "partner_listing",
+    "snippet": "125 Third Street, San Francisco, CA, USA, 94103"
+   }
+  ],
+  "notes": "Capacities from the hotel's Cvent supplier listing (partner_listing). Impressionist II at 30 banquet is an exact fit for the target headcount; Impressionist I+II combine to 100. Cvent's table also lists additional spaces (Level Four Foyer, Gallery II, Sculpture I/II) whose numbers I did not capture, so this space list is incomplete rather than exhaustive. Hotels of this class quote F&B minimums per event but none are published \u2014 all min_spend left null. About a 6-8 minute walk from Salesforce Tower."
+ },
+ {
+  "name": "San Francisco Museum of Modern Art (SFMOMA)",
+  "address": "151 Third Street, San Francisco, CA 94103",
+  "lat": 37.7857,
+  "lng": -122.4008,
+  "latlng_approximate": true,
+  "phone": "415-915-1777",
+  "email": null,
+  "website": "https://www.sfmoma.org/",
+  "events_url": "https://www.sfmoma.org/rental-events/corporate-and-private-events/",
+  "cuisine": null,
+  "venue_kind": "museum",
+  "spaces": [
+   {
+    "name": "Helen and Charles Schwab Hall",
+    "seated_cap": 450,
+    "standing_cap": 600,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Evelyn and Walter Haas, Jr. Atrium",
+    "seated_cap": 250,
+    "standing_cap": 450,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "White Box",
+    "seated_cap": 150,
+    "standing_cap": 200,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Rooftop Garden + Pavilion",
+    "seated_cap": 150,
+    "standing_cap": 200,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Phyllis C. Wattis Theater",
+    "seated_cap": 260,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Pat & Bill Wilson Sculpture Terrace",
+    "seated_cap": null,
+    "standing_cap": 100,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   },
+   {
+    "name": "Howard Street Mural Alley",
+    "seated_cap": null,
+    "standing_cap": 150,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": null,
+    "min_spend_period": null
+   }
+  ],
+  "evidence": [
+   {
+    "field": "seated_cap",
+    "space_name": "Helen and Charles Schwab Hall",
+    "value": "450 seated / 600 standing",
+    "source_url": "https://www.sfmoma.org/rental-events/corporate-and-private-events/",
+    "source_class": "venue_domain",
+    "snippet": "600 standing and 450 seated"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Evelyn and Walter Haas, Jr. Atrium",
+    "value": "250 seated / 450 standing",
+    "source_url": "https://www.sfmoma.org/rental-events/corporate-and-private-events/",
+    "source_class": "venue_domain",
+    "snippet": "450 standing and 250 seated"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "White Box",
+    "value": "150 seated / 200 standing",
+    "source_url": "https://www.sfmoma.org/rental-events/corporate-and-private-events/",
+    "source_class": "venue_domain",
+    "snippet": "200 standing and 150 seated"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Rooftop Garden + Pavilion",
+    "value": "150 seated / 200 standing",
+    "source_url": "https://www.sfmoma.org/rental-events/corporate-and-private-events/",
+    "source_class": "venue_domain",
+    "snippet": "200 standing and 150 seated"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Pat & Bill Wilson Sculpture Terrace",
+    "value": "100 standing",
+    "source_url": "https://www.sfmoma.org/rental-events/corporate-and-private-events/",
+    "source_class": "venue_domain",
+    "snippet": "100 standing"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "415.915.1777",
+    "source_url": "https://www.sfmoma.org/rental-events/corporate-and-private-events/",
+    "source_class": "venue_domain",
+    "snippet": "415.915.1777"
+   },
+   {
+    "field": "address",
+    "space_name": null,
+    "value": "151 Third St, SF 94103",
+    "source_url": "https://www.sfmoma.org/rental-events/corporate-and-private-events/",
+    "source_class": "venue_domain",
+    "snippet": "151 Third St San Francisco, CA 94103"
+   }
+  ],
+  "notes": "Deliberately included as a large-format outlier: SFMOMA's smallest published space still holds 100 standing, so it is a poor match for a 30-person seated dinner and a strong match for 150+. No rental fees or minimums published anywhere on sfmoma.org; museum rentals of this type typically run five figures but I did not find a number, so min_spend is null throughout. No rentals email published \u2014 inquiry form only. Roughly a 7-minute walk from Salesforce Tower."
+ },
+ {
+  "name": "Yerba Buena Center for the Arts (YBCA)",
+  "address": "701 Mission Street, San Francisco, CA 94103",
+  "lat": 37.7852,
+  "lng": -122.402,
+  "latlng_approximate": true,
+  "phone": "415-978-2700",
+  "email": null,
+  "website": "https://ybca.org/",
+  "events_url": "https://ybca.org/venues/",
+  "cuisine": null,
+  "venue_kind": "event_space",
+  "spaces": [
+   {
+    "name": "Blue Shield of California Theater at YBCA",
+    "seated_cap": 757,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": 13000,
+    "min_spend_period": "per_event"
+   },
+   {
+    "name": "YBCA Forum",
+    "seated_cap": 450,
+    "standing_cap": 850,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": 11000,
+    "min_spend_period": "per_event"
+   },
+   {
+    "name": "Grand Lobby",
+    "seated_cap": null,
+    "standing_cap": 350,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": 5000,
+    "min_spend_period": "per_event"
+   },
+   {
+    "name": "Screening Room",
+    "seated_cap": 81,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": 2500,
+    "min_spend_period": "per_event"
+   },
+   {
+    "name": "The Lounge",
+    "seated_cap": null,
+    "standing_cap": null,
+    "is_buyout": false,
+    "combinable_group": null,
+    "min_spend_usd": 750,
+    "min_spend_period": "per_event"
+   }
+  ],
+  "evidence": [
+   {
+    "field": "seated_cap",
+    "space_name": "Blue Shield of California Theater at YBCA",
+    "value": "757 seated",
+    "source_url": "https://ybca.org/venues/",
+    "source_class": "venue_domain",
+    "snippet": "Seated 757"
+   },
+   {
+    "field": "min_spend",
+    "space_name": "Blue Shield of California Theater at YBCA",
+    "value": "$13,000/day standard, $16,000/day premium",
+    "source_url": "https://ybca.org/venues/",
+    "source_class": "venue_domain",
+    "snippet": "Standard Access $13,000/day; Premium Access $16,000/day"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "YBCA Forum",
+    "value": "450 seated / 850 standing",
+    "source_url": "https://ybca.org/venues/",
+    "source_class": "venue_domain",
+    "snippet": "Seated 450, Standing 850"
+   },
+   {
+    "field": "min_spend",
+    "space_name": "YBCA Forum",
+    "value": "$11,000/day standard, $14,000/day premium",
+    "source_url": "https://ybca.org/venues/",
+    "source_class": "venue_domain",
+    "snippet": "Standard Access $11,000/day; Premium Access $14,000/day"
+   },
+   {
+    "field": "standing_cap",
+    "space_name": "Grand Lobby",
+    "value": "350 standing",
+    "source_url": "https://ybca.org/venues/",
+    "source_class": "venue_domain",
+    "snippet": "Standing 350"
+   },
+   {
+    "field": "min_spend",
+    "space_name": "Grand Lobby",
+    "value": "$5,000/day",
+    "source_url": "https://ybca.org/venues/",
+    "source_class": "venue_domain",
+    "snippet": "$5,000/day"
+   },
+   {
+    "field": "seated_cap",
+    "space_name": "Screening Room",
+    "value": "81 seated + 8 ADA",
+    "source_url": "https://ybca.org/venues/",
+    "source_class": "venue_domain",
+    "snippet": "Seated 81 + 8 ADA"
+   },
+   {
+    "field": "min_spend",
+    "space_name": "Screening Room",
+    "value": "$2,500/day",
+    "source_url": "https://ybca.org/venues/",
+    "source_class": "venue_domain",
+    "snippet": "$2,500/day"
+   },
+   {
+    "field": "phone",
+    "space_name": null,
+    "value": "415-978-2700",
+    "source_url": "https://ybca.org/venues/",
+    "source_class": "venue_domain",
+    "snippet": "415-978-2700"
+   }
+  ],
+  "notes": "IMPORTANT PRICE-SEMANTICS CAVEAT: the dollar figures here are published DAY RATES (facility rental fees), not food-and-beverage minimums. I mapped them to min_spend_period 'per_event' because there is no 'rental_fee' enum value, but they are not comparable to the F&B minimums at Kokkari or 25 Lusk \u2014 catering is additional and contracted separately. YBCA publishes both 'Standard Access' and 'Premium Access' tiers; min_spend_usd holds the Standard figure. The Lounge has a published rate ($750/day) but no published capacity, which is why its capacities are null. Large-format only \u2014 nothing here suits a 30-person seated dinner."
+ }
+]

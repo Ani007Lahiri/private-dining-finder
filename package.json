@@ -1,0 +1,36 @@
+{
+  "name": "private-dining-finder",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ranked private dining and event venue search for corporate event planners, with per-field provenance and trust labelling.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "seed:push": "tsx scripts/push-seed.ts",
+    "eval:golden": "tsx scripts/eval-golden.ts",
+    "audit:seed": "tsx scripts/audit-seed.ts"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.112.3",
+    "clsx": "^2.1.1",
+    "leaflet": "^1.9.4",
+    "next": "^15.5.23",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-leaflet": "^5.0.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/leaflet": "^1.9.22",
+    "@types/node": "^26.2.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "autoprefixer": "^10.5.4",
+    "postcss": "^8.5.26",
+    "tailwindcss": "^3.4.19",
+    "tsx": "^4.23.12",
+    "typescript": "^5.9.3"
+  }
+}
