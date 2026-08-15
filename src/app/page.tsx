@@ -41,6 +41,7 @@ const SORT_LABELS: Record<SortMode, string> = {
   confidence_adjusted: 'Fit, confidence-adjusted',
   commute: 'Shortest commute',
   capacity: 'Largest capacity',
+  reputation: 'Highest Yelp rating',
 }
 
 export default function Page() {
@@ -112,6 +113,7 @@ export default function Page() {
             <AdapterChip label="discovery" value={adapters.discovery === 'google_places' ? 'Places' : 'seed'} live={adapters.discovery === 'google_places'} />
             <AdapterChip label="commute" value={adapters.commute === 'google_routes' ? 'Routes' : 'estimated'} live={adapters.commute === 'google_routes'} />
             <AdapterChip label="extraction" value={adapters.extraction === 'llm' ? 'live' : 'off'} live={adapters.extraction === 'llm'} />
+            <AdapterChip label="reputation" value={adapters.reputation === 'yelp' ? 'Yelp' : 'off'} live={adapters.reputation === 'yelp'} />
           </div>
         )}
       </header>
@@ -155,11 +157,13 @@ export default function Page() {
                   }}
                   className="rounded border border-ink-200 bg-white px-1.5 py-1 text-[11px] text-ink-800 outline-none focus:border-meter-fill"
                 >
-                  {(Object.keys(SORT_LABELS) as SortMode[]).map((m) => (
-                    <option key={m} value={m}>
-                      {SORT_LABELS[m]}
-                    </option>
-                  ))}
+                  {(Object.keys(SORT_LABELS) as SortMode[])
+                    .filter((m) => m !== 'reputation' || adapters?.reputation === 'yelp')
+                    .map((m) => (
+                      <option key={m} value={m}>
+                        {SORT_LABELS[m]}
+                      </option>
+                    ))}
                 </select>
               </label>
             </div>
@@ -241,7 +245,7 @@ export default function Page() {
               ))}
             </div>
 
-            <div className="min-w-0 flex-1">
+            <div className="isolate min-w-0 flex-1">
               <MapPanel
                 results={results}
                 params={activeParams}

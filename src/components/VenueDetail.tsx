@@ -1,11 +1,12 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import clsx from 'clsx'
 import type { RankedResult, SearchParams, VenueSpace } from '@/lib/types'
 import { effectiveCapacity } from '@/lib/capacity'
 import { resolveNumericFact } from '@/lib/trust'
 import { EvidenceList, TrustBadge } from './TrustBadge'
+import { ReputationBadge } from './ReputationBadge'
 import { ScoreBreakdown } from './ScoreBreakdown'
 import { minutes, miles, money, spendPeriod } from '@/lib/format'
 import { buildOutreachEmail, mailtoLink } from '@/lib/outreach'
@@ -33,6 +34,59 @@ export function VenueDetail({
   const email = useMemo(() => buildOutreachEmail(result, params), [result, params])
   const [copied, setCopied] = useState(false)
 
+  const panelRef = useRef<HTMLDivElement | null>(null)
+
+  // Modal overlay behaviour, per the accessibility pass: Escape closes; the page
+  // behind does not scroll; and — the gap the handoff named — focus is trapped
+  // inside the drawer. Tab cycles within the panel instead of escaping to the
+  // map and list behind it, and focus returns to whatever was focused before the
+  // drawer opened (the venue card that opened it) when it closes.
+  useEffect(() => {
+    const previouslyFocused = document.activeElement as HTMLElement | null
+
+    const focusable = () =>
+      Array.from(
+        panelRef.current?.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input, select, textarea, summary, [tabindex]:not([tabindex="-1"])',
+        ) ?? [],
+      ).filter((el) => el.offsetParent !== null || el === document.activeElement)
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose()
+        return
+      }
+      if (e.key !== 'Tab') return
+      const items = focusable()
+      if (items.length === 0) return
+      const first = items[0]
+      const last = items[items.length - 1]
+      const active = document.activeElement as HTMLElement | null
+      // Wrap the two edges so Tab never leaves the drawer.
+      if (e.shiftKey && (active === first || !panelRef.current?.contains(active))) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault()
+        first.focus()
+      }
+    }
+
+    document.addEventListener('keydown', onKey)
+    const prevOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    // Move focus into the drawer on open so the first Tab is already contained.
+    panelRef.current?.focus()
+
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = prevOverflow
+      // Return focus to the element that opened the drawer.
+      previouslyFocused?.focus?.()
+    }
+  }, [onClose])
+
   const orderedSpaces = useMemo(() => {
     return [...spaces].sort((a, b) => {
       const ca = effectiveCapacity(a, params.eventStyle, evidence).value ?? -1
@@ -43,9 +97,13 @@ export function VenueDetail({
 
   return (
     <div className="fixed inset-0 z-50 flex justify-end" role="dialog" aria-modal="true">
-      <button aria-label="Close" onClick={onClose} className="flex-1 bg-ink-950/25 backdrop-blur-[1px]" />
+      <button aria-label="Close" onClick={onClose} className="animate-scrim flex-1 bg-ink-950/25 backdrop-blur-[1px]" />
 
-      <div className="scroll-thin flex h-full w-full max-w-xl flex-col overflow-y-auto border-l border-ink-200 bg-white shadow-2xl">
+      <div
+        ref={panelRef}
+        tabIndex={-1}
+        className="animate-panel scroll-thin flex h-full w-full max-w-xl flex-col overflow-y-auto border-l border-ink-200 bg-white shadow-2xl outline-none"
+      >
         {/* ── Header ─────────────────────────────────────────────────────── */}
         <header className="sticky top-0 z-10 border-b border-ink-200 bg-white/95 px-5 py-4 backdrop-blur">
           <div className="flex items-start justify-between gap-4">
@@ -62,6 +120,11 @@ export function VenueDetail({
                   </span>
                 )}
               </div>
+              {result.yelp && (
+                <div className="mt-2">
+                  <ReputationBadge yelp={result.yelp} />
+                </div>
+              )}
             </div>
             <button
               onClick={onClose}

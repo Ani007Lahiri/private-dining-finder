@@ -188,10 +188,12 @@ export function rankVenue(
     overallTrust: weakest(trustInputs),
     score: combine(components),
     components,
+    // Filled in by the search orchestrator when the Yelp adapter is enabled.
+    yelp: null,
   }
 }
 
-export type SortMode = 'fit' | 'confidence_adjusted' | 'commute' | 'capacity'
+export type SortMode = 'fit' | 'confidence_adjusted' | 'commute' | 'capacity' | 'reputation'
 
 const TRUST_FACTOR = { verified: 1, likely: 0.85, unverified: 0.65 } as const
 
@@ -211,6 +213,13 @@ export function sortResults(results: RankedResult[], mode: SortMode): RankedResu
       )
     case 'capacity':
       return out.sort((a, b) => (b.capacity.best?.capacity ?? 0) - (a.capacity.best?.capacity ?? 0))
+    case 'reputation': {
+      // Yelp rating, review count as the tiebreaker. Venues without a Yelp match
+      // sort last rather than being dropped — an absent reputation is not a bad
+      // one, and the planner is opting into this view knowingly.
+      const key = (r: RankedResult) => (r.yelp ? r.yelp.rating * 1_000_000 + Math.min(r.yelp.reviewCount, 999_999) : -1)
+      return out.sort((a, b) => key(b) - key(a))
+    }
     case 'fit':
     default:
       return out.sort((a, b) => b.score - a.score)

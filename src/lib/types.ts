@@ -222,6 +222,23 @@ export interface RankedResult {
   overallTrust: TrustLabel
   score: number
   components: ScoreComponent[]
+  /**
+   * Third-party reputation from Yelp, when the adapter is enabled and found a
+   * confident match. An aggregator signal, so it carries `likely` trust and is
+   * surfaced as display + an optional sort — never folded into the fit score,
+   * for the same reason confidence is not: it would optimise for web presence.
+   */
+  yelp: YelpReputation | null
+}
+
+/** Reputation fields lifted from Yelp. Mirrors adapters/yelp.ts YelpEnrichment. */
+export interface YelpReputation {
+  rating: number
+  reviewCount: number
+  priceTier: number | null
+  priceLabel: string | null
+  url: string
+  matchDistanceMeters: number
 }
 
 // ── Hydration ────────────────────────────────────────────────────────────────

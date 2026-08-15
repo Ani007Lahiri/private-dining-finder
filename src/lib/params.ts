@@ -21,7 +21,7 @@ export const searchParamsSchema = z.object({
     .default(DEFAULT_WEIGHTS),
   verifiedCapacityOnly: z.boolean().default(false),
   includeUnknownCapacity: z.boolean().default(true),
-  sort: z.enum(['fit', 'confidence_adjusted', 'commute', 'capacity']).default('fit'),
+  sort: z.enum(['fit', 'confidence_adjusted', 'commute', 'capacity', 'reputation']).default('fit'),
 })
 
 export type SearchRequest = z.infer<typeof searchParamsSchema>
@@ -96,4 +96,4 @@ export function toQuery(req: SearchRequest): string {
   return sp.toString()
 }
 
-export const sortModes: SortMode[] = ['fit', 'confidence_adjusted', 'commute', 'capacity']
+export const sortModes: SortMode[] = ['fit', 'confidence_adjusted', 'commute', 'capacity', 'reputation']

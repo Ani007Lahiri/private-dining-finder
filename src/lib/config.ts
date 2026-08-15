@@ -40,6 +40,12 @@ export const config = {
       return Boolean(this.apiKey)
     },
   },
+  yelp: {
+    apiKey: env('YELP_API_KEY'),
+    get enabled() {
+      return Boolean(this.apiKey)
+    },
+  },
   hydration: {
     ttlHours: Number(env('HYDRATION_TTL_HOURS') ?? 168),
     maxExtractions: Number(env('HYDRATION_MAX_EXTRACTIONS') ?? 15),
@@ -55,6 +61,7 @@ export interface AdapterStatus {
   commute: 'google_routes' | 'estimated'
   extraction: 'llm' | 'disabled'
   realtime: 'supabase_realtime' | 'sse_only'
+  reputation: 'yelp' | 'off'
 }
 
 export function adapterStatus(): AdapterStatus {
@@ -64,5 +71,6 @@ export function adapterStatus(): AdapterStatus {
     commute: config.google.routesEnabled ? 'google_routes' : 'estimated',
     extraction: config.llm.enabled ? 'llm' : 'disabled',
     realtime: config.supabase.enabled ? 'supabase_realtime' : 'sse_only',
+    reputation: config.yelp.enabled ? 'yelp' : 'off',
   }
 }

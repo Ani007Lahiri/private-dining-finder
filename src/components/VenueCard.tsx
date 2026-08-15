@@ -3,6 +3,7 @@
 import clsx from 'clsx'
 import type { RankedResult, SearchParams } from '@/lib/types'
 import { TrustBadge } from './TrustBadge'
+import { ReputationBadge } from './ReputationBadge'
 import { minutes, miles, money, modeVerb, pct } from '@/lib/format'
 
 export function VenueCard({
@@ -38,8 +39,15 @@ export function VenueCard({
     >
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0 flex-1">
-          <div className="flex items-baseline gap-2">
-            <span className="tabular text-xs font-semibold text-ink-400">#{rank}</span>
+          <div className="flex items-center gap-2">
+            <span
+              className={clsx(
+                'tabular inline-flex h-5 min-w-[20px] shrink-0 items-center justify-center rounded-full px-1 text-[11px] font-semibold',
+                rank <= 3 ? 'bg-ink-900 text-white' : 'bg-ink-100 text-ink-500',
+              )}
+            >
+              {rank}
+            </span>
             <button
               onClick={onOpen}
               className="truncate text-left text-[15px] font-semibold text-ink-900 hover:text-meter-fill hover:underline"
@@ -172,6 +180,12 @@ export function VenueCard({
           This venue looks plausible but publishes no capacity. Kept in the list rather than dropped — you may want to
           call.
         </p>
+      )}
+
+      {result.yelp && (
+        <div className="mt-2 border-t border-ink-100 pt-2">
+          <ReputationBadge yelp={result.yelp} compact />
+        </div>
       )}
 
       <div className="mt-2.5 flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-ink-100 pt-2 text-[11px]">

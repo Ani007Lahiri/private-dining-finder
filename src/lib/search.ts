@@ -1,4 +1,5 @@
 import { commuteMatrix } from './adapters/routes'
+import { enrichVenuesWithYelp } from './adapters/yelp'
 import { config } from './config'
 import { encodeGeohash, prefilterRadiusMeters, type LatLng } from './geo'
 import { getRepo } from './repo'
@@ -132,6 +133,14 @@ export async function runSearch(params: SearchParams, sort: SortMode = 'fit'): P
     ranked = ranked.filter((r) => r.capacity.best?.trust === 'verified')
   }
 
+  // ── 6. Reputation enrichment (Yelp) ────────────────────────────────────────
+  // Optional and best-effort. Attaches a third-party rating + price tier to each
+  // survivor so the planner can weigh reputation, and so the `reputation` sort
+  // has something to sort by. Enriched BEFORE the sort for that reason. A no-op
+  // and cost-free when YELP_API_KEY is unset; failures degrade to no reputation
+  // rather than failing the search.
+  await attachYelp(ranked)
+
   const sorted = sortResults(ranked, sort)
 
   void repo.recordSearch(params, sorted.map((r) => r.record.venue.id)).catch(() => {})
@@ -147,5 +156,39 @@ export async function runSearch(params: SearchParams, sort: SortMode = 'fit'): P
       commuteMeasured: [...cached.values()].filter((c) => c.method === 'measured').length,
       elapsedMs: Date.now() - started,
     },
+  }
+}
+
+/**
+ * Attach Yelp reputation to a set of ranked results, in place. Best-effort: when
+ * the adapter is disabled or a venue has no confident match, the result's `yelp`
+ * field simply stays null. Batched with a concurrency cap inside the adapter.
+ */
+async function attachYelp(results: RankedResult[]): Promise<void> {
+  if (!config.yelp.enabled || results.length === 0) return
+  try {
+    const byId = await enrichVenuesWithYelp(
+      results.map((r) => ({
+        id: r.record.venue.id,
+        name: r.record.venue.name,
+        lat: r.record.venue.lat,
+        lng: r.record.venue.lng,
+      })),
+    )
+    for (const r of results) {
+      const e = byId.get(r.record.venue.id)
+      if (e) {
+        r.yelp = {
+          rating: e.rating,
+          reviewCount: e.reviewCount,
+          priceTier: e.priceTier,
+          priceLabel: e.priceLabel,
+          url: e.url,
+          matchDistanceMeters: e.matchDistanceMeters,
+        }
+      }
+    }
+  } catch (err) {
+    console.warn('[search] Yelp enrichment failed, continuing without it:', (err as Error).message)
   }
 }
