@@ -93,47 +93,96 @@ const YELP_SEARCH = 'https://api.yelp.com/v3/businesses/search'
 const MAX_MATCH_DISTANCE_M = 120
 const MIN_NAME_SIMILARITY = 0.5
 const NAME_MATCH_DISTANCE_M = 400
+// When the top two candidates are almost equally good, a "match" is a coin flip
+// — exactly the failure that once tied a venue to a same-named hookah bar down
+// the block. If neither distance nor name breaks the tie, we refuse to match and
+// report no confident result rather than guess and mislabel it "likely".
+const AMBIGUITY_DISTANCE_M = 40
+const AMBIGUITY_SIMILARITY = 0.15
+// 429 backoff: two short retries honouring Retry-After, then give up and report
+// the venue as rate-limited (distinct from "no match") so the UI can say so.
+const MAX_RETRIES = 2
 
-async function searchYelp(term: string, lat: number, lng: number): Promise<YelpBusiness[]> {
+/**
+ * The outcome of trying to reach Yelp for one venue. Distinguishing these is the
+ * whole point of the hardening: a rate-limited venue is a *temporary* gap the
+ * planner can retry, while a no-match is a *stable* fact about that venue. They
+ * must not both collapse to "no reputation".
+ */
+export type YelpStatus = 'matched' | 'no_match' | 'rate_limited' | 'unavailable' | 'disabled'
+
+export type YelpMatch =
+  | { status: 'matched'; enrichment: YelpEnrichment }
+  | { status: 'no_match' | 'rate_limited' | 'unavailable' | 'disabled' }
+
+type FetchOutcome =
+  | { status: 'ok'; businesses: YelpBusiness[] }
+  | { status: 'rate_limited' }
+  | { status: 'unavailable' }
+  | { status: 'disabled' }
+
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))
+
+async function searchYelp(term: string, lat: number, lng: number): Promise<FetchOutcome> {
   const key = config.yelp.apiKey
-  if (!key) return []
+  if (!key) return { status: 'disabled' }
 
   const url = `${YELP_SEARCH}?term=${encodeURIComponent(term)}&latitude=${lat}&longitude=${lng}&limit=5&sort_by=distance`
-  let res: Response
-  try {
-    res = await fetch(url, { headers: { Authorization: `Bearer ${key}` } })
-  } catch (err) {
-    console.warn('[yelp] request failed:', (err as Error).message)
-    return []
+
+  for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+    let res: Response
+    try {
+      res = await fetch(url, { headers: { Authorization: `Bearer ${key}` } })
+    } catch (err) {
+      console.warn('[yelp] request failed:', (err as Error).message)
+      return { status: 'unavailable' }
+    }
+
+    if (res.status === 429) {
+      // Honour Retry-After when present, else exponential-ish backoff, but only
+      // for a bounded number of attempts — a search must not hang on Yelp.
+      if (attempt < MAX_RETRIES) {
+        const retryAfter = Number(res.headers.get('retry-after'))
+        const waitMs = Number.isFinite(retryAfter) && retryAfter > 0 ? retryAfter * 1000 : 300 * (attempt + 1)
+        await sleep(Math.min(waitMs, 1500))
+        continue
+      }
+      console.warn(`[yelp] rate-limited (429) for "${term}" after ${MAX_RETRIES} retries`)
+      return { status: 'rate_limited' }
+    }
+
+    if (!res.ok) {
+      console.warn(`[yelp] ${res.status} for "${term}"`)
+      return { status: 'unavailable' }
+    }
+
+    const json = (await res.json()) as YelpSearchResponse
+    return { status: 'ok', businesses: (json.businesses ?? []).filter((b) => !b.is_closed) }
   }
-  if (!res.ok) {
-    console.warn(`[yelp] ${res.status} for "${term}"`)
-    return []
-  }
-  const json = (await res.json()) as YelpSearchResponse
-  return (json.businesses ?? []).filter((b) => !b.is_closed)
+  // Unreachable, but keeps the type total.
+  return { status: 'rate_limited' }
 }
 
 /**
- * Find the Yelp business that corresponds to a seed venue, and return its
- * reputation and price signal. Returns null when Yelp is disabled, unreachable,
- * or has no confident match — the caller treats a null exactly like an absent
- * key, so there is one code path for "no Yelp signal".
+ * Find the Yelp business that corresponds to a seed venue. Returns a tagged
+ * outcome rather than a bare null so the caller can tell a temporary
+ * rate-limit / outage apart from a genuine no-match.
  */
 export async function enrichWithYelp(venue: {
   name: string
   lat: number
   lng: number
-}): Promise<YelpEnrichment | null> {
-  if (!config.yelp.enabled) return null
+}): Promise<YelpMatch> {
+  if (!config.yelp.enabled) return { status: 'disabled' }
 
-  const businesses = await searchYelp(venue.name, venue.lat, venue.lng)
-  if (businesses.length === 0) return null
+  const outcome = await searchYelp(venue.name, venue.lat, venue.lng)
+  if (outcome.status !== 'ok') return { status: outcome.status }
+  if (outcome.businesses.length === 0) return { status: 'no_match' }
 
   const origin = { lat: venue.lat, lng: venue.lng }
-  let best: { biz: YelpBusiness; dist: number; sim: number } | null = null
+  const scored: Array<{ biz: YelpBusiness; dist: number; sim: number }> = []
 
-  for (const biz of businesses) {
+  for (const biz of outcome.businesses) {
     if (!biz.coordinates) continue
     const dist = haversineMeters(origin, {
       lat: biz.coordinates.latitude,
@@ -141,38 +190,55 @@ export async function enrichWithYelp(venue: {
     })
     const sim = nameSimilarity(venue.name, biz.name)
     const accept = dist <= MAX_MATCH_DISTANCE_M || (sim >= MIN_NAME_SIMILARITY && dist <= NAME_MATCH_DISTANCE_M)
-    if (!accept) continue
-    // Prefer the closest confident match; break ties on name similarity.
-    if (!best || dist < best.dist - 1 || (Math.abs(dist - best.dist) <= 1 && sim > best.sim)) {
-      best = { biz, dist, sim }
+    if (accept) scored.push({ biz, dist, sim })
+  }
+
+  if (scored.length === 0) return { status: 'no_match' }
+
+  // Rank confident candidates: closest first, name similarity as the tiebreak.
+  scored.sort((a, b) => (Math.abs(a.dist - b.dist) <= 1 ? b.sim - a.sim : a.dist - b.dist))
+  const best = scored[0]
+  const runnerUp = scored[1]
+
+  // Ambiguity guard: if a second candidate is essentially as close AND as
+  // name-similar, we cannot honestly say which is the venue. Refuse rather than
+  // attach a coin-flip reputation to the wrong business.
+  if (runnerUp) {
+    const distClose = Math.abs(best.dist - runnerUp.dist) <= AMBIGUITY_DISTANCE_M
+    const simClose = Math.abs(best.sim - runnerUp.sim) <= AMBIGUITY_SIMILARITY
+    if (distClose && simClose) {
+      console.warn(`[yelp] ambiguous match for "${venue.name}" — two near-tied candidates, refusing`)
+      return { status: 'no_match' }
     }
   }
 
-  if (!best) return null
-
   const priceLabel = best.biz.price ?? null
   return {
-    yelpId: best.biz.id,
-    rating: best.biz.rating ?? 0,
-    reviewCount: best.biz.review_count ?? 0,
-    priceTier: priceLabel ? priceLabel.length : null,
-    priceLabel,
-    categories: (best.biz.categories ?? []).map((c) => c.title),
-    url: best.biz.url ?? '',
-    matchDistanceMeters: Math.round(best.dist),
+    status: 'matched',
+    enrichment: {
+      yelpId: best.biz.id,
+      rating: best.biz.rating ?? 0,
+      reviewCount: best.biz.review_count ?? 0,
+      priceTier: priceLabel ? priceLabel.length : null,
+      priceLabel,
+      categories: (best.biz.categories ?? []).map((c) => c.title),
+      url: best.biz.url ?? '',
+      matchDistanceMeters: Math.round(best.dist),
+    },
   }
 }
 
 /**
  * Enrich many venues, with a small concurrency cap so a search that survived the
  * commute filter with twenty candidates does not open twenty sockets at once.
- * Yelp's trial rate limits are modest; this keeps us well inside them.
+ * Returns a per-venue outcome for every venue attempted — matched OR not — so
+ * the caller can surface "rate-limited" distinctly from "no confident match".
  */
 export async function enrichVenuesWithYelp(
   venues: Array<{ id: string; name: string; lat: number; lng: number }>,
   concurrency = 5,
-): Promise<Map<string, YelpEnrichment>> {
-  const out = new Map<string, YelpEnrichment>()
+): Promise<Map<string, YelpMatch>> {
+  const out = new Map<string, YelpMatch>()
   if (!config.yelp.enabled || venues.length === 0) return out
 
   let cursor = 0
@@ -180,10 +246,10 @@ export async function enrichVenuesWithYelp(
     while (cursor < venues.length) {
       const v = venues[cursor++]
       try {
-        const enrichment = await enrichWithYelp(v)
-        if (enrichment) out.set(v.id, enrichment)
+        out.set(v.id, await enrichWithYelp(v))
       } catch {
         // A single venue's enrichment failing must never fail the batch.
+        out.set(v.id, { status: 'unavailable' })
       }
     }
   }

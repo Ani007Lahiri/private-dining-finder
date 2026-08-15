@@ -238,7 +238,7 @@ export function resolveStringFact(evidence: Evidence[]): ResolvedFact<string> {
 export const TRUST_COPY: Record<TrustLabel, { label: string; hint: string }> = {
   verified: {
     label: 'Verified',
-    hint: 'Published explicitly by the venue or a structured partner listing. Click to read the source.',
+    hint: 'Verified source: published explicitly by the venue or a structured partner listing. This means we can point at where the figure came from — not that we independently confirmed the number is current. Click to read the source.',
   },
   likely: {
     label: 'Likely',

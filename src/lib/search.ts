@@ -17,6 +17,11 @@ import type { RankedResult, SearchParams, VenueRecord } from './types'
 //   5. Trust filters, which the planner controls and we never apply silently
 // ─────────────────────────────────────────────────────────────────────────────
 
+// Below this share of results carrying a published minimum spend, the price axis
+// is too sparse to have meaningfully shaped the ranking, and the UI says so
+// rather than implying price was a real input.
+const PRICE_COVERAGE_FLOOR = 0.3
+
 export interface SearchOutcome {
   results: RankedResult[]
   /** Everything that survived the radius but failed a hard filter, with the reason. */
@@ -27,6 +32,12 @@ export interface SearchOutcome {
     ranked: number
     commuteCacheHits: number
     commuteMeasured: number
+    /** How many ranked results carry a published minimum spend. */
+    priceKnown: number
+    /** priceKnown / ranked, in [0,1]. */
+    priceCoverage: number
+    /** True only when a budget was set AND coverage clears the floor — i.e. price actually shaped the ranking. */
+    priceScored: boolean
     elapsedMs: number
   }
 }
@@ -51,6 +62,9 @@ export async function runSearch(params: SearchParams, sort: SortMode = 'fit'): P
         ranked: 0,
         commuteCacheHits: 0,
         commuteMeasured: 0,
+        priceKnown: 0,
+        priceCoverage: 0,
+        priceScored: false,
         elapsedMs: Date.now() - started,
       },
     }
@@ -143,6 +157,17 @@ export async function runSearch(params: SearchParams, sort: SortMode = 'fit'): P
 
   const sorted = sortResults(ranked, sort)
 
+  // Price-coverage honesty. The price axis renormalises to nothing for any venue
+  // whose minimum spend is unknown, so a result set where almost no venue
+  // publishes a spend has a price weight that silently contributes ~zero. Rather
+  // than let the planner believe price shaped the ranking, report how many
+  // results actually had a published spend, so the UI can say so.
+  const priceKnown = sorted.filter((r) => r.minSpend.value !== null).length
+  const priceCoverage = sorted.length === 0 ? 0 : priceKnown / sorted.length
+  // The price weight is only meaningfully active when the planner set a budget
+  // AND enough venues have a spend to compare against.
+  const priceScored = params.budgetCents !== null && priceCoverage >= PRICE_COVERAGE_FLOOR
+
   void repo.recordSearch(params, sorted.map((r) => r.record.venue.id)).catch(() => {})
 
   return {
@@ -154,6 +179,9 @@ export async function runSearch(params: SearchParams, sort: SortMode = 'fit'): P
       ranked: sorted.length,
       commuteCacheHits: candidates.length - misses.length,
       commuteMeasured: [...cached.values()].filter((c) => c.method === 'measured').length,
+      priceKnown,
+      priceCoverage,
+      priceScored,
       elapsedMs: Date.now() - started,
     },
   }
@@ -176,8 +204,10 @@ async function attachYelp(results: RankedResult[]): Promise<void> {
       })),
     )
     for (const r of results) {
-      const e = byId.get(r.record.venue.id)
-      if (e) {
+      const m = byId.get(r.record.venue.id)
+      if (!m) continue
+      if (m.status === 'matched') {
+        const e = m.enrichment
         r.yelp = {
           rating: e.rating,
           reviewCount: e.reviewCount,
@@ -186,6 +216,13 @@ async function attachYelp(results: RankedResult[]): Promise<void> {
           url: e.url,
           matchDistanceMeters: e.matchDistanceMeters,
         }
+        r.yelpStatus = 'matched'
+      } else if (m.status === 'disabled') {
+        r.yelpStatus = 'off'
+      } else {
+        // no_match | rate_limited | unavailable — carried through verbatim so the
+        // UI can distinguish "ask again" from "no reputation exists".
+        r.yelpStatus = m.status
       }
     }
   } catch (err) {

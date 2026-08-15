@@ -8,7 +8,7 @@ import { VenueCard } from '@/components/VenueCard'
 import { VenueDetail } from '@/components/VenueDetail'
 import { ComparisonTray } from '@/components/ComparisonTray'
 import { useVenueStream } from '@/components/useVenueStream'
-import { DEFAULT_WEIGHTS } from '@/lib/ranking'
+import { DEFAULT_WEIGHTS, triageBucket, triageSummary, type TriageBucket } from '@/lib/ranking'
 import { bandExplanation } from '@/lib/discovery'
 import { SCENARIOS } from '@/lib/scenarios'
 import { toSearchParams, type SearchRequest } from '@/lib/params'
@@ -51,6 +51,12 @@ export default function Page() {
   const [hoveredId, setHoveredId] = useState<string | null>(null)
   const [pinned, setPinned] = useState<string[]>([])
   const [adapters, setAdapters] = useState<AdapterStatus | null>(null)
+  const [triageFilter, setTriageFilter] = useState<TriageBucket | null>(null)
+  // Mobile layout state. On wide screens both are inert — the search panel and
+  // the map are always visible side by side. Below `md`, the search panel is an
+  // overlay and the results/map share one pane the planner toggles between.
+  const [searchOpen, setSearchOpen] = useState(false)
+  const [mobilePane, setMobilePane] = useState<'list' | 'map'>('list')
   const listRef = useRef<HTMLDivElement | null>(null)
 
   const { state, search, mergePending, markEngaged } = useVenueStream()
@@ -67,6 +73,9 @@ export default function Page() {
       setActiveParams(toSearchParams(req))
       setOpenId(null)
       setPinned([])
+      setTriageFilter(null)
+      setSearchOpen(false)
+      setMobilePane('list')
       search(req)
       listRef.current?.scrollTo({ top: 0 })
     },
@@ -97,18 +106,42 @@ export default function Page() {
   const verifiedCount = results.filter((r) => r.capacity.best?.trust === 'verified').length
   const unknownCount = results.filter((r) => r.capacity.unknown).length
 
+  // "Call these first" triage — orthogonal to the ranking. Groups the same
+  // results by whether they can be shortlisted from data alone or need a call.
+  const triage = useMemo(() => triageSummary(results), [results])
+  const visibleResults = useMemo(
+    () => (triageFilter === null ? results : results.filter((r) => triageBucket(r) === triageFilter)),
+    [results, triageFilter],
+  )
+
+  // Price-coverage honesty. The price axis renormalises to nothing for any venue
+  // with no published spend, so when almost none of the results carry one, price
+  // did not meaningfully shape the ranking — and we say so rather than let the
+  // slider imply otherwise.
+  const priceKnownCount = results.filter((r) => r.minSpend.value !== null).length
+  const priceCoverage = results.length === 0 ? 0 : priceKnownCount / results.length
+  const priceReallyScored = activeParams.budgetCents !== null && priceCoverage >= 0.3
+
   return (
     <main className="flex h-screen flex-col overflow-hidden">
       {/* ── Top bar ────────────────────────────────────────────────────── */}
       <header className="flex shrink-0 items-center justify-between gap-4 border-b border-ink-200 bg-white px-4 py-2.5">
-        <div className="flex items-baseline gap-3">
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setSearchOpen((v) => !v)}
+            className="rounded border border-ink-300 px-2 py-1 text-[11px] font-medium text-ink-700 md:hidden"
+            aria-expanded={searchOpen}
+          >
+            {searchOpen ? 'Close' : 'Search'}
+          </button>
           <h1 className="text-sm font-semibold tracking-tight text-ink-900">Private Dining Finder</h1>
           <span className="hidden text-[11px] text-ink-400 sm:inline">
             Ranked venue search with per-field provenance
           </span>
         </div>
         {adapters && (
-          <div className="flex items-center gap-1.5 text-[10px]">
+          <div className="hidden items-center gap-1.5 text-[10px] sm:flex sm:flex-wrap sm:justify-end">
             <AdapterChip label="data" value={adapters.persistence === 'supabase' ? 'Supabase' : 'seed corpus'} live={adapters.persistence === 'supabase'} />
             <AdapterChip label="discovery" value={adapters.discovery === 'google_places' ? 'Places' : 'seed'} live={adapters.discovery === 'google_places'} />
             <AdapterChip label="commute" value={adapters.commute === 'google_routes' ? 'Routes' : 'estimated'} live={adapters.commute === 'google_routes'} />
@@ -118,9 +151,28 @@ export default function Page() {
         )}
       </header>
 
-      <div className="flex min-h-0 flex-1">
-        {/* ── Search panel ─────────────────────────────────────────────── */}
-        <aside className="scroll-thin w-[340px] shrink-0 overflow-y-auto border-r border-ink-200 bg-ink-50/60 p-4">
+      <div className="relative flex min-h-0 flex-1">
+        {/* ── Search panel ─────────────────────────────────────────────────
+             md+: a static left rail. Below md: an off-canvas overlay toggled from
+             the header, with a scrim, so a phone gets the full width for results. */}
+        {searchOpen && (
+          <button
+            type="button"
+            aria-label="Close search"
+            onClick={() => setSearchOpen(false)}
+            className="absolute inset-0 z-30 bg-ink-900/30 md:hidden"
+          />
+        )}
+        <aside
+          className={clsx(
+            'scroll-thin overflow-y-auto border-r border-ink-200 bg-ink-50/60 p-4',
+            // md+: always-visible fixed-width rail.
+            'md:w-[340px] md:shrink-0 md:translate-x-0',
+            // below md: fixed overlay that slides in when open.
+            'absolute inset-y-0 left-0 z-40 w-[85%] max-w-[340px] transition-transform md:static md:z-auto',
+            searchOpen ? 'translate-x-0 shadow-xl' : '-translate-x-full md:translate-x-0',
+          )}
+        >
           <SearchForm onSearch={runSearch} busy={state.loading} value={request} onChange={setRequest} />
         </aside>
 
@@ -134,7 +186,10 @@ export default function Page() {
                   {results.length === 1 ? '' : 's'} within {activeParams.maxCommuteMinutes} min{' '}
                   {activeParams.mode === 'walking' ? 'walk' : 'drive'}
                   {results.length > 0 && (
-                    <span className="text-ink-500">
+                    <span
+                      className="text-ink-500"
+                      title="“Verified” means the capacity figure came from an authoritative source we can cite (the venue’s own page or a structured partner listing) — not that we re-confirmed the number is current."
+                    >
                       {' '}
                       · {verifiedCount} with verified capacity
                       {unknownCount > 0 && ` · ${unknownCount} needing a call`}
@@ -144,6 +199,55 @@ export default function Page() {
                 <p className="mt-0.5 truncate text-[11px] text-ink-400">
                   {bandExplanation(activeParams.headcount, activeParams.eventStyle)}
                 </p>
+                {results.length > 0 && !priceReallyScored && (
+                  <p className="mt-0.5 text-[11px] text-amber-700">
+                    {activeParams.budgetCents === null
+                      ? 'No budget set — price is not part of this ranking.'
+                      : `Only ${priceKnownCount} of ${results.length} venues publish a minimum spend — price barely shaped this ranking. Treat it as a “call to confirm” field, not a filter.`}
+                  </p>
+                )}
+
+                {/* ── Call these first: triage by whether a venue can be acted on from data ── */}
+                {results.length > 0 && (
+                  <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+                    <span className="text-[11px] text-ink-400">Triage:</span>
+                    <button
+                      type="button"
+                      onClick={() => setTriageFilter((f) => (f === 'ready' ? null : 'ready'))}
+                      title="Capacity is verified and the venue has a phone or email on file — enough to shortlist from data alone."
+                      className={clsx(
+                        'rounded-full border px-2 py-0.5 text-[11px] font-medium transition-colors',
+                        triageFilter === 'ready'
+                          ? 'border-trust-verified bg-trust-verified/10 text-trust-verified'
+                          : 'border-ink-200 text-ink-600 hover:border-trust-verified/50',
+                      )}
+                    >
+                      {triage.ready} bookable from data
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setTriageFilter((f) => (f === 'call' ? null : 'call'))}
+                      title="Capacity is inferred, or there is no verified contact — the honest next step is a phone call to confirm."
+                      className={clsx(
+                        'rounded-full border px-2 py-0.5 text-[11px] font-medium transition-colors',
+                        triageFilter === 'call'
+                          ? 'border-amber-500 bg-amber-50 text-amber-800'
+                          : 'border-ink-200 text-ink-600 hover:border-amber-400',
+                      )}
+                    >
+                      {triage.call} need a call
+                    </button>
+                    {triageFilter !== null && (
+                      <button
+                        type="button"
+                        onClick={() => setTriageFilter(null)}
+                        className="text-[11px] text-ink-400 underline underline-offset-2 hover:text-ink-600"
+                      >
+                        clear
+                      </button>
+                    )}
+                  </div>
+                )}
               </div>
 
               <label className="flex items-center gap-1.5 text-[11px] text-ink-500">
@@ -198,11 +302,35 @@ export default function Page() {
             )}
           </div>
 
+          {/* Mobile-only List / Map switch. Hidden at md+, where both panes show. */}
+          <div className="flex shrink-0 gap-1 border-b border-ink-200 bg-white px-3 py-1.5 md:hidden">
+            {(['list', 'map'] as const).map((pane) => (
+              <button
+                key={pane}
+                type="button"
+                onClick={() => setMobilePane(pane)}
+                className={clsx(
+                  'flex-1 rounded px-2 py-1 text-[11px] font-medium capitalize transition-colors',
+                  mobilePane === pane ? 'bg-ink-900 text-white' : 'bg-ink-100 text-ink-600',
+                )}
+              >
+                {pane === 'list' ? `List (${results.length})` : 'Map'}
+              </button>
+            ))}
+          </div>
+
           <div className="flex min-h-0 flex-1">
             <div
               ref={listRef}
               onScroll={markEngaged}
-              className="scroll-thin w-[440px] shrink-0 space-y-2.5 overflow-y-auto bg-ink-50/40 p-3"
+              className={clsx(
+                'scroll-thin space-y-2.5 overflow-y-auto bg-ink-50/40 p-3',
+                // md+: fixed-width rail alongside the map.
+                'md:block md:w-[440px] md:shrink-0',
+                // below md: full width, shown only when the List pane is active.
+                'w-full',
+                mobilePane === 'list' ? 'block' : 'hidden',
+              )}
               style={{ paddingBottom: pinnedResults.length > 0 ? 200 : undefined }}
             >
               {state.error && (
@@ -227,11 +355,17 @@ export default function Page() {
                   <div key={i} className="h-40 animate-pulse rounded-lg border border-ink-200 bg-white" />
                 ))}
 
-              {results.map((r, i) => (
+              {triageFilter !== null && visibleResults.length === 0 && (
+                <p className="rounded border border-ink-200 bg-white px-3 py-2 text-xs text-ink-500">
+                  No venues in this bucket. <button type="button" onClick={() => setTriageFilter(null)} className="underline underline-offset-2">Show all</button>
+                </p>
+              )}
+
+              {visibleResults.map((r) => (
                 <VenueCard
                   key={r.record.venue.id}
                   result={r}
-                  rank={i + 1}
+                  rank={results.indexOf(r) + 1}
                   params={activeParams}
                   pinned={pinned.includes(r.record.venue.id)}
                   onTogglePin={() => togglePin(r.record.venue.id)}
@@ -245,7 +379,13 @@ export default function Page() {
               ))}
             </div>
 
-            <div className="isolate min-w-0 flex-1">
+            <div
+              className={clsx(
+                'isolate min-w-0 flex-1',
+                // below md: shown only when the Map pane is active.
+                mobilePane === 'map' ? 'block' : 'hidden md:block',
+              )}
+            >
               <MapPanel
                 results={results}
                 params={activeParams}

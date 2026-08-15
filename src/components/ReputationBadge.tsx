@@ -46,3 +46,31 @@ export function ReputationBadge({ yelp, compact = false }: { yelp: YelpReputatio
     </div>
   )
 }
+
+/**
+ * The honest rendering of "no Yelp rating shown" — but only for the states worth
+ * telling the planner about. A rate-limit is temporary and retryable; saying so
+ * is very different from implying the venue has no reputation. 'no_match',
+ * 'unavailable', and 'off' are deliberately silent: a missing match is not a
+ * signal, and a disabled adapter is not news.
+ */
+export function ReputationStatus({
+  status,
+  compact = false,
+}: {
+  status: 'matched' | 'no_match' | 'rate_limited' | 'unavailable' | 'off'
+  compact?: boolean
+}) {
+  if (status !== 'rate_limited') return null
+  return (
+    <span
+      className={clsx('inline-flex items-center gap-1 text-ink-400', compact ? 'text-[11px]' : 'text-xs')}
+      title="Yelp rate-limited this lookup — the reputation is temporarily unavailable, not absent. Re-run the search in a moment."
+    >
+      <span aria-hidden className="text-[#e8a13a]">
+        ★
+      </span>
+      Yelp rating rate-limited — try again shortly
+    </span>
+  )
+}

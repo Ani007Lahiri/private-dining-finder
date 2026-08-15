@@ -10,7 +10,8 @@
     "typecheck": "tsc --noEmit",
     "seed:push": "tsx scripts/push-seed.ts",
     "eval:golden": "tsx scripts/eval-golden.ts",
-    "audit:seed": "tsx scripts/audit-seed.ts"
+    "audit:seed": "tsx scripts/audit-seed.ts",
+    "test": "tsx --test src/lib/__tests__/*.test.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.112.3",

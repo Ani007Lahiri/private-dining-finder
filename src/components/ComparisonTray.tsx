@@ -5,7 +5,7 @@ import clsx from 'clsx'
 import type { RankedResult, SearchParams } from '@/lib/types'
 import { TrustBadge } from './TrustBadge'
 import { minutes, money, pct } from '@/lib/format'
-import { buildShortlistText } from '@/lib/outreach'
+import { buildShortlistText, buildShortlistHtml } from '@/lib/outreach'
 
 /**
  * Comparison tray.
@@ -48,6 +48,20 @@ export function ComparisonTray({
 
           <div className="flex items-center gap-2">
             <button
+              onClick={() => {
+                // Client-facing document: open the printable shortlist in a new
+                // tab via a blob URL — no server route, survives Save-as-PDF.
+                const html = buildShortlistHtml(results, params)
+                const url = URL.createObjectURL(new Blob([html], { type: 'text/html' }))
+                window.open(url, '_blank', 'noopener,noreferrer')
+                // Revoke after the tab has had time to load the document.
+                setTimeout(() => URL.revokeObjectURL(url), 60_000)
+              }}
+              className="rounded-md border border-ink-900 bg-ink-900 px-2.5 py-1 text-xs font-medium text-white hover:bg-ink-700"
+            >
+              Client shortlist (PDF)
+            </button>
+            <button
               onClick={async () => {
                 await navigator.clipboard.writeText(buildShortlistText(results, params))
                 setCopied(true)
@@ -55,7 +69,7 @@ export function ComparisonTray({
               }}
               className="rounded-md border border-ink-200 px-2.5 py-1 text-xs font-medium text-ink-700 hover:bg-ink-50"
             >
-              {copied ? 'Copied shortlist' : 'Copy shortlist'}
+              {copied ? 'Copied' : 'Copy text'}
             </button>
             <button onClick={onClear} className="text-xs text-ink-400 hover:text-ink-700">
               Clear

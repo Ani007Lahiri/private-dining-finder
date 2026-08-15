@@ -190,6 +190,7 @@ export function rankVenue(
     components,
     // Filled in by the search orchestrator when the Yelp adapter is enabled.
     yelp: null,
+    yelpStatus: 'off',
   }
 }
 
@@ -224,4 +225,36 @@ export function sortResults(results: RankedResult[], mode: SortMode): RankedResu
     default:
       return out.sort((a, b) => b.score - a.score)
   }
+}
+
+// ── Triage: "call these first" ───────────────────────────────────────────────
+// Orthogonal to the score, and deliberately so. The score answers "which venue
+// fits best"; triage answers "which of these can I act on from data alone, and
+// which force a phone call". A planner's real next action is one or the other, so
+// we surface it as its own axis rather than folding trust into the ranking.
+
+export type TriageBucket = 'ready' | 'call'
+
+/**
+ * A result is "ready" when the two facts a planner must have to shortlist it with
+ * confidence — that it physically fits, and how to reach the venue — are both
+ * verified. Everything else is "call": the capacity is inferred, or there is no
+ * verified contact path, so the honest next step is to pick up the phone.
+ */
+export function triageBucket(r: RankedResult): TriageBucket {
+  const capacityVerified = r.capacity.best?.trust === 'verified'
+  const hasContact = r.phone.value !== null || r.email.value !== null
+  return capacityVerified && hasContact ? 'ready' : 'call'
+}
+
+export interface TriageSummary {
+  ready: number
+  call: number
+  total: number
+}
+
+export function triageSummary(results: RankedResult[]): TriageSummary {
+  let ready = 0
+  for (const r of results) if (triageBucket(r) === 'ready') ready += 1
+  return { ready, call: results.length - ready, total: results.length }
 }

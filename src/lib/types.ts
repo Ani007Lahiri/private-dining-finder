@@ -229,6 +229,14 @@ export interface RankedResult {
    * for the same reason confidence is not: it would optimise for web presence.
    */
   yelp: YelpReputation | null
+  /**
+   * Why `yelp` is null when it is: 'matched' pairs with a non-null `yelp`;
+   * 'rate_limited' means Yelp throttled us (temporary — retryable); 'no_match'
+   * means no confident match exists (stable); 'unavailable' is an outage; 'off'
+   * means the adapter is disabled. The UI shows rate-limited distinctly from
+   * no-match so a planner isn't told "no reputation" when the truth is "ask again".
+   */
+  yelpStatus: 'matched' | 'no_match' | 'rate_limited' | 'unavailable' | 'off'
 }
 
 /** Reputation fields lifted from Yelp. Mirrors adapters/yelp.ts YelpEnrichment. */

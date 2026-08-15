@@ -50,3 +50,36 @@ export function hostOf(url: string): string {
 export function pct(value: number): string {
   return `${Math.round(value * 100)}%`
 }
+
+/**
+ * A compact, human one-liner explaining a result's rank, condensed from the same
+ * ScoreComponent values the drawer breakdown renders in full. The card shows this
+ * so a planner sees the reasoning without opening the drawer; the drawer keeps the
+ * per-axis meters. Kept to the axes that carry signal — a dropped (null) term is
+ * summarised as "not scored" rather than silently omitted, so the planner can tell
+ * a missing price from a bad one.
+ */
+export function rankRationale(
+  components: Array<{ key: 'capacity' | 'commute' | 'price'; score: number | null }>,
+  mode: CommuteMode,
+): string {
+  const parts: string[] = []
+  for (const c of components) {
+    if (c.key === 'capacity') {
+      if (c.score === null) parts.push('capacity needs a call')
+      else if (c.score >= 0.85) parts.push('strong capacity fit')
+      else if (c.score >= 0.55) parts.push('workable capacity fit')
+      else parts.push('tight capacity fit')
+    } else if (c.key === 'commute') {
+      if (c.score === null) parts.push('commute unknown')
+      else if (c.score >= 0.66) parts.push(`well within ${mode === 'walking' ? 'walk' : 'drive'} limit`)
+      else if (c.score >= 0.33) parts.push(`inside ${mode === 'walking' ? 'walk' : 'drive'} limit`)
+      else parts.push(`near ${mode === 'walking' ? 'walk' : 'drive'} limit`)
+    } else if (c.key === 'price') {
+      if (c.score === null) parts.push('price not scored')
+      else if (c.score >= 0.85) parts.push('within budget')
+      else parts.push('over budget')
+    }
+  }
+  return parts.join(' · ')
+}

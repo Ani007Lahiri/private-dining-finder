@@ -1,0 +1,1257 @@
+diff --git a/package.json b/package.json
+index 56b7026..f0684bf 100644
+--- a/package.json
++++ b/package.json
+@@ -10,7 +10,8 @@
+     "typecheck": "tsc --noEmit",
+     "seed:push": "tsx scripts/push-seed.ts",
+     "eval:golden": "tsx scripts/eval-golden.ts",
+-    "audit:seed": "tsx scripts/audit-seed.ts"
++    "audit:seed": "tsx scripts/audit-seed.ts",
++    "test": "tsx --test src/lib/__tests__/*.test.ts"
+   },
+   "dependencies": {
+     "@supabase/supabase-js": "^2.112.3",
+diff --git a/src/app/page.tsx b/src/app/page.tsx
+index 4b4cfcd..1e15860 100644
+--- a/src/app/page.tsx
++++ b/src/app/page.tsx
+@@ -8,7 +8,7 @@ import { VenueCard } from '@/components/VenueCard'
+ import { VenueDetail } from '@/components/VenueDetail'
+ import { ComparisonTray } from '@/components/ComparisonTray'
+ import { useVenueStream } from '@/components/useVenueStream'
+-import { DEFAULT_WEIGHTS } from '@/lib/ranking'
++import { DEFAULT_WEIGHTS, triageBucket, triageSummary, type TriageBucket } from '@/lib/ranking'
+ import { bandExplanation } from '@/lib/discovery'
+ import { SCENARIOS } from '@/lib/scenarios'
+ import { toSearchParams, type SearchRequest } from '@/lib/params'
+@@ -51,6 +51,12 @@ export default function Page() {
+   const [hoveredId, setHoveredId] = useState<string | null>(null)
+   const [pinned, setPinned] = useState<string[]>([])
+   const [adapters, setAdapters] = useState<AdapterStatus | null>(null)
++  const [triageFilter, setTriageFilter] = useState<TriageBucket | null>(null)
++  // Mobile layout state. On wide screens both are inert — the search panel and
++  // the map are always visible side by side. Below `md`, the search panel is an
++  // overlay and the results/map share one pane the planner toggles between.
++  const [searchOpen, setSearchOpen] = useState(false)
++  const [mobilePane, setMobilePane] = useState<'list' | 'map'>('list')
+   const listRef = useRef<HTMLDivElement | null>(null)
+ 
+   const { state, search, mergePending, markEngaged } = useVenueStream()
+@@ -67,6 +73,9 @@ export default function Page() {
+       setActiveParams(toSearchParams(req))
+       setOpenId(null)
+       setPinned([])
++      setTriageFilter(null)
++      setSearchOpen(false)
++      setMobilePane('list')
+       search(req)
+       listRef.current?.scrollTo({ top: 0 })
+     },
+@@ -97,18 +106,42 @@ export default function Page() {
+   const verifiedCount = results.filter((r) => r.capacity.best?.trust === 'verified').length
+   const unknownCount = results.filter((r) => r.capacity.unknown).length
+ 
++  // "Call these first" triage — orthogonal to the ranking. Groups the same
++  // results by whether they can be shortlisted from data alone or need a call.
++  const triage = useMemo(() => triageSummary(results), [results])
++  const visibleResults = useMemo(
++    () => (triageFilter === null ? results : results.filter((r) => triageBucket(r) === triageFilter)),
++    [results, triageFilter],
++  )
++
++  // Price-coverage honesty. The price axis renormalises to nothing for any venue
++  // with no published spend, so when almost none of the results carry one, price
++  // did not meaningfully shape the ranking — and we say so rather than let the
++  // slider imply otherwise.
++  const priceKnownCount = results.filter((r) => r.minSpend.value !== null).length
++  const priceCoverage = results.length === 0 ? 0 : priceKnownCount / results.length
++  const priceReallyScored = activeParams.budgetCents !== null && priceCoverage >= 0.3
++
+   return (
+     <main className="flex h-screen flex-col overflow-hidden">
+       {/* ── Top bar ────────────────────────────────────────────────────── */}
+       <header className="flex shrink-0 items-center justify-between gap-4 border-b border-ink-200 bg-white px-4 py-2.5">
+-        <div className="flex items-baseline gap-3">
++        <div className="flex items-center gap-2">
++          <button
++            type="button"
++            onClick={() => setSearchOpen((v) => !v)}
++            className="rounded border border-ink-300 px-2 py-1 text-[11px] font-medium text-ink-700 md:hidden"
++            aria-expanded={searchOpen}
++          >
++            {searchOpen ? 'Close' : 'Search'}
++          </button>
+           <h1 className="text-sm font-semibold tracking-tight text-ink-900">Private Dining Finder</h1>
+           <span className="hidden text-[11px] text-ink-400 sm:inline">
+             Ranked venue search with per-field provenance
+           </span>
+         </div>
+         {adapters && (
+-          <div className="flex items-center gap-1.5 text-[10px]">
++          <div className="hidden items-center gap-1.5 text-[10px] sm:flex sm:flex-wrap sm:justify-end">
+             <AdapterChip label="data" value={adapters.persistence === 'supabase' ? 'Supabase' : 'seed corpus'} live={adapters.persistence === 'supabase'} />
+             <AdapterChip label="discovery" value={adapters.discovery === 'google_places' ? 'Places' : 'seed'} live={adapters.discovery === 'google_places'} />
+             <AdapterChip label="commute" value={adapters.commute === 'google_routes' ? 'Routes' : 'estimated'} live={adapters.commute === 'google_routes'} />
+@@ -118,9 +151,28 @@ export default function Page() {
+         )}
+       </header>
+ 
+-      <div className="flex min-h-0 flex-1">
+-        {/* ── Search panel ─────────────────────────────────────────────── */}
+-        <aside className="scroll-thin w-[340px] shrink-0 overflow-y-auto border-r border-ink-200 bg-ink-50/60 p-4">
++      <div className="relative flex min-h-0 flex-1">
++        {/* ── Search panel ─────────────────────────────────────────────────
++             md+: a static left rail. Below md: an off-canvas overlay toggled from
++             the header, with a scrim, so a phone gets the full width for results. */}
++        {searchOpen && (
++          <button
++            type="button"
++            aria-label="Close search"
++            onClick={() => setSearchOpen(false)}
++            className="absolute inset-0 z-30 bg-ink-900/30 md:hidden"
++          />
++        )}
++        <aside
++          className={clsx(
++            'scroll-thin overflow-y-auto border-r border-ink-200 bg-ink-50/60 p-4',
++            // md+: always-visible fixed-width rail.
++            'md:w-[340px] md:shrink-0 md:translate-x-0',
++            // below md: fixed overlay that slides in when open.
++            'absolute inset-y-0 left-0 z-40 w-[85%] max-w-[340px] transition-transform md:static md:z-auto',
++            searchOpen ? 'translate-x-0 shadow-xl' : '-translate-x-full md:translate-x-0',
++          )}
++        >
+           <SearchForm onSearch={runSearch} busy={state.loading} value={request} onChange={setRequest} />
+         </aside>
+ 
+@@ -134,7 +186,10 @@ export default function Page() {
+                   {results.length === 1 ? '' : 's'} within {activeParams.maxCommuteMinutes} min{' '}
+                   {activeParams.mode === 'walking' ? 'walk' : 'drive'}
+                   {results.length > 0 && (
+-                    <span className="text-ink-500">
++                    <span
++                      className="text-ink-500"
++                      title="“Verified” means the capacity figure came from an authoritative source we can cite (the venue’s own page or a structured partner listing) — not that we re-confirmed the number is current."
++                    >
+                       {' '}
+                       · {verifiedCount} with verified capacity
+                       {unknownCount > 0 && ` · ${unknownCount} needing a call`}
+@@ -144,6 +199,55 @@ export default function Page() {
+                 <p className="mt-0.5 truncate text-[11px] text-ink-400">
+                   {bandExplanation(activeParams.headcount, activeParams.eventStyle)}
+                 </p>
++                {results.length > 0 && !priceReallyScored && (
++                  <p className="mt-0.5 text-[11px] text-amber-700">
++                    {activeParams.budgetCents === null
++                      ? 'No budget set — price is not part of this ranking.'
++                      : `Only ${priceKnownCount} of ${results.length} venues publish a minimum spend — price barely shaped this ranking. Treat it as a “call to confirm” field, not a filter.`}
++                  </p>
++                )}
++
++                {/* ── Call these first: triage by whether a venue can be acted on from data ── */}
++                {results.length > 0 && (
++                  <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
++                    <span className="text-[11px] text-ink-400">Triage:</span>
++                    <button
++                      type="button"
++                      onClick={() => setTriageFilter((f) => (f === 'ready' ? null : 'ready'))}
++                      title="Capacity is verified and the venue has a phone or email on file — enough to shortlist from data alone."
++                      className={clsx(
++                        'rounded-full border px-2 py-0.5 text-[11px] font-medium transition-colors',
++                        triageFilter === 'ready'
++                          ? 'border-trust-verified bg-trust-verified/10 text-trust-verified'
++                          : 'border-ink-200 text-ink-600 hover:border-trust-verified/50',
++                      )}
++                    >
++                      {triage.ready} bookable from data
++                    </button>
++                    <button
++                      type="button"
++                      onClick={() => setTriageFilter((f) => (f === 'call' ? null : 'call'))}
++                      title="Capacity is inferred, or there is no verified contact — the honest next step is a phone call to confirm."
++                      className={clsx(
++                        'rounded-full border px-2 py-0.5 text-[11px] font-medium transition-colors',
++                        triageFilter === 'call'
++                          ? 'border-amber-500 bg-amber-50 text-amber-800'
++                          : 'border-ink-200 text-ink-600 hover:border-amber-400',
++                      )}
++                    >
++                      {triage.call} need a call
++                    </button>
++                    {triageFilter !== null && (
++                      <button
++                        type="button"
++                        onClick={() => setTriageFilter(null)}
++                        className="text-[11px] text-ink-400 underline underline-offset-2 hover:text-ink-600"
++                      >
++                        clear
++                      </button>
++                    )}
++                  </div>
++                )}
+               </div>
+ 
+               <label className="flex items-center gap-1.5 text-[11px] text-ink-500">
+@@ -198,11 +302,35 @@ export default function Page() {
+             )}
+           </div>
+ 
++          {/* Mobile-only List / Map switch. Hidden at md+, where both panes show. */}
++          <div className="flex shrink-0 gap-1 border-b border-ink-200 bg-white px-3 py-1.5 md:hidden">
++            {(['list', 'map'] as const).map((pane) => (
++              <button
++                key={pane}
++                type="button"
++                onClick={() => setMobilePane(pane)}
++                className={clsx(
++                  'flex-1 rounded px-2 py-1 text-[11px] font-medium capitalize transition-colors',
++                  mobilePane === pane ? 'bg-ink-900 text-white' : 'bg-ink-100 text-ink-600',
++                )}
++              >
++                {pane === 'list' ? `List (${results.length})` : 'Map'}
++              </button>
++            ))}
++          </div>
++
+           <div className="flex min-h-0 flex-1">
+             <div
+               ref={listRef}
+               onScroll={markEngaged}
+-              className="scroll-thin w-[440px] shrink-0 space-y-2.5 overflow-y-auto bg-ink-50/40 p-3"
++              className={clsx(
++                'scroll-thin space-y-2.5 overflow-y-auto bg-ink-50/40 p-3',
++                // md+: fixed-width rail alongside the map.
++                'md:block md:w-[440px] md:shrink-0',
++                // below md: full width, shown only when the List pane is active.
++                'w-full',
++                mobilePane === 'list' ? 'block' : 'hidden',
++              )}
+               style={{ paddingBottom: pinnedResults.length > 0 ? 200 : undefined }}
+             >
+               {state.error && (
+@@ -227,11 +355,17 @@ export default function Page() {
+                   <div key={i} className="h-40 animate-pulse rounded-lg border border-ink-200 bg-white" />
+                 ))}
+ 
+-              {results.map((r, i) => (
++              {triageFilter !== null && visibleResults.length === 0 && (
++                <p className="rounded border border-ink-200 bg-white px-3 py-2 text-xs text-ink-500">
++                  No venues in this bucket. <button type="button" onClick={() => setTriageFilter(null)} className="underline underline-offset-2">Show all</button>
++                </p>
++              )}
++
++              {visibleResults.map((r) => (
+                 <VenueCard
+                   key={r.record.venue.id}
+                   result={r}
+-                  rank={i + 1}
++                  rank={results.indexOf(r) + 1}
+                   params={activeParams}
+                   pinned={pinned.includes(r.record.venue.id)}
+                   onTogglePin={() => togglePin(r.record.venue.id)}
+@@ -245,7 +379,13 @@ export default function Page() {
+               ))}
+             </div>
+ 
+-            <div className="isolate min-w-0 flex-1">
++            <div
++              className={clsx(
++                'isolate min-w-0 flex-1',
++                // below md: shown only when the Map pane is active.
++                mobilePane === 'map' ? 'block' : 'hidden md:block',
++              )}
++            >
+               <MapPanel
+                 results={results}
+                 params={activeParams}
+diff --git a/src/components/ComparisonTray.tsx b/src/components/ComparisonTray.tsx
+index 34c1013..41d6231 100644
+--- a/src/components/ComparisonTray.tsx
++++ b/src/components/ComparisonTray.tsx
+@@ -5,7 +5,7 @@ import clsx from 'clsx'
+ import type { RankedResult, SearchParams } from '@/lib/types'
+ import { TrustBadge } from './TrustBadge'
+ import { minutes, money, pct } from '@/lib/format'
+-import { buildShortlistText } from '@/lib/outreach'
++import { buildShortlistText, buildShortlistHtml } from '@/lib/outreach'
+ 
+ /**
+  * Comparison tray.
+@@ -47,6 +47,20 @@ export function ComparisonTray({
+           </button>
+ 
+           <div className="flex items-center gap-2">
++            <button
++              onClick={() => {
++                // Client-facing document: open the printable shortlist in a new
++                // tab via a blob URL — no server route, survives Save-as-PDF.
++                const html = buildShortlistHtml(results, params)
++                const url = URL.createObjectURL(new Blob([html], { type: 'text/html' }))
++                window.open(url, '_blank', 'noopener,noreferrer')
++                // Revoke after the tab has had time to load the document.
++                setTimeout(() => URL.revokeObjectURL(url), 60_000)
++              }}
++              className="rounded-md border border-ink-900 bg-ink-900 px-2.5 py-1 text-xs font-medium text-white hover:bg-ink-700"
++            >
++              Client shortlist (PDF)
++            </button>
+             <button
+               onClick={async () => {
+                 await navigator.clipboard.writeText(buildShortlistText(results, params))
+@@ -55,7 +69,7 @@ export function ComparisonTray({
+               }}
+               className="rounded-md border border-ink-200 px-2.5 py-1 text-xs font-medium text-ink-700 hover:bg-ink-50"
+             >
+-              {copied ? 'Copied shortlist' : 'Copy shortlist'}
++              {copied ? 'Copied' : 'Copy text'}
+             </button>
+             <button onClick={onClear} className="text-xs text-ink-400 hover:text-ink-700">
+               Clear
+diff --git a/src/components/ReputationBadge.tsx b/src/components/ReputationBadge.tsx
+index ff2d772..0fb004d 100644
+--- a/src/components/ReputationBadge.tsx
++++ b/src/components/ReputationBadge.tsx
+@@ -46,3 +46,31 @@ export function ReputationBadge({ yelp, compact = false }: { yelp: YelpReputatio
+     </div>
+   )
+ }
++
++/**
++ * The honest rendering of "no Yelp rating shown" — but only for the states worth
++ * telling the planner about. A rate-limit is temporary and retryable; saying so
++ * is very different from implying the venue has no reputation. 'no_match',
++ * 'unavailable', and 'off' are deliberately silent: a missing match is not a
++ * signal, and a disabled adapter is not news.
++ */
++export function ReputationStatus({
++  status,
++  compact = false,
++}: {
++  status: 'matched' | 'no_match' | 'rate_limited' | 'unavailable' | 'off'
++  compact?: boolean
++}) {
++  if (status !== 'rate_limited') return null
++  return (
++    <span
++      className={clsx('inline-flex items-center gap-1 text-ink-400', compact ? 'text-[11px]' : 'text-xs')}
++      title="Yelp rate-limited this lookup — the reputation is temporarily unavailable, not absent. Re-run the search in a moment."
++    >
++      <span aria-hidden className="text-[#e8a13a]">
++        ★
++      </span>
++      Yelp rating rate-limited — try again shortly
++    </span>
++  )
++}
+diff --git a/src/components/VenueCard.tsx b/src/components/VenueCard.tsx
+index f1a5ad7..01f2741 100644
+--- a/src/components/VenueCard.tsx
++++ b/src/components/VenueCard.tsx
+@@ -3,8 +3,9 @@
+ import clsx from 'clsx'
+ import type { RankedResult, SearchParams } from '@/lib/types'
+ import { TrustBadge } from './TrustBadge'
+-import { ReputationBadge } from './ReputationBadge'
+-import { minutes, miles, money, modeVerb, pct } from '@/lib/format'
++import { ReputationBadge, ReputationStatus } from './ReputationBadge'
++import { triageBucket } from '@/lib/ranking'
++import { minutes, miles, money, modeVerb, pct, rankRationale } from '@/lib/format'
+ 
+ export function VenueCard({
+   result,
+@@ -84,6 +85,42 @@ export function VenueCard({
+         </div>
+       </div>
+ 
++      {/* ── One per-venue readiness rollup — the single trust signal the eye lands on.
++             Per-field trust badges stay below (each attached to its own fact), and the
++             full evidence trail lives in the drawer. This just says, at a glance, whether
++             the venue can be shortlisted from data or wants a phone call. ── */}
++      {(() => {
++        const ready = triageBucket(result) === 'ready'
++        return (
++          <div className="mt-2">
++            <span
++              title={
++                ready
++                  ? 'Capacity is verified and the venue has contact details — enough to shortlist from data. Open the venue for the full evidence trail.'
++                  : 'At least one fact a planner acts on (capacity or contact) is inferred or missing — confirm by phone. Open the venue to see which fields.'
++              }
++              className={clsx(
++                'inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[11px] font-medium',
++                ready
++                  ? 'border-trust-verified/45 bg-emerald-50 text-emerald-900'
++                  : 'border-trust-likely/60 bg-amber-50 text-amber-900',
++              )}
++            >
++              <span aria-hidden className={ready ? 'text-trust-verified' : 'text-[#b07d00]'}>
++                {ready ? '●' : '◐'}
++              </span>
++              {ready ? 'Ready to shortlist from data' : 'Needs a call to confirm'}
++            </span>
++          </div>
++        )
++      })()}
++
++      {/* ── Why this ranked here — one line, condensed from the score components ─ */}
++      <p className="mt-2 text-[11px] leading-snug text-ink-500">
++        <span className="font-medium text-ink-600">#{rank} because:</span>{' '}
++        {rankRationale(result.components, params.mode)}
++      </p>
++
+       {/* ── The three facts a planner scans for ─────────────────────────── */}
+       <dl className="mt-3 grid grid-cols-3 gap-2 border-t border-ink-100 pt-2.5">
+         <div>
+@@ -123,8 +160,12 @@ export function VenueCard({
+               <>
+                 <span className="tabular block text-sm font-semibold text-ink-900">
+                   {minutes(result.commute.durationSeconds)}
++                  <span className="ml-1 text-[10px] font-normal text-ink-400">
++                    {result.commute.method === 'measured' ? 'measured' : 'est.'}
++                  </span>
+                 </span>
+                 <span className="tabular mt-0.5 block text-[11px] text-ink-600">
++                  {result.commute.method === 'measured' ? '' : '≈ '}
+                   {miles(result.commute.distanceMeters)}
+                 </span>
+                 <TrustBadge
+@@ -182,11 +223,15 @@ export function VenueCard({
+         </p>
+       )}
+ 
+-      {result.yelp && (
++      {result.yelp ? (
+         <div className="mt-2 border-t border-ink-100 pt-2">
+           <ReputationBadge yelp={result.yelp} compact />
+         </div>
+-      )}
++      ) : result.yelpStatus === 'rate_limited' ? (
++        <div className="mt-2 border-t border-ink-100 pt-2">
++          <ReputationStatus status={result.yelpStatus} compact />
++        </div>
++      ) : null}
+ 
+       <div className="mt-2.5 flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-ink-100 pt-2 text-[11px]">
+         {(result.phone.value ?? venue.phone) && (
+diff --git a/src/lib/adapters/yelp.ts b/src/lib/adapters/yelp.ts
+index 015c5ca..df1fa36 100644
+--- a/src/lib/adapters/yelp.ts
++++ b/src/lib/adapters/yelp.ts
+@@ -93,47 +93,96 @@ const YELP_SEARCH = 'https://api.yelp.com/v3/businesses/search'
+ const MAX_MATCH_DISTANCE_M = 120
+ const MIN_NAME_SIMILARITY = 0.5
+ const NAME_MATCH_DISTANCE_M = 400
++// When the top two candidates are almost equally good, a "match" is a coin flip
++// — exactly the failure that once tied a venue to a same-named hookah bar down
++// the block. If neither distance nor name breaks the tie, we refuse to match and
++// report no confident result rather than guess and mislabel it "likely".
++const AMBIGUITY_DISTANCE_M = 40
++const AMBIGUITY_SIMILARITY = 0.15
++// 429 backoff: two short retries honouring Retry-After, then give up and report
++// the venue as rate-limited (distinct from "no match") so the UI can say so.
++const MAX_RETRIES = 2
+ 
+-async function searchYelp(term: string, lat: number, lng: number): Promise<YelpBusiness[]> {
++/**
++ * The outcome of trying to reach Yelp for one venue. Distinguishing these is the
++ * whole point of the hardening: a rate-limited venue is a *temporary* gap the
++ * planner can retry, while a no-match is a *stable* fact about that venue. They
++ * must not both collapse to "no reputation".
++ */
++export type YelpStatus = 'matched' | 'no_match' | 'rate_limited' | 'unavailable' | 'disabled'
++
++export type YelpMatch =
++  | { status: 'matched'; enrichment: YelpEnrichment }
++  | { status: 'no_match' | 'rate_limited' | 'unavailable' | 'disabled' }
++
++type FetchOutcome =
++  | { status: 'ok'; businesses: YelpBusiness[] }
++  | { status: 'rate_limited' }
++  | { status: 'unavailable' }
++  | { status: 'disabled' }
++
++const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))
++
++async function searchYelp(term: string, lat: number, lng: number): Promise<FetchOutcome> {
+   const key = config.yelp.apiKey
+-  if (!key) return []
++  if (!key) return { status: 'disabled' }
+ 
+   const url = `${YELP_SEARCH}?term=${encodeURIComponent(term)}&latitude=${lat}&longitude=${lng}&limit=5&sort_by=distance`
+-  let res: Response
+-  try {
+-    res = await fetch(url, { headers: { Authorization: `Bearer ${key}` } })
+-  } catch (err) {
+-    console.warn('[yelp] request failed:', (err as Error).message)
+-    return []
+-  }
+-  if (!res.ok) {
+-    console.warn(`[yelp] ${res.status} for "${term}"`)
+-    return []
++
++  for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
++    let res: Response
++    try {
++      res = await fetch(url, { headers: { Authorization: `Bearer ${key}` } })
++    } catch (err) {
++      console.warn('[yelp] request failed:', (err as Error).message)
++      return { status: 'unavailable' }
++    }
++
++    if (res.status === 429) {
++      // Honour Retry-After when present, else exponential-ish backoff, but only
++      // for a bounded number of attempts — a search must not hang on Yelp.
++      if (attempt < MAX_RETRIES) {
++        const retryAfter = Number(res.headers.get('retry-after'))
++        const waitMs = Number.isFinite(retryAfter) && retryAfter > 0 ? retryAfter * 1000 : 300 * (attempt + 1)
++        await sleep(Math.min(waitMs, 1500))
++        continue
++      }
++      console.warn(`[yelp] rate-limited (429) for "${term}" after ${MAX_RETRIES} retries`)
++      return { status: 'rate_limited' }
++    }
++
++    if (!res.ok) {
++      console.warn(`[yelp] ${res.status} for "${term}"`)
++      return { status: 'unavailable' }
++    }
++
++    const json = (await res.json()) as YelpSearchResponse
++    return { status: 'ok', businesses: (json.businesses ?? []).filter((b) => !b.is_closed) }
+   }
+-  const json = (await res.json()) as YelpSearchResponse
+-  return (json.businesses ?? []).filter((b) => !b.is_closed)
++  // Unreachable, but keeps the type total.
++  return { status: 'rate_limited' }
+ }
+ 
+ /**
+- * Find the Yelp business that corresponds to a seed venue, and return its
+- * reputation and price signal. Returns null when Yelp is disabled, unreachable,
+- * or has no confident match — the caller treats a null exactly like an absent
+- * key, so there is one code path for "no Yelp signal".
++ * Find the Yelp business that corresponds to a seed venue. Returns a tagged
++ * outcome rather than a bare null so the caller can tell a temporary
++ * rate-limit / outage apart from a genuine no-match.
+  */
+ export async function enrichWithYelp(venue: {
+   name: string
+   lat: number
+   lng: number
+-}): Promise<YelpEnrichment | null> {
+-  if (!config.yelp.enabled) return null
++}): Promise<YelpMatch> {
++  if (!config.yelp.enabled) return { status: 'disabled' }
+ 
+-  const businesses = await searchYelp(venue.name, venue.lat, venue.lng)
+-  if (businesses.length === 0) return null
++  const outcome = await searchYelp(venue.name, venue.lat, venue.lng)
++  if (outcome.status !== 'ok') return { status: outcome.status }
++  if (outcome.businesses.length === 0) return { status: 'no_match' }
+ 
+   const origin = { lat: venue.lat, lng: venue.lng }
+-  let best: { biz: YelpBusiness; dist: number; sim: number } | null = null
++  const scored: Array<{ biz: YelpBusiness; dist: number; sim: number }> = []
+ 
+-  for (const biz of businesses) {
++  for (const biz of outcome.businesses) {
+     if (!biz.coordinates) continue
+     const dist = haversineMeters(origin, {
+       lat: biz.coordinates.latitude,
+@@ -141,38 +190,55 @@ export async function enrichWithYelp(venue: {
+     })
+     const sim = nameSimilarity(venue.name, biz.name)
+     const accept = dist <= MAX_MATCH_DISTANCE_M || (sim >= MIN_NAME_SIMILARITY && dist <= NAME_MATCH_DISTANCE_M)
+-    if (!accept) continue
+-    // Prefer the closest confident match; break ties on name similarity.
+-    if (!best || dist < best.dist - 1 || (Math.abs(dist - best.dist) <= 1 && sim > best.sim)) {
+-      best = { biz, dist, sim }
+-    }
++    if (accept) scored.push({ biz, dist, sim })
+   }
+ 
+-  if (!best) return null
++  if (scored.length === 0) return { status: 'no_match' }
++
++  // Rank confident candidates: closest first, name similarity as the tiebreak.
++  scored.sort((a, b) => (Math.abs(a.dist - b.dist) <= 1 ? b.sim - a.sim : a.dist - b.dist))
++  const best = scored[0]
++  const runnerUp = scored[1]
++
++  // Ambiguity guard: if a second candidate is essentially as close AND as
++  // name-similar, we cannot honestly say which is the venue. Refuse rather than
++  // attach a coin-flip reputation to the wrong business.
++  if (runnerUp) {
++    const distClose = Math.abs(best.dist - runnerUp.dist) <= AMBIGUITY_DISTANCE_M
++    const simClose = Math.abs(best.sim - runnerUp.sim) <= AMBIGUITY_SIMILARITY
++    if (distClose && simClose) {
++      console.warn(`[yelp] ambiguous match for "${venue.name}" — two near-tied candidates, refusing`)
++      return { status: 'no_match' }
++    }
++  }
+ 
+   const priceLabel = best.biz.price ?? null
+   return {
+-    yelpId: best.biz.id,
+-    rating: best.biz.rating ?? 0,
+-    reviewCount: best.biz.review_count ?? 0,
+-    priceTier: priceLabel ? priceLabel.length : null,
+-    priceLabel,
+-    categories: (best.biz.categories ?? []).map((c) => c.title),
+-    url: best.biz.url ?? '',
+-    matchDistanceMeters: Math.round(best.dist),
++    status: 'matched',
++    enrichment: {
++      yelpId: best.biz.id,
++      rating: best.biz.rating ?? 0,
++      reviewCount: best.biz.review_count ?? 0,
++      priceTier: priceLabel ? priceLabel.length : null,
++      priceLabel,
++      categories: (best.biz.categories ?? []).map((c) => c.title),
++      url: best.biz.url ?? '',
++      matchDistanceMeters: Math.round(best.dist),
++    },
+   }
+ }
+ 
+ /**
+  * Enrich many venues, with a small concurrency cap so a search that survived the
+  * commute filter with twenty candidates does not open twenty sockets at once.
+- * Yelp's trial rate limits are modest; this keeps us well inside them.
++ * Returns a per-venue outcome for every venue attempted — matched OR not — so
++ * the caller can surface "rate-limited" distinctly from "no confident match".
+  */
+ export async function enrichVenuesWithYelp(
+   venues: Array<{ id: string; name: string; lat: number; lng: number }>,
+   concurrency = 5,
+-): Promise<Map<string, YelpEnrichment>> {
+-  const out = new Map<string, YelpEnrichment>()
++): Promise<Map<string, YelpMatch>> {
++  const out = new Map<string, YelpMatch>()
+   if (!config.yelp.enabled || venues.length === 0) return out
+ 
+   let cursor = 0
+@@ -180,10 +246,10 @@ export async function enrichVenuesWithYelp(
+     while (cursor < venues.length) {
+       const v = venues[cursor++]
+       try {
+-        const enrichment = await enrichWithYelp(v)
+-        if (enrichment) out.set(v.id, enrichment)
++        out.set(v.id, await enrichWithYelp(v))
+       } catch {
+         // A single venue's enrichment failing must never fail the batch.
++        out.set(v.id, { status: 'unavailable' })
+       }
+     }
+   }
+diff --git a/src/lib/format.ts b/src/lib/format.ts
+index 923134f..5967c23 100644
+--- a/src/lib/format.ts
++++ b/src/lib/format.ts
+@@ -50,3 +50,36 @@ export function hostOf(url: string): string {
+ export function pct(value: number): string {
+   return `${Math.round(value * 100)}%`
+ }
++
++/**
++ * A compact, human one-liner explaining a result's rank, condensed from the same
++ * ScoreComponent values the drawer breakdown renders in full. The card shows this
++ * so a planner sees the reasoning without opening the drawer; the drawer keeps the
++ * per-axis meters. Kept to the axes that carry signal — a dropped (null) term is
++ * summarised as "not scored" rather than silently omitted, so the planner can tell
++ * a missing price from a bad one.
++ */
++export function rankRationale(
++  components: Array<{ key: 'capacity' | 'commute' | 'price'; score: number | null }>,
++  mode: CommuteMode,
++): string {
++  const parts: string[] = []
++  for (const c of components) {
++    if (c.key === 'capacity') {
++      if (c.score === null) parts.push('capacity needs a call')
++      else if (c.score >= 0.85) parts.push('strong capacity fit')
++      else if (c.score >= 0.55) parts.push('workable capacity fit')
++      else parts.push('tight capacity fit')
++    } else if (c.key === 'commute') {
++      if (c.score === null) parts.push('commute unknown')
++      else if (c.score >= 0.66) parts.push(`well within ${mode === 'walking' ? 'walk' : 'drive'} limit`)
++      else if (c.score >= 0.33) parts.push(`inside ${mode === 'walking' ? 'walk' : 'drive'} limit`)
++      else parts.push(`near ${mode === 'walking' ? 'walk' : 'drive'} limit`)
++    } else if (c.key === 'price') {
++      if (c.score === null) parts.push('price not scored')
++      else if (c.score >= 0.85) parts.push('within budget')
++      else parts.push('over budget')
++    }
++  }
++  return parts.join(' · ')
++}
+diff --git a/src/lib/outreach.ts b/src/lib/outreach.ts
+index 46e3510..091891e 100644
+--- a/src/lib/outreach.ts
++++ b/src/lib/outreach.ts
+@@ -150,6 +150,97 @@ export function buildShortlistText(results: RankedResult[], params: SearchParams
+   return lines.join('\n')
+ }
+ 
++// ─────────────────────────────────────────────────────────────────────────────
++// Client-facing shortlist document.
++//
++// The clipboard export above is for the planner's own inbox. This is the version
++// a planner hands to the client: a clean, printable HTML page (print → Save as
++// PDF) with no app chrome, no weight sliders, no scores — just the venues, the
++// facts, and the trust caveats made plain. It is deliberately self-contained
++// (inline styles, no scripts) so it survives being saved, emailed, or printed.
++// ─────────────────────────────────────────────────────────────────────────────
++
++function esc(s: string): string {
++  return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c] as string)
++}
++
++const TRUST_WORD: Record<string, string> = {
++  verified: 'Verified — published by the venue',
++  likely: 'Likely — secondary source or inferred, confirm by phone',
++  unverified: 'Needs a call — not published anywhere we could read',
++}
++
++function trustPill(trust: string): string {
++  const color =
++    trust === 'verified' ? '#0ca30c' : trust === 'likely' ? '#b07d00' : '#d03b3b'
++  const glyph = trust === 'verified' ? '●' : trust === 'likely' ? '◐' : '○'
++  return `<span style="color:${color};font-weight:600;white-space:nowrap">${glyph} ${esc(TRUST_WORD[trust] ?? trust)}</span>`
++}
++
++export function buildShortlistHtml(results: RankedResult[], params: SearchParams): string {
++  const generated = new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })
++  const rows = results
++    .map((r, i) => {
++      const { venue } = r.record
++      const config = r.capacity.best
++      const commute = r.commute
++        ? `${minutes(r.commute.durationSeconds)} ${params.mode}${r.commute.method === 'estimated' ? ' (estimated)' : ' (measured)'}`
++        : 'not available'
++      const spend =
++        r.minSpend.value !== null
++          ? `${money(r.minSpend.value)} ${spendPeriod(
++              r.record.spaces.find((s) => s.minSpendPeriod)?.minSpendPeriod ?? null,
++            )}`
++          : 'not published'
++      const contact = [r.phone.value ?? venue.phone, r.email.value ?? venue.email]
++        .filter((x): x is string => Boolean(x))
++        .map(esc)
++        .join(' · ')
++      return `
++      <section style="break-inside:avoid;margin:0 0 22px;padding:16px 18px;border:1px solid #e1e0d9;border-radius:10px">
++        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px">
++          <h2 style="margin:0;font-size:17px;color:#111">${i + 1}. ${esc(venue.name)}</h2>
++          <span style="font-size:12px;color:#666">${esc(venue.venueKind.replace('_', ' '))}${venue.cuisine ? ' · ' + esc(venue.cuisine) : ''}</span>
++        </div>
++        <p style="margin:2px 0 12px;color:#555;font-size:13px">${esc(venue.address)}</p>
++        <table style="width:100%;border-collapse:collapse;font-size:13px">
++          <tbody>
++            <tr><td style="padding:4px 8px 4px 0;color:#777;width:130px;vertical-align:top">Recommended space</td>
++                <td style="padding:4px 0"><strong>${config ? esc(config.label) : 'Capacity not published'}</strong><br>${trustPill(config?.trust ?? 'unverified')}</td></tr>
++            <tr><td style="padding:4px 8px 4px 0;color:#777;vertical-align:top">Commute</td>
++                <td style="padding:4px 0">${esc(commute)}${r.commute ? '<br>' + trustPill(r.commute.trust) : ''}</td></tr>
++            <tr><td style="padding:4px 8px 4px 0;color:#777;vertical-align:top">Minimum spend</td>
++                <td style="padding:4px 0">${esc(spend)}${r.minSpend.value !== null ? '<br>' + trustPill(r.minSpend.trust) : ' <span style="color:#b07d00">— confirm by phone</span>'}</td></tr>
++            ${contact ? `<tr><td style="padding:4px 8px 4px 0;color:#777;vertical-align:top">Contact</td><td style="padding:4px 0">${contact}</td></tr>` : ''}
++            ${venue.eventsUrl || venue.website ? `<tr><td style="padding:4px 8px 4px 0;color:#777;vertical-align:top">Details</td><td style="padding:4px 0"><a href="${esc(venue.eventsUrl ?? venue.website ?? '')}" style="color:#2a78d6">${esc(venue.eventsUrl ?? venue.website ?? '')}</a></td></tr>` : ''}
++          </tbody>
++        </table>
++      </section>`
++    })
++    .join('')
++
++  return `<!doctype html><html lang="en"><head><meta charset="utf-8">
++<meta name="viewport" content="width=device-width,initial-scale=1">
++<title>Private dining shortlist — ${esc(params.address)}</title>
++<style>
++  @media print { .no-print { display:none } body { margin:0 } }
++  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color:#222; max-width:720px; margin:32px auto; padding:0 20px; line-height:1.45 }
++</style></head>
++<body>
++  <button class="no-print" onclick="window.print()" style="float:right;padding:8px 14px;border:1px solid #ccc;border-radius:8px;background:#111;color:#fff;font-size:13px;cursor:pointer">Print / Save as PDF</button>
++  <h1 style="margin:0 0 4px;font-size:22px">Private dining shortlist</h1>
++  <p style="margin:0 0 4px;color:#444">${esc(String(params.headcount))} guests · ${esc(eventStyleCopy(params))}</p>
++  <p style="margin:0 0 20px;color:#666;font-size:13px">Near ${esc(params.address)} · within ${esc(String(params.maxCommuteMinutes))} min ${esc(params.mode)} · prepared ${esc(generated)}</p>
++  ${rows}
++  <p style="margin-top:24px;padding-top:12px;border-top:1px solid #e1e0d9;color:#666;font-size:12px">
++    Every figure carries the source it came from. <strong>Verified</strong> means published by the venue or a
++    structured partner listing; <strong>likely</strong> means a secondary source or an inferred figure; <strong>needs
++    a call</strong> means we found no published figure. Trust labels describe the <em>source</em>, not a guarantee the
++    number is current — confirm the essentials before you commit.
++  </p>
++</body></html>`
++}
++
+ export function mailtoLink(email: OutreachEmail): string {
+   const params = new URLSearchParams({ subject: email.subject, body: email.body })
+   return `mailto:${email.to ?? ''}?${params.toString()}`
+diff --git a/src/lib/ranking.ts b/src/lib/ranking.ts
+index 4a54d86..c63e94c 100644
+--- a/src/lib/ranking.ts
++++ b/src/lib/ranking.ts
+@@ -190,6 +190,7 @@ export function rankVenue(
+     components,
+     // Filled in by the search orchestrator when the Yelp adapter is enabled.
+     yelp: null,
++    yelpStatus: 'off',
+   }
+ }
+ 
+@@ -225,3 +226,35 @@ export function sortResults(results: RankedResult[], mode: SortMode): RankedResu
+       return out.sort((a, b) => b.score - a.score)
+   }
+ }
++
++// ── Triage: "call these first" ───────────────────────────────────────────────
++// Orthogonal to the score, and deliberately so. The score answers "which venue
++// fits best"; triage answers "which of these can I act on from data alone, and
++// which force a phone call". A planner's real next action is one or the other, so
++// we surface it as its own axis rather than folding trust into the ranking.
++
++export type TriageBucket = 'ready' | 'call'
++
++/**
++ * A result is "ready" when the two facts a planner must have to shortlist it with
++ * confidence — that it physically fits, and how to reach the venue — are both
++ * verified. Everything else is "call": the capacity is inferred, or there is no
++ * verified contact path, so the honest next step is to pick up the phone.
++ */
++export function triageBucket(r: RankedResult): TriageBucket {
++  const capacityVerified = r.capacity.best?.trust === 'verified'
++  const hasContact = r.phone.value !== null || r.email.value !== null
++  return capacityVerified && hasContact ? 'ready' : 'call'
++}
++
++export interface TriageSummary {
++  ready: number
++  call: number
++  total: number
++}
++
++export function triageSummary(results: RankedResult[]): TriageSummary {
++  let ready = 0
++  for (const r of results) if (triageBucket(r) === 'ready') ready += 1
++  return { ready, call: results.length - ready, total: results.length }
++}
+diff --git a/src/lib/search.ts b/src/lib/search.ts
+index 5f6f49b..a27ed2e 100644
+--- a/src/lib/search.ts
++++ b/src/lib/search.ts
+@@ -17,6 +17,11 @@ import type { RankedResult, SearchParams, VenueRecord } from './types'
+ //   5. Trust filters, which the planner controls and we never apply silently
+ // ─────────────────────────────────────────────────────────────────────────────
+ 
++// Below this share of results carrying a published minimum spend, the price axis
++// is too sparse to have meaningfully shaped the ranking, and the UI says so
++// rather than implying price was a real input.
++const PRICE_COVERAGE_FLOOR = 0.3
++
+ export interface SearchOutcome {
+   results: RankedResult[]
+   /** Everything that survived the radius but failed a hard filter, with the reason. */
+@@ -27,6 +32,12 @@ export interface SearchOutcome {
+     ranked: number
+     commuteCacheHits: number
+     commuteMeasured: number
++    /** How many ranked results carry a published minimum spend. */
++    priceKnown: number
++    /** priceKnown / ranked, in [0,1]. */
++    priceCoverage: number
++    /** True only when a budget was set AND coverage clears the floor — i.e. price actually shaped the ranking. */
++    priceScored: boolean
+     elapsedMs: number
+   }
+ }
+@@ -51,6 +62,9 @@ export async function runSearch(params: SearchParams, sort: SortMode = 'fit'): P
+         ranked: 0,
+         commuteCacheHits: 0,
+         commuteMeasured: 0,
++        priceKnown: 0,
++        priceCoverage: 0,
++        priceScored: false,
+         elapsedMs: Date.now() - started,
+       },
+     }
+@@ -143,6 +157,17 @@ export async function runSearch(params: SearchParams, sort: SortMode = 'fit'): P
+ 
+   const sorted = sortResults(ranked, sort)
+ 
++  // Price-coverage honesty. The price axis renormalises to nothing for any venue
++  // whose minimum spend is unknown, so a result set where almost no venue
++  // publishes a spend has a price weight that silently contributes ~zero. Rather
++  // than let the planner believe price shaped the ranking, report how many
++  // results actually had a published spend, so the UI can say so.
++  const priceKnown = sorted.filter((r) => r.minSpend.value !== null).length
++  const priceCoverage = sorted.length === 0 ? 0 : priceKnown / sorted.length
++  // The price weight is only meaningfully active when the planner set a budget
++  // AND enough venues have a spend to compare against.
++  const priceScored = params.budgetCents !== null && priceCoverage >= PRICE_COVERAGE_FLOOR
++
+   void repo.recordSearch(params, sorted.map((r) => r.record.venue.id)).catch(() => {})
+ 
+   return {
+@@ -154,6 +179,9 @@ export async function runSearch(params: SearchParams, sort: SortMode = 'fit'): P
+       ranked: sorted.length,
+       commuteCacheHits: candidates.length - misses.length,
+       commuteMeasured: [...cached.values()].filter((c) => c.method === 'measured').length,
++      priceKnown,
++      priceCoverage,
++      priceScored,
+       elapsedMs: Date.now() - started,
+     },
+   }
+@@ -176,8 +204,10 @@ async function attachYelp(results: RankedResult[]): Promise<void> {
+       })),
+     )
+     for (const r of results) {
+-      const e = byId.get(r.record.venue.id)
+-      if (e) {
++      const m = byId.get(r.record.venue.id)
++      if (!m) continue
++      if (m.status === 'matched') {
++        const e = m.enrichment
+         r.yelp = {
+           rating: e.rating,
+           reviewCount: e.reviewCount,
+@@ -186,6 +216,13 @@ async function attachYelp(results: RankedResult[]): Promise<void> {
+           url: e.url,
+           matchDistanceMeters: e.matchDistanceMeters,
+         }
++        r.yelpStatus = 'matched'
++      } else if (m.status === 'disabled') {
++        r.yelpStatus = 'off'
++      } else {
++        // no_match | rate_limited | unavailable — carried through verbatim so the
++        // UI can distinguish "ask again" from "no reputation exists".
++        r.yelpStatus = m.status
+       }
+     }
+   } catch (err) {
+diff --git a/src/lib/trust.ts b/src/lib/trust.ts
+index 12bf2d1..5e305a8 100644
+--- a/src/lib/trust.ts
++++ b/src/lib/trust.ts
+@@ -238,7 +238,7 @@ export function resolveStringFact(evidence: Evidence[]): ResolvedFact<string> {
+ export const TRUST_COPY: Record<TrustLabel, { label: string; hint: string }> = {
+   verified: {
+     label: 'Verified',
+-    hint: 'Published explicitly by the venue or a structured partner listing. Click to read the source.',
++    hint: 'Verified source: published explicitly by the venue or a structured partner listing. This means we can point at where the figure came from — not that we independently confirmed the number is current. Click to read the source.',
+   },
+   likely: {
+     label: 'Likely',
+diff --git a/src/lib/types.ts b/src/lib/types.ts
+index f2f36dd..0341338 100644
+--- a/src/lib/types.ts
++++ b/src/lib/types.ts
+@@ -229,6 +229,14 @@ export interface RankedResult {
+    * for the same reason confidence is not: it would optimise for web presence.
+    */
+   yelp: YelpReputation | null
++  /**
++   * Why `yelp` is null when it is: 'matched' pairs with a non-null `yelp`;
++   * 'rate_limited' means Yelp throttled us (temporary — retryable); 'no_match'
++   * means no confident match exists (stable); 'unavailable' is an outage; 'off'
++   * means the adapter is disabled. The UI shows rate-limited distinctly from
++   * no-match so a planner isn't told "no reputation" when the truth is "ask again".
++   */
++  yelpStatus: 'matched' | 'no_match' | 'rate_limited' | 'unavailable' | 'off'
+ }
+ 
+ /** Reputation fields lifted from Yelp. Mirrors adapters/yelp.ts YelpEnrichment. */
+
+=============== NEW UNTRACKED FILES ===============
+
+diff --git a/SECURITY_NOTES.md b/SECURITY_NOTES.md (new file)
+--- /dev/null
++++ b/SECURITY_NOTES.md
++# Security notes
++
++Triage of the security posture as of this change set. The point of this file is to turn
++"we ignored a security scan" into "we ran it and here is the assessment."
++
++## npm audit — 3 high-severity advisories (all triaged, none runtime-exploitable here)
++
++`npm audit` reports 3 high-severity advisories. **All three are build/dev-time
++dependencies pulled transitively through Next.js, and the only offered fix is a
++major-version bump to Next 16** (`fixAvailable: next@16.3.1, isSemVerMajor: true`) — i.e.
++a breaking framework upgrade, not a `npm audit fix`. Assessment per advisory:
++
++| Package | Severity | Direct? | Advisory | Reachable in this app? |
++|---|---|---|---|---|
++| `postcss` (≤8.5.22) | high | no (via `next`) | GHSA-qx2v-qp2m-jg93, GHSA-6g55-p6wh-862q, GHSA-fxqj-rqcc-2cmp, GHSA-r28c-9q8g-f849 — XSS/path-traversal via attacker-controlled `sourceMappingURL` in CSS | **No.** PostCSS runs at **build time** on our own first-party CSS (Tailwind). There is no path by which an attacker supplies CSS to our PostCSS pipeline at runtime. |
++| `sharp` (<0.35.0) | high | no (via `next`) | GHSA-f88m-g3jw-g9cj — inherited libvips CVEs | **No.** `sharp` is only used by `next/image` for image optimization. `next/image` is **not imported anywhere** in this codebase (verified by grep), so the vulnerable image-processing path is never exercised. |
++| `next` (range) | high | yes | the two above, surfaced through Next's pinned resolutions | Same as above — the flag is Next's internal pin of the vulnerable postcss/sharp versions, not a distinct runtime issue. |
++
++**Decision: accepted, not patched, for this submission.** Upgrading to Next 16 is a
++major version jump that risks breaking the App Router / build config for zero real
++security gain here (neither vulnerable code path is reachable at runtime). The honest
++engineering call is to document the assessment rather than take a breaking upgrade under
++time pressure. If this were going to production, the fix is a scheduled, tested Next 16
++migration — tracked, not rushed.
++
++To reproduce: `npm audit` (summary) or `npm audit --json` (full advisory detail).
++
++## API keys — action required before the repo/demo goes public
++
++These are **your** actions — they can't be done from code:
++
++1. **Rotate the Yelp API key.** The key used during development was pasted into a chat and
++   must be treated as **compromised**. Regenerate it in the Yelp developer dashboard and
++   put the new value only in `.env.local` (which is git-ignored — verified). Never commit
++   it.
++2. **Restrict the Google Maps browser key.** `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` is, by the
++   `NEXT_PUBLIC_` convention, bundled into client-side JS and therefore public to anyone
++   who opens the app. That is only safe if the key is **HTTP-referrer-restricted** in the
++   Google Cloud console (and scoped to just the Maps JS / Places APIs it needs). Confirm
++   this restriction is set before deploying any public demo URL, or the key is a live
++   billing/abuse vector.
++
++## Secrets hygiene (already in place)
++
++- `.gitignore` covers `.env`, `.env.local`, `.env*.local` (verified). No secret is
++  committed; `.env.example` carries only empty variable names as documentation.
++- Every external adapter (Supabase, Google, Yelp, Anthropic) is off by default and
++  activates only when its env var is set, so a fresh clone runs with no secrets at all.
+
+diff --git a/src/lib/__tests__/parser.test.ts b/src/lib/__tests__/parser.test.ts (new file)
+--- /dev/null
++++ b/src/lib/__tests__/parser.test.ts
++import { test } from 'node:test'
++import assert from 'node:assert/strict'
++import { parseFieldValue } from '../trust'
++
++// ─────────────────────────────────────────────────────────────────────────────
++// Field-aware capacity/spend parser regression tests.
++//
++// The parser exists because real capacity charts are compound strings, and the
++// naive "first number wins" reading produced confident-but-wrong figures. Two
++// of those bugs are encoded here as named regression fixtures — if either ever
++// comes back, one of these fails.
++// ─────────────────────────────────────────────────────────────────────────────
++
++test('REGRESSION: square footage is not parsed as a seated capacity', () => {
++  // The exact class the audit script caught 15 of: "3,528 sq ft, banquet 320,
++  // reception 300". First-number parsing yields 3528 (a square footage). The
++  // field-aware parser must strip the area token and read the labelled figure.
++  assert.equal(parseFieldValue('3,528 sq ft, banquet 320, reception 300', 'seated_cap'), 320)
++  assert.equal(parseFieldValue('3,528 sq ft, banquet 320, reception 300', 'standing_cap'), 300)
++})
++
++test('square footage in other unit spellings is stripped', () => {
++  assert.equal(parseFieldValue('2,000 square feet — seated dinner for 150', 'seated_cap'), 150)
++  assert.equal(parseFieldValue('180 m2 space, reception 240', 'standing_cap'), 240)
++})
++
++test('a labelled number after the label is read', () => {
++  assert.equal(parseFieldValue('banquet 320', 'seated_cap'), 320)
++  assert.equal(parseFieldValue('reception: 300', 'standing_cap'), 300)
++})
++
++test('a labelled number before the label is read', () => {
++  assert.equal(parseFieldValue('up to 120 guests standing', 'standing_cap'), 120)
++  assert.equal(parseFieldValue('15-35 seated', 'seated_cap'), 35) // range → ceiling
++})
++
++test('a range resolves to its ceiling, not its floor or first token', () => {
++  assert.equal(parseFieldValue('seats 40 to 60 for dinner', 'seated_cap'), 60)
++})
++
++test('a "combined" composite figure is read for seated capacity', () => {
++  assert.equal(parseFieldValue('14 per sub-room; 52 combined', 'seated_cap'), 52)
++})
++
++test('asking for a field the string does not label returns null, never the other field', () => {
++  // The string only labels standing/reception; asking for seated must not
++  // borrow the reception number.
++  assert.equal(parseFieldValue('reception 300', 'seated_cap'), null)
++})
++
++test('minimum spend parses dollars and k-suffix, ignoring parentheticals', () => {
++  assert.equal(parseFieldValue('$5,000 food & beverage minimum', 'min_spend'), 5000)
++  assert.equal(parseFieldValue('$8k minimum spend', 'min_spend'), 8000)
++  // A parenthetical lunch figure must not outrank the headline.
++  assert.equal(parseFieldValue('$10,000 dinner minimum (lunch $3,000)', 'min_spend'), 10000)
++})
++
++test('non-numeric fields are never parsed as numbers', () => {
++  assert.equal(parseFieldValue('+1 415 772 9060', 'phone'), null)
++  assert.equal(parseFieldValue('events@venue.com', 'email'), null)
++})
+
+diff --git a/src/lib/__tests__/capacity.test.ts b/src/lib/__tests__/capacity.test.ts (new file)
+--- /dev/null
++++ b/src/lib/__tests__/capacity.test.ts
++import { test } from 'node:test'
++import assert from 'node:assert/strict'
++import { assessCapacity } from '../capacity'
++import type { VenueSpace } from '../types'
++
++// ─────────────────────────────────────────────────────────────────────────────
++// Feasibility solver regression + edge-case tests.
++//
++// The solver answers "is there SOME configuration of this venue's rooms that
++// holds the group under this event style", and returns the configuration. It is
++// the whole product — a wrong answer here is the app failing. These tests cover
++// the two shipped bugs as named regressions plus the core edge cases.
++//
++// Fixtures use the denormalised seatedCap/standingCap columns on VenueSpace and
++// pass no evidence rows, so they exercise the solver's combination/ceiling/
++// buyout logic directly without depending on the parser.
++// ─────────────────────────────────────────────────────────────────────────────
++
++let seq = 0
++function space(partial: Partial<VenueSpace> & { name: string }): VenueSpace {
++  seq += 1
++  return {
++    id: `s${seq}`,
++    venueId: 'v1',
++    name: partial.name,
++    seatedCap: partial.seatedCap ?? null,
++    standingCap: partial.standingCap ?? null,
++    isBuyout: partial.isBuyout ?? false,
++    combinableGroup: partial.combinableGroup ?? null,
++    isComposite: partial.isComposite ?? false,
++    minSpendCents: partial.minSpendCents ?? null,
++    minSpendPeriod: partial.minSpendPeriod ?? null,
++  }
++}
++
++test('single room that fits is returned as a single configuration', () => {
++  const spaces = [space({ name: 'Private Room', seatedCap: 60 })]
++  const a = assessCapacity(spaces, [], 50, 'seated')
++  assert.equal(a.unknown, false)
++  assert.ok(a.best)
++  assert.equal(a.best!.kind, 'single')
++  assert.equal(a.best!.capacity, 60)
++})
++
++test('a room too small for the group is not returned as feasible', () => {
++  const spaces = [space({ name: 'Small Room', seatedCap: 20 })]
++  const a = assessCapacity(spaces, [], 80, 'seated')
++  assert.equal(a.best, null)
++  assert.equal(a.unknown, false)
++  assert.match(a.shortfallReason ?? '', /holds 20.*need.*80/i)
++})
++
++test('combinable rooms in one group are summed to fit', () => {
++  const spaces = [
++    space({ name: 'Room A', seatedCap: 40, combinableGroup: 'loft' }),
++    space({ name: 'Room B', seatedCap: 40, combinableGroup: 'loft' }),
++  ]
++  const a = assessCapacity(spaces, [], 70, 'seated')
++  assert.ok(a.best)
++  assert.equal(a.best!.kind, 'combination')
++  assert.equal(a.best!.capacity, 80)
++})
++
++test('rooms in DIFFERENT groups are never summed', () => {
++  const spaces = [
++    space({ name: 'Room A', seatedCap: 40, combinableGroup: 'g1' }),
++    space({ name: 'Room B', seatedCap: 40, combinableGroup: 'g2' }),
++  ]
++  // Neither single room fits 70, and they cannot be combined across groups.
++  const a = assessCapacity(spaces, [], 70, 'seated')
++  assert.equal(a.best, null)
++})
++
++test('REGRESSION: subdivided ballroom sections cannot combine past the whole-room ceiling', () => {
++  // OUTRIGGER Reef: a ballroom published as (full)=225, "3 sections"=135,
++  // "2 sections"=90. The bug summed 135 + 90 = 225 into a room that does not
++  // exist and ranked it. The composite parent is a physical ceiling: the two
++  // subsections must NOT combine into more than the whole they subdivide.
++  const spaces = [
++    space({ name: 'Grand Ballroom (full)', seatedCap: 225, combinableGroup: 'grand', isComposite: true }),
++    space({ name: '3 sections', seatedCap: 135, combinableGroup: 'grand' }),
++    space({ name: '2 sections', seatedCap: 90, combinableGroup: 'grand' }),
++  ]
++  const a = assessCapacity(spaces, [], 220, 'seated')
++  // 220 is feasible ONLY via the real published full room (225), never via a
++  // 135+90 combination that exceeds the ceiling.
++  assert.ok(a.best)
++  assert.ok(a.best!.capacity <= 225, `best capacity ${a.best!.capacity} must not exceed the 225 ceiling`)
++  // No returned configuration anywhere may exceed the ceiling.
++  for (const c of [a.best!, ...a.alternatives]) {
++    assert.ok(c.capacity <= 225, `configuration "${c.label}" (${c.capacity}) exceeds the 225 group ceiling`)
++  }
++})
++
++test('composite (published-combined) rows are offered as single options', () => {
++  const spaces = [
++    space({ name: 'Coral I/II combined', seatedCap: 110, combinableGroup: 'coral', isComposite: true }),
++    space({ name: 'Coral I', seatedCap: 55, combinableGroup: 'coral' }),
++    space({ name: 'Coral II', seatedCap: 55, combinableGroup: 'coral' }),
++  ]
++  const a = assessCapacity(spaces, [], 100, 'seated')
++  assert.ok(a.best)
++  // The published 110 composite fits and should win over recombining the parts.
++  assert.equal(a.best!.capacity, 110)
++})
++
++test('reception uses standing capacity, which exceeds the seated figure', () => {
++  const spaces = [space({ name: 'Hall', seatedCap: 100, standingCap: 200 })]
++  // 180 does not fit seated (100) but does fit standing (200).
++  assert.equal(assessCapacity(spaces, [], 180, 'seated').best, null)
++  const rec = assessCapacity(spaces, [], 180, 'reception')
++  assert.ok(rec.best)
++  assert.equal(rec.best!.capacity, 200)
++})
++
++test('reception falls back to seated capacity as a safe floor when standing is unpublished', () => {
++  const spaces = [space({ name: 'Room', seatedCap: 120, standingCap: null })]
++  const a = assessCapacity(spaces, [], 110, 'reception')
++  assert.ok(a.best)
++  assert.equal(a.best!.capacity, 120)
++  assert.equal(a.best!.degradedFromSeated, true) // flagged as an under-estimate
++})
++
++test('a full buyout is returned and labelled as a buyout', () => {
++  const spaces = [
++    space({ name: 'Private Room', seatedCap: 40 }),
++    space({ name: 'Entire restaurant', seatedCap: 150, isBuyout: true }),
++  ]
++  const a = assessCapacity(spaces, [], 140, 'seated')
++  assert.ok(a.best)
++  assert.equal(a.best!.kind, 'buyout')
++  assert.equal(a.best!.capacity, 150)
++})
++
++test('headcount exactly equal to capacity fits', () => {
++  const spaces = [space({ name: 'Room', seatedCap: 50 })]
++  const a = assessCapacity(spaces, [], 50, 'seated')
++  assert.ok(a.best)
++  assert.equal(a.best!.capacity, 50)
++})
++
++test('a room within the 5% undershoot tolerance still fits', () => {
++  const spaces = [space({ name: 'Room', seatedCap: 96 })]
++  const a = assessCapacity(spaces, [], 100, 'seated') // 96 >= 100*0.95 = 95
++  assert.ok(a.best, 'a 4% undershoot should be feasible')
++  assert.equal(a.best!.capacity, 96)
++})
++
++test('a room beyond the undershoot tolerance does not fit', () => {
++  const spaces = [space({ name: 'Room', seatedCap: 90 })]
++  const a = assessCapacity(spaces, [], 100, 'seated') // 90 < 95
++  assert.equal(a.best, null)
++})
++
++test('no spaces with any known capacity reports unknown, not infeasible', () => {
++  const spaces = [space({ name: 'Mystery Room', seatedCap: null, standingCap: null })]
++  const a = assessCapacity(spaces, [], 50, 'seated')
++  assert.equal(a.unknown, true)
++  assert.equal(a.best, null)
++})
++
++test('the tightest-fitting single room is preferred over a looser one', () => {
++  const spaces = [
++    space({ name: 'Just right', seatedCap: 55 }),
++    space({ name: 'Cavernous', seatedCap: 300 }),
++  ]
++  const a = assessCapacity(spaces, [], 50, 'seated')
++  assert.ok(a.best)
++  assert.equal(a.best!.capacity, 55) // tightest fit wins
++})

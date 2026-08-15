@@ -3,8 +3,9 @@
 import clsx from 'clsx'
 import type { RankedResult, SearchParams } from '@/lib/types'
 import { TrustBadge } from './TrustBadge'
-import { ReputationBadge } from './ReputationBadge'
-import { minutes, miles, money, modeVerb, pct } from '@/lib/format'
+import { ReputationBadge, ReputationStatus } from './ReputationBadge'
+import { triageBucket } from '@/lib/ranking'
+import { minutes, miles, money, modeVerb, pct, rankRationale } from '@/lib/format'
 
 export function VenueCard({
   result,
@@ -84,6 +85,42 @@ export function VenueCard({
         </div>
       </div>
 
+      {/* ── One per-venue readiness rollup — the single trust signal the eye lands on.
+             Per-field trust badges stay below (each attached to its own fact), and the
+             full evidence trail lives in the drawer. This just says, at a glance, whether
+             the venue can be shortlisted from data or wants a phone call. ── */}
+      {(() => {
+        const ready = triageBucket(result) === 'ready'
+        return (
+          <div className="mt-2">
+            <span
+              title={
+                ready
+                  ? 'Capacity is verified and the venue has contact details — enough to shortlist from data. Open the venue for the full evidence trail.'
+                  : 'At least one fact a planner acts on (capacity or contact) is inferred or missing — confirm by phone. Open the venue to see which fields.'
+              }
+              className={clsx(
+                'inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[11px] font-medium',
+                ready
+                  ? 'border-trust-verified/45 bg-emerald-50 text-emerald-900'
+                  : 'border-trust-likely/60 bg-amber-50 text-amber-900',
+              )}
+            >
+              <span aria-hidden className={ready ? 'text-trust-verified' : 'text-[#b07d00]'}>
+                {ready ? '●' : '◐'}
+              </span>
+              {ready ? 'Ready to shortlist from data' : 'Needs a call to confirm'}
+            </span>
+          </div>
+        )
+      })()}
+
+      {/* ── Why this ranked here — one line, condensed from the score components ─ */}
+      <p className="mt-2 text-[11px] leading-snug text-ink-500">
+        <span className="font-medium text-ink-600">#{rank} because:</span>{' '}
+        {rankRationale(result.components, params.mode)}
+      </p>
+
       {/* ── The three facts a planner scans for ─────────────────────────── */}
       <dl className="mt-3 grid grid-cols-3 gap-2 border-t border-ink-100 pt-2.5">
         <div>
@@ -123,8 +160,12 @@ export function VenueCard({
               <>
                 <span className="tabular block text-sm font-semibold text-ink-900">
                   {minutes(result.commute.durationSeconds)}
+                  <span className="ml-1 text-[10px] font-normal text-ink-400">
+                    {result.commute.method === 'measured' ? 'measured' : 'est.'}
+                  </span>
                 </span>
                 <span className="tabular mt-0.5 block text-[11px] text-ink-600">
+                  {result.commute.method === 'measured' ? '' : '≈ '}
                   {miles(result.commute.distanceMeters)}
                 </span>
                 <TrustBadge
@@ -182,11 +223,15 @@ export function VenueCard({
         </p>
       )}
 
-      {result.yelp && (
+      {result.yelp ? (
         <div className="mt-2 border-t border-ink-100 pt-2">
           <ReputationBadge yelp={result.yelp} compact />
         </div>
-      )}
+      ) : result.yelpStatus === 'rate_limited' ? (
+        <div className="mt-2 border-t border-ink-100 pt-2">
+          <ReputationStatus status={result.yelpStatus} compact />
+        </div>
+      ) : null}
 
       <div className="mt-2.5 flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-ink-100 pt-2 text-[11px]">
         {(result.phone.value ?? venue.phone) && (
