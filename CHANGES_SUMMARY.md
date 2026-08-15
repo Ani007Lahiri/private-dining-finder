@@ -93,10 +93,10 @@ weights renormalise). Added the **result-set-level** honesty:
 
 - **23 tests, all green**, using `node:test` (zero new deps). `npm test` added to
   package.json (`tsx --test`).
-- `parser.test.ts` (10) — encodes the **square-footage-as-capacity** bug as a named
+- `parser.test.ts` (9) — encodes the **square-footage-as-capacity** bug as a named
   regression ("3,528 sq ft, banquet 320" → 320, not 3528), plus ranges, labelled figures,
   composites, and min-spend parsing.
-- `capacity.test.ts` (13) — encodes the **double-counted subdivided ballroom** bug as a
+- `capacity.test.ts` (14) — encodes the **double-counted subdivided ballroom** bug as a
   named regression (135 + 90 sections must not exceed the 225 whole-room ceiling), plus
   single/combination/cross-group/buyout/reception-standing/undershoot-tolerance/
   unknown-vs-infeasible/tightest-fit.

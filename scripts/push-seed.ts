@@ -9,6 +9,7 @@
  * corpus change updates in place rather than duplicating.
  */
 
+import './load-env' // must precede any import that reads process.env (i.e. config)
 import { createClient } from '@supabase/supabase-js'
 import { seedVenues, seededCells } from '../src/data/seed'
 import { config } from '../src/lib/config'

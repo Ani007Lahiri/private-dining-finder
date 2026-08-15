@@ -19,6 +19,7 @@
  * badge in the product.
  */
 
+import './load-env' // must precede any import that reads process.env (i.e. config)
 import { GOLDEN_SET } from '../src/data/golden-set'
 import { extractFromPage, fetchPage, htmlToText } from '../src/lib/adapters/extraction'
 import { config } from '../src/lib/config'
